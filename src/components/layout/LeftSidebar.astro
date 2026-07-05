@@ -10,7 +10,7 @@ const bio = bioCollection[0]?.data;
 ---
 
 <aside class="sidebar max-lg:flex-row max-lg:flex-wrap max-lg:gap-3 max-md:gap-2">
-    <div class="flex flex-col items-center text-center max-lg:flex-row max-lg:text-left max-lg:gap-3 max-lg:items-center max-md:gap-2">
+    <div class="flex flex-col items-center text-center max-lg:flex-row max-lg:text-left max-lg:gap-3 max-lg:items -center max-md:gap-2">
         {bio?.avatar && (
             <Image
                 src={`/${bio.avatar}`}
@@ -19,7 +19,7 @@ const bio = bioCollection[0]?.data;
                 height={160}
                 densities={[1.5, 2]} 
                 format="webp"
-                class="sidebar-avatar"
+                class="sidebar-avatar mb-4 max-lg:mb-0 max-lg:mr-4"
                 loading="eager"
             />
         )}
