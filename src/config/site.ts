@@ -2,7 +2,7 @@ import type { SiteConfig, ThemeConfig, SettingsConfig, UmamiAnalyticsConfig, Ana
 
 export const SITE: SiteConfig = {
     website: "https://hamedeo.github.io/",
-    author: "Hamed A.",
+    author: "Hamed Abdollahi",
     desc: "Mechanical Engineer, Project Manager.",
     title: "Personal Portfolio Website",
     ogImage: "HamedStar.png",

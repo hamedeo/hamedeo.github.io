@@ -383,29 +383,164 @@ a:hover,
 
 
 /* Social Links */
-.social-link {
-    display: inline-flex;
-    padding: 0.25rem;
-    opacity: 0.75;
-    transition: all 0.3s ease;
+.sidebar {
+    --contact-a: #38bdf8;
+    --contact-b: #a78bfa;
+    --contact-c: #f0f9ff;
+    --contact-glow: rgba(56, 189, 248, 0.44);
 }
 
-.social-link:hover {
+.contact-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9990;
+    background:
+        linear-gradient(135deg, rgba(2, 6, 23, 0.9), rgba(15, 23, 42, 0.94)),
+        radial-gradient(circle at 20% 20%, var(--contact-a), transparent 28%),
+        radial-gradient(circle at 80% 18%, var(--contact-b), transparent 30%),
+        radial-gradient(circle at 45% 84%, var(--contact-c), transparent 34%);
+    background-size: 100% 100%, 140% 140%, 130% 130%, 150% 150%;
+    backdrop-filter: blur(0.35rem) saturate(1.25);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.28s ease;
+    animation: contact-fluid 7s ease-in-out infinite paused;
+}
+
+.sidebar:has(.social-link[data-contact="Github"]:hover),
+.sidebar:has(.social-link[data-contact="Github"]:focus-visible) {
+    --contact-a: #7dd3fc;
+    --contact-b: #c084fc;
+    --contact-c: #eef2ff;
+    --contact-glow: rgba(125, 211, 252, 0.5);
+}
+
+.sidebar:has(.social-link[data-contact="Mail"]:hover),
+.sidebar:has(.social-link[data-contact="Mail"]:focus-visible) {
+    --contact-a: #fda4af;
+    --contact-b: #facc15;
+    --contact-c: #fff7ed;
+    --contact-glow: rgba(253, 164, 175, 0.5);
+}
+
+.sidebar:has(.social-link[data-contact="LinkedIn"]:hover),
+.sidebar:has(.social-link[data-contact="LinkedIn"]:focus-visible) {
+    --contact-a: #60a5fa;
+    --contact-b: #22d3ee;
+    --contact-c: #eff6ff;
+    --contact-glow: rgba(96, 165, 250, 0.5);
+}
+
+.sidebar:has(.social-link[data-contact="WhatsApp"]:hover),
+.sidebar:has(.social-link[data-contact="WhatsApp"]:focus-visible) {
+    --contact-a: #86efac;
+    --contact-b: #2dd4bf;
+    --contact-c: #f0fdf4;
+    --contact-glow: rgba(45, 212, 191, 0.5);
+}
+
+.sidebar:has(.social-link[data-contact="Cal"]:hover),
+.sidebar:has(.social-link[data-contact="Cal"]:focus-visible) {
+    --contact-a: #93c5fd;
+    --contact-b: #f0abfc;
+    --contact-c: #fdf4ff;
+    --contact-glow: rgba(240, 171, 252, 0.5);
+}
+
+.sidebar:has(.social-link:hover) .contact-overlay,
+.sidebar:has(.social-link:focus-visible) .contact-overlay {
     opacity: 1;
-    color: var(--accent);
-    transform: rotate(6deg);
+    animation-play-state: running;
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    margin: -4px;
+    padding: 0.25rem;
+    position: relative;
+    overflow: visible;
+    transform-origin: center;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.contact-message {
+    --message-x: calc(280px + (100vw - 280px) / 2);
+    position: fixed;
+    top: 50%;
+    left: var(--message-x);
+    width: min(84vw, 50rem);
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    font-size: clamp(6rem, 4vw, 10rem);
+    font-weight: 900;
+    line-height: 1.2;
+    letter-spacing: 0.01em;
+    text-align: center;
+    text-shadow:
+        0 0 0.65rem rgba(255, 255, 255, 0.86),
+        0 0 1.6rem var(--contact-glow);
+    opacity: 0;
+    transform: translate(-50%, -42%) scale(0.4);
+    transition: opacity 0.28s ease, transform 0.28s ease;
+}
+
+.social-link:hover,
+.social-link:focus-visible {
+    z-index: 9994;
+    color: #ffffff;
+    transform: scale(2.45);
+}
+
+.sidebar:has(.social-link[data-contact="Github"]:hover) .contact-message[data-contact="Github"],
+.sidebar:has(.social-link[data-contact="Github"]:focus-visible) .contact-message[data-contact="Github"],
+.sidebar:has(.social-link[data-contact="Mail"]:hover) .contact-message[data-contact="Mail"],
+.sidebar:has(.social-link[data-contact="Mail"]:focus-visible) .contact-message[data-contact="Mail"],
+.sidebar:has(.social-link[data-contact="LinkedIn"]:hover) .contact-message[data-contact="LinkedIn"],
+.sidebar:has(.social-link[data-contact="LinkedIn"]:focus-visible) .contact-message[data-contact="LinkedIn"],
+.sidebar:has(.social-link[data-contact="WhatsApp"]:hover) .contact-message[data-contact="WhatsApp"],
+.sidebar:has(.social-link[data-contact="WhatsApp"]:focus-visible) .contact-message[data-contact="WhatsApp"],
+.sidebar:has(.social-link[data-contact="Cal"]:hover) .contact-message[data-contact="Cal"],
+.sidebar:has(.social-link[data-contact="Cal"]:focus-visible) .contact-message[data-contact="Cal"] {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
 }
 
 .social-link svg {
     width: 28px;
     height: 28px;
     stroke-width: 1.5px;
-    transition: transform 0.2s ease;
+    opacity: 0.75;
+    overflow: visible;
+    transform-origin: center;
+    transition: opacity 0.2s ease, filter 0.2s ease;
 }
 
-.social-link:hover svg {
-    stroke: var(--accent);
+.social-link:hover svg,
+.social-link:focus-visible svg {
+    opacity: 1;
+    color: #ffffff;
+    stroke: #ffffff;
+    filter: drop-shadow(0 0 0.8rem rgba(255, 255, 255, 0.9)) drop-shadow(0 0 1.4rem var(--contact-glow));
 }
+
+@keyframes contact-fluid {
+    0% {
+        background-position: center, 0% 0%, 100% 10%, 45% 100%;
+    }
+
+    50% {
+        background-position: center, 90% 35%, 15% 90%, 80% 35%;
+    }
+
+    100% {
+        background-position: center, 0% 0%, 100% 10%, 45% 100%;
+    }
+}
+
 
 
 /* ===========================================
@@ -436,6 +571,23 @@ a:hover,
     transition: border-color 0.3s ease;
 }
 
+.sidebar:has(.social-link:hover) .sidebar-avatar,
+.sidebar:has(.social-link:focus-visible) .sidebar-avatar {
+    position: relative;
+    z-index: 9993;
+    border-color: rgba(255, 255, 255, 0.82);
+    box-shadow:
+        0 0 2rem rgba(255, 255, 255, 0.28),
+        0 0 4rem rgba(56, 189, 248, 0.22);
+}
+
+body:has(.social-link:hover) .navbar,
+body:has(.social-link:focus-visible) .navbar {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
 .sidebar-avatar:hover {
     border-color: var(--accent);
 }
@@ -456,6 +608,16 @@ a:hover,
     align-items: center;
     gap: 0.5rem;
     margin-top: 0.25rem;
+}
+
+.sidebar-details {
+    width: fit-content;
+    text-align: left;
+    margin: 0.25rem auto 0;
+}
+
+.sidebar-details .sidebar-info {
+    margin-top: 0;
 }
 
 .sidebar-bio {
@@ -538,6 +700,13 @@ a:hover,
 .main-body {
     padding: 1.5rem 2rem 2rem;
     flex: 1;
+}
+
+body:has(.social-link:hover) .main-body,
+body:has(.social-link:focus-visible) .main-body,
+body:has(.social-link:hover) .footer,
+body:has(.social-link:focus-visible) .footer {
+    opacity: 0;
 }
 
 .main-body-sm {
@@ -897,6 +1066,10 @@ a:hover,
    =========================================== */
 
 @media (max-width: 1024px) {
+    .contact-message {
+        --message-x: 50%;
+    }
+
     .sidebar {
         width: 100%;
         height: auto;

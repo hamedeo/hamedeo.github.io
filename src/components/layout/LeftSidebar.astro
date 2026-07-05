@@ -7,10 +7,24 @@ import { Image } from 'astro:assets';
 const activeSocials = SOCIALS.filter((s) => s.isActive);
 const bioCollection = await getCollection("bio");
 const bio = bioCollection[0]?.data;
+const institutionLines = bio?.institution
+    ?.split(/\r?\n/)
+    .map((line) => line.trim())
+    .filter(Boolean) ?? [];
+const workplace = institutionLines[0];
+const location = institutionLines.slice(1).join(", ");
+const socialLabels: Record<string, string> = {
+    Github: "Explore my GitHub",
+    Mail: "Email me directly",
+    LinkedIn: "Connect on LinkedIn",
+    WhatsApp: "Contact me via WhatsApp",
+    Cal: "Arrange a meeting with me",
+};
+const socialLabel = (name: string) => socialLabels[name] ?? name;
 ---
 
 <aside class="sidebar max-lg:flex-row max-lg:flex-wrap max-lg:gap-3 max-md:gap-2">
-    <div class="flex flex-col items-center text-center max-lg:flex-row max-lg:text-left max-lg:gap-3 max-lg:items -center max-md:gap-2">
+    <div class="flex flex-col items-center text-center max-lg:flex-row max-lg:text-left max-lg:gap-3 max-lg:items-center max-md:gap-2">
         {bio?.avatar && (
             <Image
                 src={`/${bio.avatar}`}
@@ -23,13 +37,23 @@ const bio = bioCollection[0]?.data;
                 loading="eager"
             />
         )}
-        <div class="flex flex-col items-center max-lg:items-start">
+        <div class="flex flex-col items-center max-lg:items-center">
             {bio?.name && <h1 class="sidebar-name">{bio.name}</h1>}
-            {bio?.institution && (
-                <p class="sidebar-info" style="white-space: pre-line; text-align: left; width: 100%;">
-                    <Icon name="Institution" size={24} />
-                    {bio.institution}
-                </p>
+            {(workplace || location) && (
+                <div class="sidebar-details">
+                    {workplace && (
+                        <p class="sidebar-info">
+                            <Icon name="Work" size={24} />
+                            {workplace}
+                        </p>
+                    )}
+                    {location && (
+                        <p class="sidebar-info">
+                            <Icon name="Location" size={24} />
+                            {location}
+                        </p>
+                    )}
+                </div>
             )}
             {bio?.shortBio && (
                 <p class="sidebar-bio mt-2 max-md:hidden" style="white-space: pre-line; text-align: left; width: 100%;">{bio.shortBio}</p>
@@ -39,7 +63,8 @@ const bio = bioCollection[0]?.data;
                     <a
                         href={social.href}
                         aria-label={social.linkTitle}
-                        title={social.linkTitle}
+                        data-label={socialLabel(social.name)}
+                        data-contact={social.name}
                         target="_blank"
                         rel="noreferrer"
                         class="social-link"
@@ -49,5 +74,12 @@ const bio = bioCollection[0]?.data;
                 ))}
             </div>
         </div>
+    </div>
+    <div class="contact-overlay" aria-hidden="true">
+        {activeSocials.map((social) => (
+            <span class="contact-message" data-contact={social.name}>
+                {socialLabel(social.name)}
+            </span>
+        ))}
     </div>
 </aside>
