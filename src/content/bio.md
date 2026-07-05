@@ -1,8 +1,14 @@
 ---
-name: "Claude Shannon"
-avatar: "shannon.jpg"
-shortBio: "Mathematician and electrical engineer known as the 'Father of Information Theory'. Pioneer in digital computing and cryptography."
-institution: "MIT, Cambridge MA"
+name: "Hamed Abdollahi"
+avatar: "HamedStar.png"
+shortBio: |
+  Mechanical Engineer
+  Thermo-fluids
+  Product Development
+  Project Engineering
+institution: |
+  Morpheidos Tech
+  Eindhoven, Netherlands
 ---
 
 I am a mathematician and electrical engineer best known for founding **Information Theory**. My work in the late 1940s established the theoretical foundations of modern digital communications and computing.
