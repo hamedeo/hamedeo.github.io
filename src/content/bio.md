@@ -14,7 +14,7 @@ I am a **Mechanical Engineer** with background in thermo-fluids engineering and 
 
 Born three times, in Iran, Italy, and the Netherlands, I have built seven years of experience across mechanical engineering, project management in thermofluids engineering and precision hardware.
 
-My professional journey began with the successful delivery of several projects in the IT domain. I then started to work as a mechanical consultant for a year and a half, supporting the development of pressure vessels for a major steel manufacturer in Isfahan.
+My professional journey began with the successful delivery of several projects in the IT domain. I then started to work as a mechanical consultant for a year and a half, supporting the development of pressure vessels for a major steel manufacturer in Isfahan, Iran.
 
 The joy of solving complexity in motion drew me toward a master’s degree in mechanical engineering at one of Italy’s leading universities. There, I built technical depth and prepared for my next chapter in conducting research at Eindhoven University of Technology in the Netherlands, modelling powder production for metal additive manufacturing.
 

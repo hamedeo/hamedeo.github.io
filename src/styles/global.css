@@ -492,7 +492,7 @@ a:hover,
 .social-link:focus-visible {
     z-index: 9994;
     color: #ffffff;
-    transform: scale(2.45);
+    transform: scale(2.15);
 }
 
 .sidebar:has(.social-link[data-contact="Github"]:hover) .contact-message[data-contact="Github"],
@@ -579,6 +579,17 @@ a:hover,
     box-shadow:
         0 0 2rem rgba(255, 255, 255, 0.28),
         0 0 4rem rgba(56, 189, 248, 0.22);
+}
+
+.sidebar:has(.social-link:hover) .sidebar-name,
+.sidebar:has(.social-link:focus-visible) .sidebar-name {
+    position: relative;
+    z-index: 9993;
+    color: #ffffff;
+    text-shadow:
+        0 0 0.7rem rgba(255, 255, 255, 0.92),
+        0 0 1.8rem var(--contact-glow),
+        0 0 3rem var(--contact-a);
 }
 
 body:has(.social-link:hover) .navbar,
@@ -706,7 +717,9 @@ body:has(.social-link:hover) .main-body,
 body:has(.social-link:focus-visible) .main-body,
 body:has(.social-link:hover) .footer,
 body:has(.social-link:focus-visible) .footer {
-    opacity: 0;
+    opacity: 0 !important;
+    visibility: hidden;
+    animation: none !important;
 }
 
 .main-body-sm {
