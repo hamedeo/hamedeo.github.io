@@ -2,6 +2,10 @@
 import Tag from "./Tag.astro";
 import Icon from "./Icon.astro";
 
+const contentImages = import.meta.glob<{ default: ImageMetadata }>("/src/content/**/*.{png,jpg,jpeg,webp,gif}", {
+    eager: true,
+});
+
 interface Props {
     title: string;
     href: string;
@@ -11,9 +15,31 @@ interface Props {
     extraInput?: string;
     tags?: string[];
     externalUrl?: string;
+    image?: string;
+    imageWidth?: string;
+    imageHeight?: string;
+    imagePosition?: "left" | "center" | "right";
 }
 
-const { title, href, description, date, authors, extraInput, tags, externalUrl } = Astro.props;
+const {
+    title,
+    href,
+    description,
+    date,
+    authors,
+    extraInput,
+    tags,
+    externalUrl,
+    image,
+    imageWidth,
+    imageHeight,
+    imagePosition = "left",
+} = Astro.props;
+const previewImage = image && contentImages[image]?.default?.src ? contentImages[image].default.src : image;
+const previewStyle = [
+    imageWidth ? `--preview-width: ${imageWidth}` : "",
+    imageHeight ? `--preview-max-height: ${imageHeight}` : "",
+].filter(Boolean).join("; ");
 ---
 
 <article class="card">
@@ -52,6 +78,18 @@ const { title, href, description, date, authors, extraInput, tags, externalUrl }
         }
 
         {description && <p class="card-desc">{description}</p>}
+
+        {previewImage && (
+            <a href={href} class={`card-preview card-preview-${imagePosition}`} style={previewStyle}>
+                <img
+                    src={previewImage}
+                    alt={`Preview for ${title}`}
+                    class="card-preview-image"
+                    loading="lazy"
+                    decoding="async"
+                />
+            </a>
+        )}
     </div>
 
     {

@@ -26,6 +26,9 @@ const talks = defineCollection({
         description: z.string().optional(),
         tags: z.array(z.string()).optional(),
         image: z.string().optional(),
+        image_width: z.string().optional(),
+        image_height: z.string().optional(),
+        image_position: z.enum(["left", "center", "right"]).optional(),
     }),
 });
 
@@ -39,6 +42,9 @@ const posts = defineCollection({
         tags: z.array(z.string()).optional(),
         external_url: z.string().optional(),
         image: z.string().optional(),
+        image_width: z.string().optional(),
+        image_height: z.string().optional(),
+        image_position: z.enum(["left", "center", "right"]).optional(),
     }),
 });
 

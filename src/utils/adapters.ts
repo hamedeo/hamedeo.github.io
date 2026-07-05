@@ -7,6 +7,13 @@ function formatDate(dateValue: string | Date | undefined): string | undefined {
     return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long' });
 }
 
+function getContentImagePath(entry: any): string | undefined {
+    const image = entry.data.image;
+    if (!image) return undefined;
+    if (/^(https?:)?\/\//.test(image) || image.startsWith("/")) return image;
+    return `/src/content/${entry.collection}/${image}`;
+}
+
 export function getListingItem(entry: any, collection?: string): ListingItem {
     const d = entry.data;
     
@@ -18,7 +25,10 @@ export function getListingItem(entry: any, collection?: string): ListingItem {
         extraInput: d.journal || d.event || d.institution,
         tags: d.tags || [],
         externalUrl: d.external_url,
-        image: d.image,
+        image: getContentImagePath(entry),
+        imageWidth: d.image_width,
+        imageHeight: d.image_height,
+        imagePosition: d.image_position,
     };
 }
 
