@@ -14,7 +14,7 @@ export const PAGES: PagesConfig = {
     publications: {
         title: "Publications",
         subtitle: "A collection of research papers and scientific articles.",
-        isActive: true,
+        isActive: false,
     },
     talks: {
         title: "Talks & Presentations",
