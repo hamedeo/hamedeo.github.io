@@ -472,10 +472,10 @@ a:hover,
     position: fixed;
     top: 50%;
     left: var(--message-x);
-    width: min(84vw, 50rem);
+    width: min(100vw, 60rem);
     color: #ffffff !important;
     -webkit-text-fill-color: #ffffff !important;
-    font-size: clamp(6rem, 4vw, 10rem);
+    font-size: clamp(4.25rem, 4vw, 6rem);
     font-weight: 900;
     line-height: 1.2;
     letter-spacing: 0.01em;
