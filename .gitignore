@@ -24,3 +24,20 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# Default help and contents
+src/content/posts/setting-up-portfolio.md
+src/content/posts/implementing-info-theory.md
+src/content/posts/info-theory-ml.md
+src/content/posts/information-biology.md
+src/content/posts/thesus-mouse.md
+src/content/posts/mathematical-theory.md
+src/content/posts/relay-circuits.md
+src/content/projects/electromagnetic-synchronizer.md
+src/content/projects/thesus-mouse.md
+src/content/publications/math-theory-communication.md
+src/content/publications/noise.md
+src/content/teaching/physics-of-information.md
+README.md
+DESIGN-GUIDE.md
+LICENSE
