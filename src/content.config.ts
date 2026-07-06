@@ -25,6 +25,7 @@ const talks = defineCollection({
         external_url: z.string().optional(),
         description: z.string().optional(),
         tags: z.array(z.string()).optional(),
+        hidden: z.boolean().optional(),
         image: z.string().optional(),
         image_width: z.string().optional(),
         image_height: z.string().optional(),
@@ -56,6 +57,7 @@ const teaching = defineCollection({
         description: z.string().optional(),
         tags: z.array(z.string()).optional(),
         external_url: z.string().url().optional(),
+        hidden: z.boolean().optional(),
     }),
 });
 

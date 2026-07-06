@@ -8,7 +8,7 @@ export const PAGES: PagesConfig = {
     },
     blog: {
         title: "Blog",
-        subtitle: "Thoughts on physics, philosophy, and music.",
+        subtitle: "Thoughts & Action.",
         isActive: true,
     },
     publications: {
@@ -18,27 +18,27 @@ export const PAGES: PagesConfig = {
     },
     talks: {
         title: "Talks & Presentations",
-        subtitle: "Public lectures, colloquia, and conference presentations.",
+        subtitle: "Presentations, public lectures, colloquia, and media appearance.",
         isActive: true,
     },
     projects: {
-        title: "Code & Projects",
-        subtitle: "Open source contributions and technological experiments.",
+        title: "Contact Information",
+        subtitle: "Ways to connect, discuss a project, or just grab a coffee.",
         isActive: true,
     },
     teaching: {
-        title: "Teaching",
-        subtitle: "Academic courses and educational materials.",
+        title: "Projects",
+        subtitle: "Project Portfolio, Open source contributions, and technological experiments.",
         isActive: true,
     },
     tags: {
         title: "Tags",
         subtitle: "Explore content by topic.",
-        isActive: true,
+        isActive: false,
     },
     cv: {
         title: "Curriculum Vitae",
-        subtitle: "Academic and professional history.",
+        subtitle: "Professional and academic history.",
         isActive: true,
     },
 };

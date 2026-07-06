@@ -9,7 +9,7 @@ if (PAGES.talks.isActive === false) {
 
 export async function getStaticPaths() {
     if (PAGES.talks.isActive === false) return [];
-    const talks = await getCollection("talks");
+    const talks = (await getCollection("talks")).filter((talk: any) => talk.data.hidden !== true);
     return talks.map((talk: any) => ({
         params: { id: talk.id },
         props: { talk },

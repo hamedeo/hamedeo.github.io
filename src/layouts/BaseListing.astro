@@ -16,6 +16,7 @@ const { collection, title, subtitle, entries: manualEntries, page } = Astro.prop
 
 let entries = manualEntries || (collection !== "all" ? await getCollection(collection as any) : []);
 if (page) entries = page.data;
+entries = entries.filter((entry: any) => entry.data.hidden !== true);
 
 const sortedEntries = entries.sort((a: any, b: any) => {
     const dateA = a.data.date ? new Date(a.data.date).getTime() : 0;

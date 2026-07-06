@@ -15,7 +15,7 @@ interface Props {
 const { collection, id } = Astro.props;
 const entry = (await getEntry(collection, id)) as any;
 
-if (!entry) return Astro.redirect("/404");
+if (!entry || entry.data.hidden === true) return Astro.redirect("/404");
 
 const { Content } = await render(entry);
 const detail = getDetailItem(entry, collection);
