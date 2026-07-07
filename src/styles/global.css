@@ -1795,6 +1795,44 @@ html[data-theme="dark"] .cv-resume {
 }
 
 @media (max-width: 768px) {
+    .cv-page {
+        max-width: none;
+    }
+
+    .cv-page .contactItems,
+    .cv-page dl.grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cv-page .entry-header,
+    .cv-page .subentry-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.35rem;
+    }
+
+    .cv-page .entry-header > div:last-child,
+    .cv-page .subentry-header > div:last-child {
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .cv-page .timeline-item {
+        gap: 0.75rem;
+    }
+
+    .cv-page .timeline-marker {
+        display: none;
+    }
+
+    .cv-page .timeline-content {
+        padding-bottom: 1.25rem;
+    }
+
+    .cv-page .body {
+        word-break: normal;
+    }
+
     .contact-page {
         gap: 2rem;
     }
