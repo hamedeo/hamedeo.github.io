@@ -1,0 +1,66 @@
+---
+import Icon from "../ui/Icon.astro";
+
+interface Props {
+    title: string;
+    description: string;
+    href: string;
+    cta: string;
+    icon: string;
+    reverse?: boolean;
+    external?: boolean;
+    ariaLabel?: string;
+    secondaryCta?: string;
+    secondaryHref?: string;
+    secondaryExternal?: boolean;
+    secondaryAriaLabel?: string;
+}
+
+const {
+    title,
+    description,
+    href,
+    cta,
+    icon,
+    reverse = false,
+    external = false,
+    ariaLabel,
+    secondaryCta,
+    secondaryHref,
+    secondaryExternal = false,
+    secondaryAriaLabel,
+} = Astro.props;
+---
+
+<article class={`contact-row ${reverse ? "contact-row-reverse" : ""}`}>
+    <div class="contact-row-icon" aria-hidden="true">
+        <Icon name={icon} size={26} />
+    </div>
+
+    <div class="contact-row-copy">
+        <h3 class="contact-row-title">{title}</h3>
+        <p class="contact-row-description">{description}</p>
+        <div class="contact-row-actions">
+            <a
+                href={href}
+                class="contact-row-cta btn"
+                aria-label={ariaLabel ?? cta}
+                {...(external ? { target: "_blank", rel: "noreferrer noopener" } : {})}
+            >
+                {cta}
+            </a>
+            {
+                secondaryCta && secondaryHref && (
+                    <a
+                        href={secondaryHref}
+                        class="contact-row-cta contact-row-cta-secondary btn"
+                        aria-label={secondaryAriaLabel ?? secondaryCta}
+                        {...(secondaryExternal ? { target: "_blank", rel: "noreferrer noopener" } : {})}
+                    >
+                        {secondaryCta}
+                    </a>
+                )
+            }
+        </div>
+    </div>
+</article>

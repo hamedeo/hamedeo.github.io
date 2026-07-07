@@ -26,6 +26,11 @@ export const PAGES: PagesConfig = {
         subtitle: "Ways to connect, discuss a project, or just grab a coffee.",
         isActive: true,
     },
+    contact: {
+        title: "Contact Me",
+        subtitle: "Meet casually, or reach out in the way that feels easiest.",
+        isActive: true,
+    },
     teaching: {
         title: "Projects",
         subtitle: "Project Portfolio, Open source contributions, and technological experiments.",

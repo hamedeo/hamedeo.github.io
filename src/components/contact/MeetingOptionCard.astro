@@ -1,0 +1,22 @@
+---
+import Icon from "../ui/Icon.astro";
+
+interface Props {
+    title: string;
+    description: string;
+    icon: string;
+    accent?: string;
+}
+
+const { title, description, icon, accent = "neutral" } = Astro.props;
+---
+
+<article class={`meeting-option meeting-option-${accent}`}>
+    <div class="meeting-option-icon" aria-hidden="true">
+        <Icon name={icon} size={24} />
+    </div>
+    <div class="meeting-option-copy">
+        <h3 class="meeting-option-title">{title}</h3>
+        <p class="meeting-option-description">{description}</p>
+    </div>
+</article>
