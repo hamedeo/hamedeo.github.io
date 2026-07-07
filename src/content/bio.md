@@ -8,11 +8,11 @@ institution: |
   Eindhoven, Netherlands
 ---
 
-I am a **Mechanical Engineer** with background in thermo-fluids engineering and precision hardware. I enjoy technical analysis and support mechanical development from A to Z where design initiates, validation takes place and solutions seems to be not working.
+I am a **Mechanical Engineer** with background in thermo-fluids engineering and precision hardware. I maintaned a complementary profile as a **Project Manager** as well, becasue delivering is indeed pleasurable! I enjoy technical analysis and support mechanical development from A to Z where design initiates, validation takes place and solutions seems to be not working.
 
 ## My Life
 
-Born three times, in Iran, Italy, and the Netherlands, I have built seven years of experience across mechanical engineering, project management in thermofluids engineering and precision hardware.
+Born three times, in Iran, Italy, and the Netherlands, I have built seven years of experience across mechanical engineering and project management in thermofluids engineering and precision hardware.
 
 My professional journey began with the successful delivery of several projects in the IT domain over three years. I then started to work as a mechanical consultant for a year and a half, supporting the development of pressure vessels for a major steel manufacturer in Iran, **Mobarakeh Steel Company**.
 

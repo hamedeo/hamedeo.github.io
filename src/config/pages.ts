@@ -22,8 +22,8 @@ export const PAGES: PagesConfig = {
         isActive: true,
     },
     projects: {
-        title: "Contact Information",
-        subtitle: "Ways to connect, discuss a project, or just grab a coffee.",
+        title: "Projects",
+        subtitle: "Project Portfolio, Open source contributions, and technological experiments.",
         isActive: true,
     },
     contact: {
@@ -34,7 +34,7 @@ export const PAGES: PagesConfig = {
     teaching: {
         title: "Projects",
         subtitle: "Project Portfolio, Open source contributions, and technological experiments.",
-        isActive: true,
+        isActive: false,
     },
     tags: {
         title: "Tags",
