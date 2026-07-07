@@ -1,0 +1,157 @@
+---
+import { getEntry, render } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { PAGES } from "../../config";
+
+if (PAGES.cv.isActive === false) {
+    return Astro.redirect("/404");
+}
+
+const cvEntry = await getEntry("cv", "cv");
+if (!cvEntry) {
+    throw new Error(
+        "CV content not found. Please ensure src/content/cv.md exists.",
+    );
+}
+
+const { Content } = await render(cvEntry);
+const {
+    name,
+    location,
+    email,
+    phone,
+    linkedin,
+    github,
+    nutshell,
+    competencies = [],
+    experience = [],
+    education = [],
+    languages = [],
+    references,
+    relocation,
+} = cvEntry.data;
+---
+
+<BaseLayout title={PAGES.cv.title}>
+    <article class="cv-resume">
+        <header class="cv-hero">
+            <div class="cv-mark" aria-hidden="true"></div>
+            <div>
+                <h1 class="cv-name">{name}</h1>
+                <dl class="cv-contact">
+                    {email && <><dt>Email.</dt><dd><a href={`mailto:${email}`}>{email}</a></dd></>}
+                    {location && <><dt>Loc.</dt><dd>{location}</dd></>}
+                    {phone && <><dt>Tel.</dt><dd><a href={`tel:${phone.replaceAll(" ", "")}`}>{phone}</a></dd></>}
+                </dl>
+            </div>
+        </header>
+
+        {nutshell && (
+            <section class="cv-nutshell" aria-labelledby="cv-nutshell-title">
+                <h2 id="cv-nutshell-title" class="cv-section-title cv-centered">In a Nutshell</h2>
+                <p class="cv-headline">{nutshell.headline}</p>
+                <p class="cv-subheadline">{nutshell.subtitle}</p>
+
+                <div class="cv-competencies">
+                    {competencies.map((item) => (
+                        <div class="cv-competency">
+                            <h3>{item.title}</h3>
+                            <p>{item.summary}</p>
+                            {item.tools && item.tools.length > 0 && (
+                                <p class="cv-tools">{item.tools.join(" • ")}</p>
+                            )}
+                            {item.extra && item.extra.length > 0 && (
+                                <p class="cv-tools cv-tools-secondary">{item.extra.join(" • ")}</p>
+                            )}
+                        </div>
+                    ))}
+                </div>
+
+                {(linkedin || github) && (
+                    <div class="cv-profile-links">
+                        {linkedin && <span><strong>LinkedIn:</strong> {linkedin}</span>}
+                        {github && <span><strong>GitHub:</strong> {github}</span>}
+                    </div>
+                )}
+            </section>
+        )}
+
+        {experience.length > 0 && (
+            <section class="cv-section" aria-labelledby="cv-experience-title">
+                <h2 id="cv-experience-title" class="cv-section-title">Professional Background</h2>
+                <div class="cv-entries">
+                    {experience.map((item) => (
+                        <section class="cv-entry">
+                            <div class="cv-entry-head">
+                                <div>
+                                    <h3>{item.institution}</h3>
+                                    <p class="cv-role">{item.role}</p>
+                                </div>
+                                <div class="cv-entry-meta">
+                                    <strong>{item.period}</strong>
+                                    {item.location && <span>{item.location}</span>}
+                                </div>
+                            </div>
+                            {item.description && <p class="cv-description">{item.description}</p>}
+                            {item.bullets && item.bullets.length > 0 && (
+                                <ul class="cv-bullets">{item.bullets.map((bullet) => <li>{bullet}</li>)}</ul>
+                            )}
+                            {item.subBullets && item.subBullets.length > 0 && (
+                                <ul class="cv-bullets cv-sub-bullets">{item.subBullets.map((bullet) => <li>{bullet}</li>)}</ul>
+                            )}
+                        </section>
+                    ))}
+                </div>
+            </section>
+        )}
+
+        {education.length > 0 && (
+            <section class="cv-section" aria-labelledby="cv-education-title">
+                <h2 id="cv-education-title" class="cv-section-title">Education</h2>
+                <div class="cv-entries">
+                    {education.map((item) => (
+                        <section class="cv-entry">
+                            <div class="cv-entry-head">
+                                <div>
+                                    <h3>{item.degree}</h3>
+                                    <p class="cv-role">{item.institution}</p>
+                                </div>
+                                <div class="cv-entry-meta">
+                                    <strong>{item.period}</strong>
+                                    {item.location && <span>{item.location}</span>}
+                                </div>
+                            </div>
+                            {item.role && <p class="cv-description">{item.role}</p>}
+                            {item.description && <p class="cv-description">{item.description}</p>}
+                            {item.thesis && <p class="cv-description"><strong>Thesis:</strong> {item.thesis}</p>}
+                            {item.details && item.details.length > 0 && (
+                                <ul class="cv-bullets">{item.details.map((detail) => <li>{detail}</li>)}</ul>
+                            )}
+                        </section>
+                    ))}
+                </div>
+            </section>
+        )}
+
+        {(languages.length > 0 || references || relocation) && (
+            <section class="cv-section" aria-labelledby="cv-about-title">
+                <h2 id="cv-about-title" class="cv-section-title">About Me</h2>
+                {languages.length > 0 && (
+                    <div class="cv-language-grid">
+                        {languages.map((language) => (
+                            <p><strong>{language.name}</strong> <span>{language.level}</span></p>
+                        ))}
+                    </div>
+                )}
+                <dl class="cv-facts">
+                    {references && <><dt>References</dt><dd>{references}</dd></>}
+                    {relocation && <><dt>Relocation status</dt><dd>{relocation}</dd></>}
+                </dl>
+            </section>
+        )}
+
+        <div class="prose max-w-none">
+            <Content />
+        </div>
+    </article>
+</BaseLayout>

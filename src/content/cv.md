@@ -1,32 +1,113 @@
 ---
-name: "Claude Shannon"
-title: "Mathematician and Electrical Engineer"
+
+name: "Hamed Abdollahi"
+title: "TITLE"
+#   headline: "Thermo-Fluids Engineer"
+#   subtitle: "MSc in Mechanical Engineering"
+# competencies:
+#   - title: "Fluid & Thermal Systems"
+#     summary: "Flow calculations, heat transfer, energy, thermodynamics analysis."
+#     tools:
+#       - "ANSYS"
+#       - "MATLAB"
+#       - "BPVC"
+#     extra:
+#       - "Python [NumPy, Pandas]"
+#       - "C++"
+#   - title: "Product Development"
+#     summary: "CAD Design, GD&T, rapid prototyping, testing & validation, engineering documentation."
+#     tools:
+#       - "SolidWorks"
+#       - "Siemens NX"
+#       - "PLM (Teamcenter)"
+#       - "ASME Y14.5"
+#       - "RCA"
+#       - "DFMA"
+#       - "SAP"
+#   - title: "Project Management"
+#     summary: "Stakeholder management, coordination, facilitation, communication, conflict resolution."
+#     tools:
+#       - "Agile/Scrum (Kanban)"
+#       - "MS Suite (Teams, Excel/VBA, ...)"
 experience:
-  - role: "Research Mathematician"
-    institution: "Bell Telephone Laboratories"
-    period: "1941 - 1972"
-    description: "Conducted groundbreaking research in information theory, cryptography, and digital computing."
-  - role: "Professor of Electrical Engineering"
-    institution: "MIT"
-    period: "1958 - 1978"
-    description: "Taught courses in information theory, switching theory, and mathematical foundations of computing."
+  - institution: "Digital Society School @ Amsterdam University of Applied Sciences"
+    role: "Project Manager"
+    period: "Jan 2026 - July 2026"
+    location: "Amsterdam, Netherlands"
+    description: "Co-designed an interactive 3D experience and led Scrum processes in a multidisciplinary team of five, structuring a complex multi-stakeholder challenge across corporate and policy actors."
+    # bullets:
+    #   - "Structured an open-ended challenge into clear problem statements by facilitating stakeholder alignment."
+    #   - "Conducted research, interviews and analysed data and presenting insights to stakeholders in co-creation sessions."
+    #   - "Developed, built and tested digital and physical prototypes using CNC machining, 3D printing, and electronic modules."
+  - institution: "Morpheidos Tech"
+    role: "Mechanical Engineer Consultant"
+    period: "Mar 2025 - Present"
+    location: "The Randstad, Netherlands"
+    description: "Provided engineering analysis and simulation support for mechanical system design and optimization in high-tech and energy industries."
+    # bullets:
+    #   - "Developed simulation models for optical and vacuum systems under rarefied gas conditions."
+    #   - "Built digital twin models for district heating systems, optimizing source temperature for energy performance."
+    # subBullets:
+    #   - "Applied data-driven modelling approach (machine learning) to improve model performance."
+  - institution: "ASML"
+    role: "Mechanical Engineer"
+    period: "Nov 2023 - Sep 2024"
+    location: "Veldhoven, Netherlands"
+    description: "Lifecycle management and standardization of mechanical vendor components in a team of 25."
+    # bullets:
+    #   - "Automated component data analysis workflows, reducing team workload by approximately 50% through personal initiative."
+    #   - "Coordinated transition to PFAS-free components by aligning requirements and specs with suppliers for fluid-power components."
+    #   - "Acted as technical liaison between internal teams and suppliers to align on requirements, compliance, and specifications."
+    #   - "Evaluated component suitability for new product introduction (NPI) and end-of-life replacement."
+    #   - "Created and maintained engineering documentation supporting mechanical development."
+  - institution: "AurangZib Gita Co."
+    role: "Mechanical Engineer Consultant"
+    period: "Feb 2018 - Aug 2019"
+    location: "Isfahan, IR"
+    description: "Designed a high-pressure oxygen feedstock storage vessel for a steel manufacturing electric arc furnace (PV Elite according to ASME VIII code) and managed technical project full-cycle delivery."
+    # bullets:
+    #   - "Designed industrial equipment, including high-pressure gas storage vessels in compliance with ASME VIII-1 using PV Elite."
+    #   - "Performed component selection, P&ID development, and FEM verification supporting system design and validation."
+  - institution: "ITResearches"
+    role: "Project Manager"
+    period: "2015 - Jun 2018"
+    location: "Tehran, IR/London, UK"
+    description: "Delivered over 10 internal and external project for national and international clients."
+    # bullets:
+    #   - "Managed client relationships, contracts, and business operations across multiple projects."
+    #   - "Drove business growth by increasing client acquisition approximately 150% and improving contract renewals approximately 50%."
 education:
-  - degree: "PhD in Mathematics"
-    institution: "MIT"
-    period: "1936 - 1940"
-    thesis: "An Algebra for Theoretical Genetics"
-    description: "Developed mathematical foundations for genetic inheritance."
-  - degree: "Bachelor of Science in Electrical Engineering"
-    institution: "University of Michigan"
-    period: "1932 - 1936"
+  - degree: "Master of Mechanical Engineering"
+    institution: "Polytechnic University of Turin (PoliTo)"
+    period: "2019 - 2023"
+    location: "Turin, Italy"
+    subEntries:
+      - title: "Research Intern in Thermo-Fluids Engineering"
+        subtitle: "Eindhoven University of Technology (TU/e)"
+        period: "2023"
+        location: "Eindhoven, Netherlands"
+        description: "Thesis: Secondary atomization and solidification of metal melt in gas atomization."
+      - title: "Guest Student"
+        subtitle: "ENSTA Paris, Polytechnic Institute of Paris"
+        period: "Apr - May 2022"
+        location: "Palaiseau, France"
+        description: "Sustainable energy for future transportation systems."
+  - degree: "Bachelor of Mechanical Engineering"
+    institution: "University of Isfahan (UI)"
+    period: "2013 - 2018"
+    location: "Isfahan, IR"
+    thesis: "Thermal optimization and flow-field design of a liquid cooling plate for HT-PEM fuel cell stack."
+    subEntries:
+      - title: "Mechanical Engineer Intern"
+        subtitle: "Mobarakeh Steel Co., Energy and Fluid distribution area."
+        period: "May 2017 - Sep 2017"
+        location: "Isfahan, IR"
+        description: "Root-cause and failure analysis of gas/steam power plants."
+# languages:
+#   - name: "English"
+#     level: "Business Professional"
+#   - name: "Persian"
+#     level: "Fluent"
+#   - name: "Dutch"
+#     level: "Elementary (A2)"
 ---
-
-## Skills
-- Information Theory
-- Mathematics
-- Electrical Engineering
-- Cryptography
-- Computer Science
-
-## Biographical Summary
-Extra biographical notes or a summary can go here.

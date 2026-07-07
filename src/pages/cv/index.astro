@@ -16,7 +16,28 @@ if (!cvEntry) {
 }
 
 const { Content } = await render(cvEntry);
-const { name, title, experience = [], education = [] } = cvEntry.data;
+const {
+    title,
+    location,
+    email,
+    phone,
+    linkedin,
+    github,
+    competencies = [],
+    experience = [],
+    education = [],
+    languages = [],
+    references,
+    relocation,
+} = cvEntry.data;
+
+const contactItems = [
+    email && { label: "Email", value: email, href: `mailto:${email}` },
+    phone && { label: "Phone", value: phone, href: `tel:${phone.replaceAll(" ", "")}` },
+    location && { label: "Location", value: location },
+    linkedin && { label: "LinkedIn", value: linkedin },
+    github && { label: "GitHub", value: github },
+].filter(Boolean);
 ---
 
 <BaseLayout title={PAGES.cv.title}>
@@ -26,38 +47,114 @@ const { name, title, experience = [], education = [] } = cvEntry.data;
     </header>
 
     <div class="container-narrow">
-        {
-            experience.length > 0 && (
-                <section class="section">
-                    <h2 class="section-title border-b border-border pb-2">
-                        Professional Experience
-                    </h2>
-                    <Timeline items={experience.map(exp => ({
-                        title: exp.role,
-                        subtitle: exp.institution,
-                        period: exp.period,
-                        description: exp.description
-                    }))} />
-                </section>
-            )
-        }
+        <header class="section mb-10">
+            <!-- <h2 class="section-title border-b border-border pb-2">
+                {title}
+            </h2> -->
+            {contactItems.length > 0 && (
+                <dl class="grid gap-2 sm:grid-cols-2 mt-4">
+                    {contactItems.map((item: any) => (
+                        <div class="body-sm flex gap-2">
+                            <dt class="font-semibold opacity-75">{item.label}:</dt>
+                            <dd>
+                                {item.href ? (
+                                    <a href={item.href} class="link">{item.value}</a>
+                                ) : (
+                                    item.value
+                                )}
+                            </dd>
+                        </div>
+                    ))}
+                </dl>
+            )}
+        </header>
 
-        {
-            education.length > 0 && (
-                <section class="section">
-                    <h2 class="section-title border-b border-border pb-2">
-                        Education
-                    </h2>
-                    <Timeline items={education.map(edu => ({
-                        title: edu.degree,
-                        subtitle: edu.institution,
-                        period: edu.period,
-                        description: edu.description,
-                        thesis: edu.thesis
-                    }))} />
-                </section>
-            )
-        }
+        {competencies.length > 0 && (
+            <section class="section">
+                <h2 class="section-title border-b border-border pb-2">
+                    Skills
+                </h2>
+                <div class="grid gap-4">
+                    {competencies.map((item) => (
+                        <div>
+                            <h3 class="title-md">{item.title}</h3>
+                            <p class="body mt-1">{item.summary}</p>
+                            {item.tools && item.tools.length > 0 && (
+                                <p class="body-sm mt-1 opacity-80">{item.tools.join(" • ")}</p>
+                            )}
+                            {item.extra && item.extra.length > 0 && (
+                                <p class="body-sm mt-1 opacity-80">{item.extra.join(" • ")}</p>
+                            )}
+                        </div>
+                    ))}
+                </div>
+            </section>
+        )}
+
+        {experience.length > 0 && (
+            <section class="section">
+                <h2 class="section-title border-b border-border pb-2">
+                    Professional Experience
+                </h2>
+                <Timeline items={experience.map((exp) => ({
+                    title: exp.role,
+                    subtitle: exp.institution,
+                    location: exp.location,
+                    period: exp.period,
+                    description: exp.description,
+                    details: exp.bullets,
+                    subDetails: exp.subBullets,
+                }))} />
+            </section>
+        )}
+
+        {education.length > 0 && (
+            <section class="section">
+                <h2 class="section-title border-b border-border pb-2">
+                    Education
+                </h2>
+                <Timeline items={education.map((edu) => ({
+                    title: edu.degree,
+                    subtitle: edu.institution,
+                    period: edu.period,
+                    location: edu.location,
+                    description: edu.description,
+                    details: edu.details,
+                    subDetails: edu.subDetails,
+                    subEntries: edu.subEntries,
+                    thesis: edu.thesis,
+                }))} />
+            </section>
+        )}
+
+        {(languages.length > 0 || references || relocation) && (
+            <section class="section">
+                {/* <h2 class="section-title border-b border-border pb-2">
+                    Languages
+                </h2> */}
+                {languages.length > 0 && (
+                    <div class="grid gap-2 sm:grid-cols-3">
+                        {languages.map((language) => (
+                            <p class="body"><strong>{language.name}</strong>: {language.level}</p>
+                        ))}
+                    </div>
+                )}
+                <dl class="grid gap-2 mt-4">
+                    {references && (
+                        <div class="body flex gap-2">
+                            <dt>References</dt>
+                            <dd>{references}</dd>
+                        </div>
+                    )}
+                    {relocation && (
+                        <div class="body flex gap-2">
+                            <dt>Relocation status</dt>
+                            <dd>{relocation}</dd>
+                        </div>
+                    )}
+                </dl>
+            </section>
+        )}
 
         <div class="prose max-w-none">
             <Content />
