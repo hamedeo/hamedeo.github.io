@@ -180,13 +180,8 @@ const jsonLd = {
                     ) {
                         return localStorage.getItem("theme");
                     }
-                    if (
-                        window.matchMedia("(prefers-color-scheme: dark)")
-                            .matches
-                    ) {
-                        return "dark";
-                    }
-                    return "light";
+                    // Default to dark if no stored preference
+                    return "dark";
                 })();
 
                 document.documentElement.setAttribute("data-theme", theme);

@@ -64,7 +64,7 @@ experience:
     role: "Mechanical Engineer Consultant"
     period: "Feb 2018 - Aug 2019"
     location: "Isfahan, IR"
-    description: "Designed a high-pressure oxygen feedstock storage vessel for a steel manufacturing electric arc furnace (PV Elite according to ASME VIII code) and managed technical project full-cycle delivery."
+    description: "Designed a high-pressure oxygen feedstock storage vessel for a steel manufacturing electric arc furnace (PV Elite according to ASME VIII code) and supported full-cycle technical project delivery."
     # bullets:
     #   - "Designed industrial equipment, including high-pressure gas storage vessels in compliance with ASME VIII-1 using PV Elite."
     #   - "Performed component selection, P&ID development, and FEM verification supporting system design and validation."

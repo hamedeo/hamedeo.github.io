@@ -39,4 +39,14 @@ export const THEMES: Record<string, Theme> = {
         border: '#3d342d',
         accent: '#d97757',
     }
+    ,
+    dark_black: {
+        isDark: true,
+        background: '#000000',
+        surface: '#000000',
+        foreground: '#ffffff',
+        muted: '#9ca3af',
+        border: '#111111',
+        accent: '#ff6b01',
+    }
 };

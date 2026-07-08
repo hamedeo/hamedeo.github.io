@@ -1031,6 +1031,11 @@ body:has(.social-link:focus-visible) .footer {
     margin: 0;
 }
 
+/* Top page headers only */
+.page-header .page-title {
+    color: #E30613;
+}
+
 .page-subtitle {
     font-size: 1rem;
     color: var(--foreground);
