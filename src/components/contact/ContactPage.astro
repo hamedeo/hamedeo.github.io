@@ -17,7 +17,7 @@ const linkedinHref = socialByName.LinkedIn?.href ?? "https://www.linkedin.com/in
 const whatsappHref = socialByName.WhatsApp?.href ?? "https://api.whatsapp.com/send/?phone=31622410181";
 const calHref = socialByName.Cal?.href ?? "https://cal.eu/hamedeo";
 const githubHref = socialByName.Github?.href ?? "https://github.com/hamedeo";
-const lettuceMeetHref = "PASTE_LETTUCEMEET_LINK_HERE";
+const cabbageMeetHref = "https://cabbagemeet.com/create";
 ---
 
 <BaseLayout title={page.title}>
@@ -29,45 +29,58 @@ const lettuceMeetHref = "PASTE_LETTUCEMEET_LINK_HERE";
     <div class="contact-page container-narrow">
         <section class="contact-hero section">
             <p class="contact-intro">
-                For a calm, low-pressure first step, I like meeting around coffee, a ride, or a walk.
-                Weekends usually work best.
+                I like meeting around coffee, a ride, or a walk. Weekends usually work best.
+                Or maybe other activities. If you have a specific idea, let me know. I am open to suggestions.
+
             </p>
 
             <div class="meeting-option-grid" aria-label="Ways to meet casually">
                 <MeetingOptionCard
                     title="Coffee"
-                    description="A casual coffee to talk about engineering, ideas, work, or anything in between."
-                    icon="Calendar"
+                    description="A casual coffee to talk about engineering, ideas, work, or anything in between to get sharp for the rest of the day."
+                    icon="Coffee"
                     accent="coffee"
                 />
                 <MeetingOptionCard
-                    title="Cycle with me"
-                    description="A relaxed weekend ride around Eindhoven or nearby, with space for conversation and movement."
-                    icon="Location"
+                    title="Cycle"
+                    description="A ride around Eindhoven, to ride about things! Another city? I might be up for it, but let's talk first."
+                    icon="Cycle"
                     accent="cycle"
                 />
                 <MeetingOptionCard
                     title="Walk"
-                    description="A walk for two people or a small group, simple, informal, and human."
-                    icon="User"
+                    description="Let's walk, talk, and share ideas. As Nietzsche once said—All truly great thoughts are conceived while walking."
+                    icon="Walk"
                     accent="walk"
                 />
             </div>
 
-            <div class="lettucemeet-cta">
-                <div>
-                    <p class="lettucemeet-eyebrow">Simple scheduling</p>
-                    <p class="lettucemeet-copy">
-                        I use LettuceMeet to find a shared time in a simple and low-pressure way.
-                    </p>
+            <div class="cabbagemeet-panel">
+                <div class="cabbagemeet-panel-head">
+                    <div>
+                        <p class="lettucemeet-eyebrow">CabbageMeet scheduling</p>
+                        <p class="lettucemeet-copy">
+                            I use the following form to find a shared time between my friends to do a shared activity. Let me know your preferred activity and time, and I will get back to you with a shared time.
+                        </p>
+                    </div>
+                    <a
+                        href={cabbageMeetHref}
+                        class="btn contact-main-cta"
+                        aria-label="Open CabbageMeet scheduling"
+                        target="_blank"
+                        rel="noreferrer noopener"
+                    >
+                        Open CabbageMeet
+                    </a>
                 </div>
-                <a
-                    href={lettuceMeetHref}
-                    class="btn contact-main-cta"
-                    aria-label="Arrange a meeting with LettuceMeet"
-                >
-                    Arrange with LettuceMeet
-                </a>
+                <div class="cabbagemeet-embed" role="region" aria-label="Embedded CabbageMeet scheduling pane">
+                    <iframe
+                        src={cabbageMeetHref}
+                        title="CabbageMeet scheduling pane"
+                        loading="lazy"
+                        referrerpolicy="no-referrer"
+                    />
+                </div>
             </div>
         </section>
 

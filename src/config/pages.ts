@@ -27,7 +27,7 @@ export const PAGES: PagesConfig = {
         isActive: true,
     },
     contact: {
-        title: "Contact Me",
+        title: "Let's catch up",
         subtitle: "Meet casually, or reach out in the way that feels easiest.",
         isActive: true,
     },
