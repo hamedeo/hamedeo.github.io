@@ -1034,6 +1034,8 @@ body:has(.social-link:focus-visible) .footer {
 /* Top page headers only */
 .page-header .page-title {
     color: #E30613;
+    /* force across client-side swaps */
+    color: #E30613 !important;
 }
 
 .page-subtitle {
