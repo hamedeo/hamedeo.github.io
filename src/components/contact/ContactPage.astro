@@ -17,7 +17,7 @@ const linkedinHref = socialByName.LinkedIn?.href ?? "https://www.linkedin.com/in
 const whatsappHref = socialByName.WhatsApp?.href ?? "https://api.whatsapp.com/send/?phone=31622410181";
 const calHref = socialByName.Cal?.href ?? "https://cal.eu/hamedeo";
 const githubHref = socialByName.Github?.href ?? "https://github.com/hamedeo";
-const cabbageMeetHref = "https://cabbagemeet.com/create";
+const tallyHref = "https://tally.so/r/b5GyQ1";
 ---
 
 <BaseLayout title={page.title}>
@@ -55,37 +55,18 @@ const cabbageMeetHref = "https://cabbagemeet.com/create";
                 />
             </div>
 
-            <div class="cabbagemeet-panel">
-                <div class="cabbagemeet-panel-head">
-                    <div>
-                        <p class="lettucemeet-eyebrow">CabbageMeet scheduling</p>
-                        <p class="lettucemeet-copy">
-                            I use the following form to find a shared time between my friends to do a shared activity. Let me know your preferred activity and time, and I will get back to you with a shared time.
-                        </p>
-                    </div>
-                    <a
-                        href={cabbageMeetHref}
-                        class="btn contact-main-cta"
-                        aria-label="Open CabbageMeet scheduling"
-                        target="_blank"
-                        rel="noreferrer noopener"
-                    >
-                        Open CabbageMeet
-                    </a>
-                </div>
-                <div class="cabbagemeet-embed" role="region" aria-label="Embedded CabbageMeet scheduling pane">
-                    <iframe
-                        src={cabbageMeetHref}
-                        title="CabbageMeet scheduling pane"
-                        loading="lazy"
-                        referrerpolicy="no-referrer"
-                    />
-                </div>
+            <div class="contact-form-embed" role="region" aria-label="Embedded contact form">
+                <iframe
+                    src={tallyHref}
+                    title="Embedded contact form"
+                    loading="lazy"
+                    referrerpolicy="no-referrer"
+                />
             </div>
         </section>
 
         <section class="section contact-methods">
-            <h2 class="section-title">Other ways to reach me</h2>
+            <h2 class="section-title">I'd love to discuss a potential project or new opportunities.<br />Grab a time with me here:</h2>
 
             <div class="contact-method-list">
                 <ContactMethodRow
