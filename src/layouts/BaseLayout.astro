@@ -180,9 +180,7 @@ const currentPath = Astro.url.pathname.replace(/\/+$/, "") || "/";
                 </script>
             )
         }
-        <script is:inline type="module" define:vars={{ activeSwipeRoutes, currentPath }}>
-            import { navigate } from "astro:transitions/client";
-
+        <script is:inline define:vars={{ activeSwipeRoutes }}>
             function setTheme() {
                 const theme = (() => {
                     if (
@@ -207,9 +205,7 @@ const currentPath = Astro.url.pathname.replace(/\/+$/, "") || "/";
 
                 const routes = Array.isArray(activeSwipeRoutes) ? activeSwipeRoutes : [];
                 const normalizedCurrentPath =
-                    typeof currentPath === "string" && currentPath
-                        ? currentPath
-                        : window.location.pathname.replace(/\/+$/, "") || "/";
+                    window.location.pathname.replace(/\/+$/, "") || "/";
                 const currentIndex = routes.indexOf(normalizedCurrentPath);
 
                 if (currentIndex === -1 || routes.length < 2) {
@@ -262,7 +258,7 @@ const currentPath = Astro.url.pathname.replace(/\/+$/, "") || "/";
                     const nextHref = routes[nextIndex];
 
                     if (nextHref && nextHref !== normalizedCurrentPath) {
-                        navigate(nextHref);
+                        window.location.assign(nextHref);
                     }
                 };
 
