@@ -1,5 +1,5 @@
 ---
-import { SITE, THEME_CONFIG, ANALYTICS, THEMES } from "../config";
+import { SITE, THEME_CONFIG, ANALYTICS, THEMES, NAV_LINKS, PAGES } from "../config";
 import { ClientRouter } from "astro:transitions";
 import LeftSidebar from "../components/layout/LeftSidebar.astro";
 import RightMain from "../components/layout/RightMain.astro";
@@ -45,6 +45,15 @@ const jsonLd = {
     jobTitle: "Professor",
     description: SITE.desc,
 };
+
+const activeSwipeRoutes = NAV_LINKS.filter((link) => {
+    const isHome = link.href === "/";
+    const pageKey = isHome ? "home" : link.href.split("/").filter(Boolean)[0];
+    const pageConfig = (PAGES as any)[pageKey];
+    return link.isActive !== false && pageConfig?.active !== false;
+}).map((link) => link.href.replace(/\/+$/, "") || "/");
+
+const currentPath = Astro.url.pathname.replace(/\/+$/, "") || "/";
 ---
 
 <!doctype html>
@@ -171,7 +180,9 @@ const jsonLd = {
                 </script>
             )
         }
-        <script is:inline>
+        <script is:inline type="module" define:vars={{ activeSwipeRoutes, currentPath }}>
+            import { navigate } from "astro:transitions/client";
+
             function setTheme() {
                 const theme = (() => {
                     if (
@@ -190,6 +201,137 @@ const jsonLd = {
 
             setTheme();
             document.addEventListener("astro:after-swap", setTheme);
+
+            function initSwipeNavigation() {
+                window.__swipeNavCleanup?.();
+
+                const routes = Array.isArray(activeSwipeRoutes) ? activeSwipeRoutes : [];
+                const normalizedCurrentPath =
+                    typeof currentPath === "string" && currentPath
+                        ? currentPath
+                        : window.location.pathname.replace(/\/+$/, "") || "/";
+                const currentIndex = routes.indexOf(normalizedCurrentPath);
+
+                if (currentIndex === -1 || routes.length < 2) {
+                    window.__swipeNavCleanup = undefined;
+                    return;
+                }
+
+                let touchStartX = 0;
+                let touchStartY = 0;
+                let touchActive = false;
+                let activePointerId = null;
+                let gestureLocked = false;
+
+                const shouldIgnoreTarget = (target) => {
+                    if (!(target instanceof Element)) return false;
+                    return Boolean(
+                        target.closest(
+                            "a, button, input, textarea, select, option, summary, [contenteditable='true'], iframe",
+                        ),
+                    );
+                };
+
+                const beginGesture = (clientX, clientY, target, pointerId = null) => {
+                    if (shouldIgnoreTarget(target)) return;
+
+                    touchActive = true;
+                    activePointerId = pointerId;
+                    touchStartX = clientX;
+                    touchStartY = clientY;
+                };
+
+                const endGesture = (clientX, clientY) => {
+                    if (!touchActive) return;
+
+                    const touchEndX = clientX;
+                    const touchEndY = clientY;
+                    const deltaX = touchEndX - touchStartX;
+                    const deltaY = touchEndY - touchStartY;
+                    const absX = Math.abs(deltaX);
+                    const absY = Math.abs(deltaY);
+
+                    touchActive = false;
+                    activePointerId = null;
+                    gestureLocked = false;
+
+                    if (absX < 45 || absX < absY * 0.85) return;
+
+                    const direction = deltaX < 0 ? 1 : -1;
+                    const nextIndex = (currentIndex + direction + routes.length) % routes.length;
+                    const nextHref = routes[nextIndex];
+
+                    if (nextHref && nextHref !== normalizedCurrentPath) {
+                        navigate(nextHref);
+                    }
+                };
+
+                const onPointerDown = (event) => {
+                    if (event.pointerType !== "touch") return;
+                    if (event.isPrimary === false) return;
+                    beginGesture(event.clientX, event.clientY, event.target, event.pointerId);
+                };
+
+                const onPointerMove = (event) => {
+                    if (!touchActive) return;
+                    if (activePointerId !== null && event.pointerId !== activePointerId) return;
+
+                    const deltaX = event.clientX - touchStartX;
+                    const deltaY = event.clientY - touchStartY;
+                    const absX = Math.abs(deltaX);
+                    const absY = Math.abs(deltaY);
+
+                    if (!gestureLocked && absX > 18 && absX > absY) {
+                        gestureLocked = true;
+                    }
+
+                    if (gestureLocked) {
+                        event.preventDefault();
+                    }
+                };
+
+                const onPointerUp = (event) => {
+                    if (event.pointerType !== "touch") return;
+                    if (activePointerId !== null && event.pointerId !== activePointerId) return;
+                    endGesture(event.clientX, event.clientY);
+                };
+
+                const onPointerCancel = () => {
+                    touchActive = false;
+                    activePointerId = null;
+                    gestureLocked = false;
+                };
+
+                const onTouchStart = (event) => {
+                    if (event.touches.length !== 1) return;
+                    beginGesture(event.touches[0].clientX, event.touches[0].clientY, event.target);
+                };
+
+                const onTouchEnd = (event) => {
+                    if (!event.changedTouches.length) return;
+                    endGesture(event.changedTouches[0].clientX, event.changedTouches[0].clientY);
+                };
+
+                document.addEventListener("pointerdown", onPointerDown, { passive: true });
+                document.addEventListener("pointermove", onPointerMove, { passive: false });
+                document.addEventListener("pointerup", onPointerUp, { passive: true });
+                document.addEventListener("pointercancel", onPointerCancel, { passive: true });
+                document.addEventListener("touchstart", onTouchStart, { passive: true });
+                document.addEventListener("touchend", onTouchEnd, { passive: true });
+
+                window.__swipeNavCleanup = () => {
+                    document.removeEventListener("pointerdown", onPointerDown);
+                    document.removeEventListener("pointermove", onPointerMove);
+                    document.removeEventListener("pointerup", onPointerUp);
+                    document.removeEventListener("pointercancel", onPointerCancel);
+                    document.removeEventListener("touchstart", onTouchStart);
+                    document.removeEventListener("touchend", onTouchEnd);
+                };
+            }
+
+            initSwipeNavigation();
+            document.addEventListener("astro:page-load", initSwipeNavigation);
+            document.addEventListener("astro:after-swap", initSwipeNavigation);
 
             function initToggle() {
                 const toggle = document.getElementById("theme-toggle");
@@ -212,6 +354,7 @@ const jsonLd = {
     </head>
     <body
         class="bg-background text-foreground transition-colors duration-300 min-h-screen"
+        data-current-path={currentPath}
     >
         <div class="flex max-lg:flex-col mx-auto max-w-6xl w-full min-h-screen">
             <LeftSidebar />
