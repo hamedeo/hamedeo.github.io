@@ -25,6 +25,9 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 
+# Kaleidocycle
+Kaleidocycle/
+
 # Default help and contents
 src/content/posts/setting-up-portfolio.md
 src/content/posts/implementing-info-theory.md
@@ -41,3 +44,4 @@ src/content/teaching/physics-of-information.md
 README.md
 DESIGN-GUIDE.md
 LICENSE
+

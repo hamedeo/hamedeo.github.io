@@ -1887,6 +1887,17 @@ html[data-theme="dark"] .cv-resume {
         display: none;
     }
 
+    .cv-page .timeline-content h3,
+    .cv-page .timeline-content h4 {
+        color: #e30613;
+    }
+
+    .cv-page .cv-timeline-section-title {
+        text-align: center;
+        border-bottom-color: rgba(255, 255, 255, 0.92);
+        box-shadow: 0 0.45rem 0.95rem -0.85rem rgba(255, 255, 255, 0.95);
+    }
+
     .cv-page .timeline-content {
         padding-bottom: 1.25rem;
     }
