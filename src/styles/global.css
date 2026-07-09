@@ -1069,6 +1069,62 @@ body:has(.social-link:focus-visible) .footer {
     color: var(--foreground);
 }
 
+.about-block {
+    margin-bottom: 2rem;
+}
+
+.about-section-heading {
+    position: relative;
+    padding-left: 1.15rem;
+    margin: 0 0 0.6rem;
+}
+
+.about-section-heading::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 0.62rem;
+    height: 0.62rem;
+    border-radius: 9999px;
+    background: var(--foreground);
+    border: 1px solid var(--background);
+    box-shadow: 0 0 0 1px color-mix(in srgb, var(--foreground) 25%, transparent);
+}
+
+.about-section {
+    position: relative;
+    margin: 0 0 1.2rem;
+    padding-left: 1.15rem;
+}
+
+.about-section::before {
+    content: "";
+    position: absolute;
+    left: 0.31rem;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: var(--foreground);
+    opacity: 0.5;
+}
+
+.about-section p {
+    margin: 0 0 1rem;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.about-section p:last-child {
+    margin-bottom: 0;
+}
+
+@media (max-width: 640px) {
+    .about-section p {
+        text-align: left;
+    }
+}
+
 /* CV Resume */
 .cv-resume {
     --cv-blue: #2d2d78;
@@ -1396,6 +1452,11 @@ html[data-theme="dark"] .cv-resume {
 
 .prose p {
     margin-bottom: 1rem;
+}
+
+.prose > p:first-of-type {
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 .prose ul,
