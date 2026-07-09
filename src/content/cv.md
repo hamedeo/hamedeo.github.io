@@ -72,7 +72,7 @@ experience:
     role: "Project Manager"
     period: "2015 - Jun 2018"
     location: "Tehran, IR/London, UK"
-    description: "Delivered over 10 internal and external project for national and international clients."
+    description: "Delivered over 10 internal and external projects for national and international clients."
     # bullets:
     #   - "Managed client relationships, contracts, and business operations across multiple projects."
     #   - "Drove business growth by increasing client acquisition approximately 150% and improving contract renewals approximately 50%."

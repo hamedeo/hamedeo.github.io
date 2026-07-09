@@ -6,7 +6,7 @@ export const NAV_LINKS: NavLink[] = [
     { href: "/talks", label: "Talks", isActive: true },
     { href: "/projects", label: "Projects", isActive: true },
     { href: "/posts", label: "Blog", isActive: true },
-    { href: "/contact", label: "Contact Me", isActive: true },
+    { href: "/contact", label: "Contact me", isActive: true },
     { href: "/tags", label: "Tags", isActive: false },
     { href: "/cv", label: "CV", isActive: true },
 ];

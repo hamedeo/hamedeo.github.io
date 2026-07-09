@@ -12,12 +12,13 @@ const cvEntry = await getEntry("cv", "cv");
 const phone = cvEntry?.data.phone ?? "+31 622410181";
 
 const socialByName = Object.fromEntries(SOCIALS.map((social) => [social.name, social]));
-const emailHref = socialByName.Mail?.href ?? "mailto:hamed.abdollahi@outlook.com";
+const emailHref = socialByName.Mail?.href ?? "mailto:hamed.abdollahi+website@outlook.com";
 const linkedinHref = socialByName.LinkedIn?.href ?? "https://www.linkedin.com/in/hamedeo";
 const whatsappHref = socialByName.WhatsApp?.href ?? "https://api.whatsapp.com/send/?phone=31622410181";
 const calHref = socialByName.Cal?.href ?? "https://cal.eu/hamedeo";
 const githubHref = socialByName.Github?.href ?? "https://github.com/hamedeo";
-const tallyHref = "https://tally.so/r/b5GyQ1";
+const tallyHref =
+    "https://tally.so/embed/b5GyQ1?alignLeft=1&transparentBackground=1";
 ---
 
 <BaseLayout title={page.title}>
@@ -59,14 +60,14 @@ const tallyHref = "https://tally.so/r/b5GyQ1";
                 <iframe
                     src={tallyHref}
                     title="Embedded contact form"
-                    loading="lazy"
+                    loading="eager"
                     referrerpolicy="no-referrer"
                 />
             </div>
         </section>
 
         <section class="section contact-methods">
-            <h2 class="section-title">I'd love to discuss a potential project or new opportunities.<br />Grab a time with me here:</h2>
+            <h2 class="section-title contact-section-title">Do you want to discuss new projects or opportunities?</h2>
 
             <div class="contact-method-list">
                 <ContactMethodRow
