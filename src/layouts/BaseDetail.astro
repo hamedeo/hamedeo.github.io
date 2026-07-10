@@ -4,6 +4,7 @@ import BaseLayout from "./BaseLayout.astro";
 import BackLink from "../components/ui/BackLink.astro";
 import Tag from "../components/ui/Tag.astro";
 import Icon from "../components/ui/Icon.astro";
+import YouTubeThumbnail from "../components/content/YouTubeThumbnail.astro";
 import { getDetailItem } from "../utils/adapters";
 import { SITE } from "../config";
 
@@ -31,6 +32,42 @@ if (detail.extraInput) {
 
 const description = entry.data.description || detail.description || SITE.desc;
 const ogImage = entry.data.image || SITE.ogImage;
+
+function parseTimeParam(value: string | null): number {
+    if (!value) return 0;
+    if (/^\d+$/.test(value)) return Number(value);
+
+    const hours = Number(value.match(/(\d+)h/)?.[1] || 0);
+    const minutes = Number(value.match(/(\d+)m/)?.[1] || 0);
+    const seconds = Number(value.match(/(\d+)s/)?.[1] || 0);
+    return hours * 3600 + minutes * 60 + seconds;
+}
+
+function getYouTubeVideo(url: string | undefined): { videoId: string; start: number } | undefined {
+    if (!url) return undefined;
+
+    try {
+        const parsedUrl = new URL(url);
+        const host = parsedUrl.hostname.replace(/^www\./, "");
+        const start = parseTimeParam(parsedUrl.searchParams.get("start") || parsedUrl.searchParams.get("t"));
+
+        if (host === "youtu.be") {
+            const videoId = parsedUrl.pathname.split("/").filter(Boolean)[0];
+            return videoId ? { videoId, start } : undefined;
+        }
+
+        if (host === "youtube.com" || host === "m.youtube.com") {
+            const videoId = parsedUrl.searchParams.get("v") || parsedUrl.pathname.split("/embed/")[1]?.split("/")[0];
+            return videoId ? { videoId, start } : undefined;
+        }
+    } catch {
+        return undefined;
+    }
+
+    return undefined;
+}
+
+const youtubeVideo = collection === "talks" ? getYouTubeVideo(detail.externalUrl) : undefined;
 ---
 
 <BaseLayout title={detail.title} description={description} ogImage={ogImage} ogType="article">
@@ -67,6 +104,15 @@ const ogImage = entry.data.image || SITE.ogImage;
 
         <div class="prose">
             <Content />
+
+            {youtubeVideo && detail.image && (
+                <YouTubeThumbnail
+                    videoId={youtubeVideo.videoId}
+                    start={youtubeVideo.start}
+                    title={detail.title}
+                    image={detail.image}
+                />
+            )}
         </div>
 
         <slot name="share" />

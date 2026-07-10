@@ -12,6 +12,7 @@ tags:
   - "Showcase2026"
 ---
 
+
 ## The Project
 
 The final showcase of the Digital Society School, after ten years of impact and learning, was held in June 2026 at the Clubhouse of Amsterdam University of Applied Sciences. Fittingly, one of the most complex projects in its history was about DSS itself.
@@ -21,5 +22,3 @@ How can ten years of impact, collaboration, and learning be captured together wi
 To answer this question, we first had to understand the spirit of DSS itself. We developed both a physical and a digital experience, allowing visitors to explore DSS through a virtual building tour in VR, while also becoming part of the experience by sharing what DSS has unlocked for its stakeholders in confession booth.
 
 ## Watch the Pitch
-
-<iframe width="100%" height="500" src="https://www.youtube.com/embed/4rvM5zNBeKQ?start=3857" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

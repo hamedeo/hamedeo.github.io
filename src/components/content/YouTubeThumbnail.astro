@@ -1,0 +1,73 @@
+---
+const contentImages = import.meta.glob<{ default: ImageMetadata }>("/src/content/**/*.{png,jpg,jpeg,webp,gif}", {
+    eager: true,
+});
+
+interface Props {
+    videoId: string;
+    title: string;
+    image?: string;
+    start?: number;
+}
+
+const { videoId, title, image, start = 0 } = Astro.props;
+const thumbnailImage = image && contentImages[image]?.default?.src ? contentImages[image].default.src : image;
+---
+
+<div
+    class="pitch-video"
+    role="button"
+    tabindex="0"
+    aria-label={`Play ${title}`}
+    data-youtube-id={videoId}
+    data-youtube-start={start}
+    data-youtube-title={title}
+>
+    {thumbnailImage && (
+        <img
+            src={thumbnailImage}
+            alt={title}
+            loading="lazy"
+            decoding="async"
+        />
+    )}
+
+    <span class="pitch-play-button" aria-hidden="true">
+        ▶
+    </span>
+</div>
+
+<script is:inline>
+    function loadPitchVideo(target) {
+        const videoId = target.dataset.youtubeId;
+        const start = target.dataset.youtubeStart || "0";
+        const title = target.dataset.youtubeTitle || "YouTube video";
+
+        if (!videoId) return;
+
+        target.removeAttribute("role");
+        target.removeAttribute("tabindex");
+        target.innerHTML = `<iframe width="100%" height="500" src="https://www.youtube.com/embed/${videoId}?start=${start}&autoplay=1" title="${title.replace(/"/g, "&quot;")}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
+    }
+
+    if (!window.__pitchVideoListenersReady) {
+        window.__pitchVideoListenersReady = true;
+
+        document.addEventListener("click", (event) => {
+            if (!(event.target instanceof Element)) return;
+            const target = event.target.closest(".pitch-video");
+            if (target) loadPitchVideo(target);
+        });
+
+        document.addEventListener("keydown", (event) => {
+            if (event.key !== "Enter" && event.key !== " ") return;
+            if (!(event.target instanceof Element)) return;
+
+            const target = event.target.closest(".pitch-video");
+            if (!target) return;
+
+            event.preventDefault();
+            loadPitchVideo(target);
+        });
+    }
+</script>
