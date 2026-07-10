@@ -30,7 +30,7 @@ const umami: UmamiAnalyticsConfig = {
 
 export const ANALYTICS: AnalyticsConfig = {
     // Google Analytics 4 Measurement ID (e.g., 'G-XXXXXXXXXX')
-    ga4Id: "",
+    ga4Id: "G-F494WFEY7C",
     // Umami Analytics configuration
     umami: umami
 };
