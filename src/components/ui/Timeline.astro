@@ -22,6 +22,28 @@ interface Props {
 }
 
 const { items } = Astro.props;
+
+function getDescriptionLines(description: string) {
+    return description.split("\n").map((line) => {
+        const trimmedLine = line.trimStart();
+        const isHollowBullet = trimmedLine.startsWith("◦");
+
+        return {
+            isHollowBullet,
+            text: isHollowBullet ? trimmedLine.slice(1).trimStart() : line.trimEnd(),
+        };
+    }).filter((line) => line.text.length > 0);
+}
+
+function getBulletLines(detail: string) {
+    const lines = detail.split("\n").map((line) => line.trim()).filter(Boolean);
+    const [mainLine = "", ...nestedLines] = lines;
+
+    return {
+        mainLine,
+        nestedLines: nestedLines.map((line) => line.startsWith("◦") ? line.slice(1).trimStart() : line),
+    };
+}
 ---
 
 <div class="timeline flex flex-col">
@@ -56,13 +78,37 @@ const { items } = Astro.props;
                         </div>
                     </div>
                     {item.description && (
-                        <div class="body mt-2">
-                            {item.description}
+                        <div class="body cv-description mt-2">
+                            {getDescriptionLines(item.description).map((line) => (
+                                line.isHollowBullet ? (
+                                    <div class="cv-description-bullet">
+                                        <span class="cv-description-marker" aria-hidden="true">◦</span>
+                                        <span>{line.text}</span>
+                                    </div>
+                                ) : (
+                                    <div>{line.text}</div>
+                                )
+                            ))}
                         </div>
                     )}
                     {item.details && item.details.length > 0 && (
                         <ul class="body mt-2 list-disc pl-5 space-y-1">
-                            {item.details.map((detail) => <li>{detail}</li>)}
+                            {item.details.map((detail) => {
+                                const bullet = getBulletLines(detail);
+
+                                return (
+                                    <li>
+                                        {bullet.mainLine}
+                                        {bullet.nestedLines.length > 0 && (
+                                            <ul class="cv-nested-bullets">
+                                                {bullet.nestedLines.map((line) => (
+                                                    <li>{line}</li>
+                                                ))}
+                                            </ul>
+                                        )}
+                                    </li>
+                                );
+                            })}
                         </ul>
                     )}
                     {item.subDetails && item.subDetails.length > 0 && (
@@ -109,7 +155,18 @@ const { items } = Astro.props;
                                             </div>
                                         </div>
                                         {sub.description && (
-                                            <div class="body mt-1">{sub.description}</div>
+                                            <div class="body cv-description mt-1">
+                                                {getDescriptionLines(sub.description).map((line) => (
+                                                    line.isHollowBullet ? (
+                                                        <div class="cv-description-bullet">
+                                                            <span class="cv-description-marker" aria-hidden="true">◦</span>
+                                                            <span>{line.text}</span>
+                                                        </div>
+                                                    ) : (
+                                                        <div>{line.text}</div>
+                                                    )
+                                                ))}
+                                            </div>
                                         )}
                                     </div>
                                 </div>

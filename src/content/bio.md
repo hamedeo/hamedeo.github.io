@@ -2,7 +2,8 @@
 name: "Hamed Abdollahi"
 avatar: "HamedStar.png"
 shortBio: |
-  Mechanical engineer who, from the labyrinth beyond time and space, seeks his way out to a clearing.
+  〰〰 Engineer of what moves 〰〰
+  Mechanical engineer with background in energy and high tech Industries.
 institution: |
   Morpheidos Tech
   Eindhoven, Netherlands

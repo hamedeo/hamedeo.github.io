@@ -1342,6 +1342,27 @@ html[data-theme="dark"] .cv-resume {
     line-height: 1.38;
 }
 
+.cv-description-bullet {
+    display: flex;
+    gap: 0.35rem;
+    margin-top: 0.2rem;
+    padding-left: 1rem;
+}
+
+.cv-description-marker {
+    flex: 0 0 auto;
+}
+
+.cv-nested-bullets {
+    list-style-type: circle;
+    margin: 0.2rem 0 0;
+    padding-left: 1rem;
+}
+
+.cv-nested-bullets li {
+    padding-left: 0.1rem;
+}
+
 .cv-bullets {
     margin: 0.35rem 0 0;
     padding-left: 1.35rem;
