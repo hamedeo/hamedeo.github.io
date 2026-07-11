@@ -25,7 +25,7 @@ title: "TITLE"
 #       - "DFMA"
 #       - "SAP"
 #   - title: "Project Management"
-#     summary: "Stakeholder management, coordination, facilitation, communication, conflict resolution."
+#     summary: "Stakeholder management, communication, planning & coordination, facilitation."
 #     tools:
 #       - "Agile/Scrum (Kanban)"
 #       - "MS Suite (Teams, Excel/VBA, ...)"
@@ -67,17 +67,17 @@ experience:
         - "Cut workload by ~50% by automating PLM workflow and engineering change management."
         - |
           Designed custom mechanical interfaces for core hardware modules to meet functional constraints.
-          ◦  Executed tolerance stackups and generated TPD, TDS, and BOM data packages using Siemens NX/TC.
+          ◦  Executed tolerance stackups and generated TPD, TDS, & BOM data using Siemens NX/TC.
   - institution: "AurangZib Gita Co."
     role: "Mechanical Engineer Consultant"
     period: "Feb 2018 - Aug 2019"
     location: "Isfahan, IR"
     description: "Designed a high-pressure oxygen storage vessel for an electric arc furnace steel manufacturing plant."
     bullets:
-        - "Design and calculation workflows using PV Elite to secure structural ASME VIII-1 code approval."
-        - "FEM stress and fatigue analyses in Ansys Mechanical to certify localized design compliance."
-        - "CFD analysis on inlet manifolds to optimize flow distribution and minimize piping pressure drops using Fluent."
-        - "Aligned supplier QA/QC and P&ID documentation to secure on-schedule equipment deployment."
+        - "Used PV Elite calculations per ASME VIII-1 to secure structural designs for a 40-bar vessel shell."
+        - "Conducted ASME VIII-2 FEM analyses via ANSYS Mechanical to validate a 10K+ cycle fatigue lifespan."
+        - "Ran ANSYS Fluent CFD on inlet manifolds, cutting pressure drops by 12% via reverse-engineering."
+        - "Checked vendor drawings against P&IDs to fix nozzle mismatches and prevent downtime."
   - institution: "ITResearches"
     role: "Project Manager"
     period: "2015 - Jun 2018"
@@ -98,7 +98,10 @@ education:
         location: "Eindhoven, Netherlands"
         description: |
           Thesis: Secondary atomization and solidification of metal melt in gas atomization.
-          ◦ Suggested a new thermal model for CFD simulation of atomization phenomena by modelling dynamics of cooling droplet in the presence of high pressure gas jet using OpenFOAM.
+          ◦ Developed an OpenFOAM CFD model to simulate gas atomization phenomena.
+          ◦ Suggested a new thermal model for solidifying droplets.
+          ◦ Verifying code feasibility and validating results against lab experimental data.
+        # ◦ Suggested a new thermal model for CFD simulation of atomization phenomena by modelling dynamics of cooling droplet in the presence of high pressure gas jet using OpenFOAM verified againt experimental data.
       - title: "Guest Student"
         subtitle: "ENSTA Paris, Polytechnic Institute of Paris"
         period: "Apr - May 2022"
@@ -106,15 +109,15 @@ education:
         description: "Sustainable energy for future transportation systems."
   - degree: "Bachelor of Mechanical Engineering"
     institution: "University of Isfahan (UI)"
-    period: "2013 - Jan 2018"
+    period: "2013 - 2017"
     location: "Isfahan, IR"
-    thesis: "Thermal optimization and flow-field design of a liquid cooling plate for HT-PEM fuel cell stack."
+    thesis: "Thermal optimization by flow-field design of a liquid cooling plate for high temperature PEM fuel cell stack using ANSYS Fluent."
     subEntries:
       - title: "Mechanical Engineer Intern"
         subtitle: "Mobarakeh Steel Co., Energy and Fluid distribution area."
         period: "May 2017 - Sep 2017"
         location: "Isfahan, IR"
-        description: "Root-cause and failure analysis of thermal efficiency for gas and steam power plants."
+        description: "Mapped site sensor data to thermodynamic charts to isolate ambient losses, documenting fixes to prevent gas & steam power plants downtime."
 # languages:
 #   - name: "English"
 #     level: "Business Professional"
