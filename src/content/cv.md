@@ -42,7 +42,7 @@ experience:
        - "Cutting 7% in thermal energy loss in a district heating network by digital twin development."
        - "Feasibility analysis of digital twin usage in adopting barge over road transportation in Utrecht area."
        - "Mechanical analysis of seabed cable movement for marine operation."
-       #  Tools: Siemens STAR-CCM+, Siemense NX, 
+      #  Tools: Siemens STAR-CCM+, Siemense NX, 
   - institution: "Digital Society School @ AUAS"
     role: "Technical Project Manager"
     period: "Jan 2026 - July 2026"
