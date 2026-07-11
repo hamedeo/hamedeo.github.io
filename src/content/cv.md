@@ -69,9 +69,9 @@ experience:
           Designed custom mechanical interfaces for core hardware modules to meet functional constraints.
           ◦  Executed tolerance stackups and generated TPD, TDS, & BOM data using Siemens NX/TC.
   - institution: "AurangZib Gita Co."
-    role: "Mechanical Engineer Consultant"
+    role: "Mechanical Design Engineer"
     period: "Feb 2018 - Aug 2019"
-    location: "Isfahan, IR"
+    location: "Isfahan, IR" 
     description: "Designed a high-pressure oxygen storage vessel for an electric arc furnace steel manufacturing plant."
     bullets:
         - "Used PV Elite calculations per ASME VIII-1 to secure structural designs for a 40-bar vessel shell."
@@ -82,10 +82,11 @@ experience:
     role: "Project Manager"
     period: "2015 - Jun 2018"
     location: "Tehran, IR/London, UK"
-    description: "Delivered over 10 internal and external projects for national and international clients in a team of 8+ developers, designers, and marketing team ahead of proposed time."
+    description: "Delivered over 10 internal and external projects for national and international clients in a team of 8+ developers, designers, and marketing team."
     bullets:
         - "Drove 150% business growth and improved contract renewals by 50% over 12 months."
         - "Deployed Interactive AI Adveriser Robot (TALEE) across 3 sites, converting pilot tests into contracts."
+        
 education:
   - degree: "Master of Mechanical Engineering"
     institution: "Polytechnic University of Turin (PoliTo)"
@@ -98,10 +99,9 @@ education:
         location: "Eindhoven, Netherlands"
         description: |
           Thesis: Secondary atomization and solidification of metal melt in gas atomization.
-          ◦ Developed an OpenFOAM CFD model to simulate gas atomization phenomena.
+          ◦ Developed an OpenFOAM CFD model to simulate gas atomization dynamics.
           ◦ Suggested a new thermal model for solidifying droplets.
           ◦ Verifying code feasibility and validating results against lab experimental data.
-        # ◦ Suggested a new thermal model for CFD simulation of atomization phenomena by modelling dynamics of cooling droplet in the presence of high pressure gas jet using OpenFOAM verified againt experimental data.
       - title: "Guest Student"
         subtitle: "ENSTA Paris, Polytechnic Institute of Paris"
         period: "Apr - May 2022"
