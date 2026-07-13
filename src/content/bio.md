@@ -2,7 +2,9 @@
 name: "Hamed Abdollahi"
 avatar: "HamedStar.png"
 shortBio: |
+  〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰
   〰〰 Engineer of what moves 〰〰
+  〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰
   I'm a Mechanical Engineer, working across energy and high-tech Industries, who specializes in mechanical design and analysis.
 institution: |
   Morpheidos Tech
@@ -10,6 +12,20 @@ institution: |
 ---
 
 I am a **Mechanical Engineer** with background in thermo-fluids engineering and precision hardware. I maintained a complementary profile as a **Project Manager**  as well, because delivering is indeed pleasurable! I enjoy technical  analysis and support mechanical development where design initiates,  validation takes place and solutions seems to be not working. 
+
+<div class="theme-image">
+  <img
+  src="\public\Engineer_of_Movement-WBG.png"
+  alt="Engineer of movement"
+    class="about-image about-image-light"
+  />
+
+  <img
+  src="\public\Engineer_of_Movement-BBG.png"
+  alt="Engineer of movement"
+    class="about-image about-image-dark"
+  />
+</div>
 
 <div class="about-block">
   <h2 class="about-section-heading">My Life</h2>

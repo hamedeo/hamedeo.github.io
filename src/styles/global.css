@@ -1133,6 +1133,41 @@ body:has(.social-link:focus-visible) .footer {
     }
 }
 
+/*Image styling based on BG color*/
+
+.theme-image {
+  width: 100%;
+  margin: 2rem 0;
+}
+
+.about-image {
+  display: block;
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+  margin: 0 auto;
+}
+
+/* Light mode */
+.about-image-light {
+  display: block;
+}
+
+.about-image-dark {
+  display: none;
+}
+
+/* Dark mode */
+html[data-theme="dark"] .about-image-light,
+html.dark .about-image-light {
+  display: none;
+}
+
+html[data-theme="dark"] .about-image-dark,
+html.dark .about-image-dark {
+  display: block;
+}
+
 /* CV Resume */
 .cv-resume {
     --cv-blue: #2d2d78;
