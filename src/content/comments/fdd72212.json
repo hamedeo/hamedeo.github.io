@@ -1,0 +1,45 @@
+{
+  "r3ply": {
+    "config_version": "0.0.1",
+    "server": "r3ply.com",
+    "site": "hamedeo.github.io",
+    "signet": "B5CRSI9AI4_ulHMko1JZyg",
+    "issued": "2026-07-13"
+  },
+  "author": {
+    "pseudonym": "f38730936acac382483e9dd6229fc640938ff69e0fb2e45e81957bcaec3b8041",
+    "token": "inaSDz9-bvgx3JWCKkeR9hC2I-TE-J_1DmBycLGcmTU04v9Vs6-rTD45lmlcaj9ZVwn0Nuynj5-l5nPU_J4hl1uLjqLNhhi64go2tKvFgSoaL08jmLSNkexU3wctNiPGS5JyeiREjK5kIk974V3onAPBViw-FvyP0negUybdgFDURumqRTTPLIe-oPfVU9xQqPPEBYcPMby8mMgtFEEajiSaQzV1VFvy7HV1IujC7jOWUUWE-ygyNaTxY6SEjj0sHenDeX5sgVpmT1TMIbZs2_mKzBa8pM27ySIJZDDt27qEnOZXxejGR2d0r_tSeP_KcBYjUJ8WQ2x_sQ8GpMAvOOgS6Pvk9a6LXIjcslp9EBYsFp8pmaDi7lmauKxq1-j9kZ6WhA3AVjZ5CIc544-2BMiDNlzf7uxqrw6pcnI5BsNMEDrdgrojU_K8qsdA5Hdeu3PMsuBIzOo3u_t3"
+  },
+  "comment": {
+    "id": "fdd722123095416cba6e4d193ced5b6f",
+    "ts_rcvd": "1783941009",
+    "subject": {
+      "url": "https://hamedeo.github.io/talks/dss-final-prototype-presentation/",
+      "origin": "https://hamedeo.github.io",
+      "protocol": "https:",
+      "hostname": "hamedeo.github.io",
+      "path": "/talks/dss-final-prototype-presentation/"
+    },
+    "txt": "Do not forget to save the date and register here for free:\r",
+    "md": "<p>Do not forget to save the date and register here for free:</p>\n",
+    "html": "<p>Do not forget to save the date and register here for free:</p>\n"
+  },
+  "email": {
+    "to": "hamedeo.github.io@r3ply.com",
+    "subject": "/talks/dss-final-prototype-presentation/",
+    "date": "2026-07-13T11:10:06-00:00",
+    "text": "Do not forget to save the date and register here for free:\r",
+    "auth": {
+      "dkim": true,
+      "spf": true,
+      "dmarc": true,
+      "pass": true
+    },
+    "from": {
+      "pseudonym": "f38730936acac382483e9dd6229fc640938ff69e0fb2e45e81957bcaec3b8041",
+      "signet": "B5CRSI9AI4_ulHMko1JZyg",
+      "issued": "2026-07-13",
+      "token": "inaSDz9-bvgx3JWCKkeR9hC2I-TE-J_1DmBycLGcmTU04v9Vs6-rTD45lmlcaj9ZVwn0Nuynj5-l5nPU_J4hl1uLjqLNhhi64go2tKvFgSoaL08jmLSNkexU3wctNiPGS5JyeiREjK5kIk974V3onAPBViw-FvyP0negUybdgFDURumqRTTPLIe-oPfVU9xQqPPEBYcPMby8mMgtFEEajiSaQzV1VFvy7HV1IujC7jOWUUWE-ygyNaTxY6SEjj0sHenDeX5sgVpmT1TMIbZs2_mKzBa8pM27ySIJZDDt27qEnOZXxejGR2d0r_tSeP_KcBYjUJ8WQ2x_sQ8GpMAvOOgS6Pvk9a6LXIjcslp9EBYsFp8pmaDi7lmauKxq1-j9kZ6WhA3AVjZ5CIc544-2BMiDNlzf7uxqrw6pcnI5BsNMEDrdgrojU_K8qsdA5Hdeu3PMsuBIzOo3u_t3"
+    }
+  }
+}
