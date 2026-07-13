@@ -6,7 +6,8 @@ export const THEMES: Record<string, Theme> = {
     light_default: {
         background: "#f9fafb",
         foreground: "#111827",
-        accent: "#3b82f6",
+        accent: "#315bd8",
+        // accent: "#3b82f6",
         muted: "#6b7280",
         border: "#e5e7eb",
         surface: "#f9fafb",
@@ -15,7 +16,8 @@ export const THEMES: Record<string, Theme> = {
     dark_default: {
         background: "#212737",
         foreground: "#eaedf3",
-        accent: "#ff6b01",
+        accent: "#d8315b",
+        // old:#ff6b01
         muted: "#343f60",
         border: "#ab4b08",
         surface: "#212737",
@@ -47,6 +49,7 @@ export const THEMES: Record<string, Theme> = {
         foreground: '#ffffff',
         muted: '#9ca3af',
         border: '#111111',
-        accent: '#ff6b01',
+        accent: '#d8315b',
+        // old:#ff6b01
     }
 };
