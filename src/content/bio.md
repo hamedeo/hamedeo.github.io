@@ -10,19 +10,20 @@ institution: |
   Morpheidos Tech
   Eindhoven, Netherlands
 ---
+<meta name="description" content="..." />
 
 I am a **Mechanical Engineer** with background in thermo-fluids engineering and precision hardware. I maintained a complementary profile as a **Project Manager**  as well, because delivering is indeed pleasurable! I enjoy technical  analysis and support mechanical development where design initiates,  validation takes place and solutions seems to be not working. 
 
 <div class="theme-image">
   <img
-  src="/Engineer_of_Movement-WBG.png"
-  alt="Engineer of movement"
+  src="/Engineer_of_Motion-WBG.png"
+  alt="Engineer of Motion"
     class="about-image about-image-light"
   />
 
   <img
-  src="/Engineer_of_Movement-BBG.png"
-  alt="Engineer of movement"
+  src="/Engineer_of_Motion-BBG.png"
+  alt="Engineer of Motion"
     class="about-image about-image-dark"
   />
 </div>
