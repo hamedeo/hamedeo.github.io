@@ -37,7 +37,7 @@ experience:
     description: "Providing engineering analysis and simulation support for mechanical system design and optimization across high-tech and energy industries."
     bullets:
        - |
-         Developed simulation models to support early design decisions for high vacuum systems.
+         Supported early design decisions by developing simulation models for high vacuum systems.
          ◦ 60% reduction in execution time by integrating data driven model (PI ML).
        - "Cutting 7% in thermal energy loss in a district heating network by digital twin development."
        - "Feasibility analysis of digital twin usage in adopting barge over road transportation in Utrecht area."
@@ -47,10 +47,10 @@ experience:
     role: "Technical Project Manager"
     period: "Jan 2026 - July 2026"
     location: "Amsterdam, Netherlands"
-    description: "Led a multidisciplinary team of 5 from engineering and marketing background, launching an interactive 3D VR experience under a strict 6-month Agile lifecycle."
+    description: "Led a 5+ multidisciplinary team from engineering and marketing background, launching an interactive 3D VR experience under a strict 6-month Agile lifecycle."
     bullets:
         - |
-          Facilitated communication to align stakeholder goals and secure a clear problem statement.
+          Secured stakeholder consensus on a complex problem statement by establishing a unified scope.
           ◦ Built and tested prototypes using CNC, 3D printing, and modules to validate stakeholder needs.
           ◦ Concluded research across available resources to shape project requirements and narrative.
         - "Slashed resource expenditures by 40% by directing sprint planning for on schedule project delivery."
