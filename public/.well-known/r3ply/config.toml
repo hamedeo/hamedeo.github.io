@@ -1,0 +1,34 @@
+#:schema https://r3ply.com/schemas/v0.0.1/config/site.v0.0.1.json
+
+version = "0.0.1"
+enabled = true
+
+[[site]]
+domain = "hamedeo.github.io"
+r3ply = "r3ply.com"
+signet = "B5CRSI9AI4_ulHMko1JZyg"
+issued = 2026-07-13
+
+[comments]
+enabled = true
+"paths*" = [
+  "/posts/**",
+  "/talks/**"
+]
+cache = false
+md_to_html = true
+sanitize_html = true
+
+[comments.email]
+enabled = true
+
+[moderation]
+enabled = true
+
+[[moderation.github]]
+owner = "hamedeo"
+repo = "hamedeo.github.io"
+"file_path_{}" = "src/content/comments/{{ comment.id[:8] }}.json"
+"base_branch_{}" = "main"
+enabled = true
+"allow*" = []

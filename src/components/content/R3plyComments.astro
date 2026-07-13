@@ -1,0 +1,175 @@
+---
+import { getCollection } from "astro:content";
+
+const normalizePath = (path: string) => {
+  const clean = path.split("?")[0].split("#")[0];
+
+  if (clean === "/") return "/";
+
+  return `${clean.replace(/\/+$/, "")}/`;
+};
+
+const currentPath = normalizePath(Astro.url.pathname);
+const comments = await getCollection("comments");
+
+const pageComments = comments
+  .filter(
+    (entry) =>
+      normalizePath(entry.data.comment.subject.path) === currentPath
+  )
+  .sort(
+    (a, b) =>
+      Number(a.data.comment.ts_rcvd) -
+      Number(b.data.comment.ts_rcvd)
+  );
+
+const recipient = "hamedeo.github.io@r3ply.com";
+
+const emailBody = `Write your comment above this line.
+
+----------------------------------------
+Please do not change the email subject.
+Your email address will be anonymized.
+`;
+
+const mailto =
+  `mailto:${recipient}` +
+  `?subject=${encodeURIComponent(currentPath)}` +
+  `&body=${encodeURIComponent(emailBody)}`;
+
+const formatDate = (date: string) =>
+  new Intl.DateTimeFormat("en-GB", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  }).format(new Date(date));
+---
+
+<section class="responses">
+  <header class="responses-header">
+    <div>
+      <h2>Responses</h2>
+      <p>
+        {pageComments.length.toString().padStart(2, "0")} responses
+      </p>
+    </div>
+
+    <a href={mailto} class="response-button">
+      Write a response
+    </a>
+  </header>
+
+  {
+    pageComments.length === 0 ? (
+      <p class="empty">No responses yet.</p>
+    ) : (
+      <div class="response-list">
+        {pageComments.map((entry) => (
+          <article class="response">
+            <header class="response-meta">
+              <span>
+                {entry.data.author.pseudonym.slice(0, 8)}
+              </span>
+
+              <time datetime={entry.data.email.date}>
+                {formatDate(entry.data.email.date)}
+              </time>
+            </header>
+
+            <div
+              class="response-content"
+              set:html={entry.data.comment.html}
+            />
+          </article>
+        ))}
+      </div>
+    )
+  }
+</section>
+
+<style>
+  .responses {
+    margin-top: 5rem;
+    padding-top: 1.5rem;
+    border-top: 2px solid currentColor;
+  }
+
+  .responses-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .responses-header h2 {
+    margin: 0;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+  }
+
+  .responses-header p,
+  .empty {
+    margin: 0.4rem 0 0;
+    opacity: 0.65;
+  }
+
+  .response-button {
+    padding: 0.7rem 1rem;
+    border: 1px solid currentColor;
+    color: inherit;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .response-button:hover {
+    color: white;
+    background: #d8315b;
+    border-color: #d8315b;
+  }
+
+  .response {
+    position: relative;
+    padding: 1.5rem 0 1.5rem 1.5rem;
+    border-bottom: 1px solid currentColor;
+  }
+
+  .response::before {
+    content: "";
+    position: absolute;
+    top: 1.85rem;
+    left: 0;
+    width: 0.5rem;
+    height: 0.5rem;
+    background: #d8315b;
+  }
+
+  .response-meta {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    font-family: monospace;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+  }
+
+  .response-content {
+    max-width: 65ch;
+    line-height: 1.65;
+  }
+
+  .response-content :global(p:first-child) {
+    margin-top: 0;
+  }
+
+  .response-content :global(p:last-child) {
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 600px) {
+    .responses-header {
+      flex-direction: column;
+    }
+  }
+</style>

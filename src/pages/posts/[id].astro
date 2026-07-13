@@ -4,6 +4,7 @@ import BaseDetail from "../../layouts/BaseDetail.astro";
 import ShareButtons from "../../components/ui/ShareButtons.astro";
 import { getReadingTime } from "../../utils/readingTime";
 import { PAGES, SITE } from "../../config";
+import R3plyComments from "../../components/content/R3plyComments.astro";
 
 if (PAGES.blog.isActive === false) {
     return Astro.redirect("/404");
@@ -31,44 +32,48 @@ const readingTime = `${getReadingTime(post.body || "")} min read`;
 const postUrl = new URL(`/posts/${post.id}`, SITE.website).href;
 ---
 
-<BaseDetail collection="posts" id={post.id} readingTime={readingTime}>
-    <nav
-        slot="footer"
-        class="post-navigation container-narrow flex justify-between mt-24 pt-12 gap-8"
-    >
-        {
-            prevPost && (
-                <a
-                    href={`/posts/${prevPost.id}`}
-                    class="nav-prev flex flex-col group max-w-[45%] no-underline"
-                >
-                    <span class="nav-label text-[0.8rem] uppercase tracking-wider opacity-75 font-bold mb-2">
-                        Previous Post
-                    </span>
-                    <span class="nav-title text-lg font-semibold text-foreground group-hover:text-accent transition-colors duration-200 leading-snug">
-                        {prevPost.data.title}
-                    </span>
-                </a>
-            )
-        }
-        <div class="nav-spacer flex-1"></div>
-        {
-            nextPost && (
-                <a
-                    href={`/posts/${nextPost.id}`}
-                    class="nav-next flex flex-col items-end text-right group max-w-[45%] no-underline"
-                >
-                    <span class="nav-label text-[0.8rem] uppercase tracking-wider opacity-75 font-bold mb-2">
-                        Next Post
-                    </span>
-                    <span class="nav-title text-lg font-semibold text-foreground group-hover:text-accent transition-colors duration-200 leading-snug">
-                        {nextPost.data.title}
-                    </span>
-                </a>
-            )
-        }
-    </nav>
-    <div slot="share" class="container-narrow">
-        <ShareButtons title={post.data.title} url={postUrl} description={post.data.description} />
-    </div>
-</BaseDetail>
+<div slot="footer">
+  <div class="container-narrow">
+    <R3plyComments />
+  </div>
+
+  <nav
+    class="post-navigation container-narrow flex justify-between mt-24 pt-12 gap-8"
+  >
+    {
+      prevPost && (
+        <a
+          href={`/posts/${prevPost.id}`}
+          class="nav-prev flex flex-col group max-w-[45%] no-underline"
+        >
+          <span class="nav-label text-[0.8rem] uppercase tracking-wider opacity-75 font-bold mb-2">
+            Previous Post
+          </span>
+
+          <span class="nav-title text-lg font-semibold text-foreground group-hover:text-accent transition-colors duration-200 leading-snug">
+            {prevPost.data.title}
+          </span>
+        </a>
+      )
+    }
+
+    <div class="nav-spacer flex-1"></div>
+
+    {
+      nextPost && (
+        <a
+          href={`/posts/${nextPost.id}`}
+          class="nav-next flex flex-col items-end text-right group max-w-[45%] no-underline"
+        >
+          <span class="nav-label text-[0.8rem] uppercase tracking-wider opacity-75 font-bold mb-2">
+            Next Post
+          </span>
+
+          <span class="nav-title text-lg font-semibold text-foreground group-hover:text-accent transition-colors duration-200 leading-snug">
+            {nextPost.data.title}
+          </span>
+        </a>
+      )
+    }
+  </nav>
+</div>

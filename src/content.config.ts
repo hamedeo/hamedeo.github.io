@@ -138,6 +138,44 @@ const cv = defineCollection({
     }),
 });
 
+const comments = defineCollection({
+  loader: glob({
+    pattern: "**/*.json",
+    base: "./src/content/comments",
+  }),
+
+  schema: z
+    .object({
+      author: z
+        .object({
+          pseudonym: z.string(),
+        })
+        .passthrough(),
+
+      comment: z
+        .object({
+          id: z.string(),
+          ts_rcvd: z.string(),
+
+          subject: z
+            .object({
+              path: z.string(),
+            })
+            .passthrough(),
+
+          html: z.string(),
+        })
+        .passthrough(),
+
+      email: z
+        .object({
+          date: z.string(),
+        })
+        .passthrough(),
+    })
+    .passthrough(),
+});
+
 export const collections = {
     'publications': publications,
     'talks': talks,
@@ -146,4 +184,5 @@ export const collections = {
     'projects': projects,
     'cv': cv,
     'teaching': teaching,
+    'comments': comments,
 };
