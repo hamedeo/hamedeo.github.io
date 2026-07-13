@@ -1,175 +1,485 @@
 ---
 import { getCollection } from "astro:content";
 
-const normalizePath = (path: string) => {
-  const clean = path.split("?")[0].split("#")[0];
+const normalizePath = (value: string) => {
+  const cleanPath = value.split("?")[0].split("#")[0];
 
-  if (clean === "/") return "/";
+  if (!cleanPath || cleanPath === "/") {
+    return "/";
+  }
 
-  return `${clean.replace(/\/+$/, "")}/`;
+  return `/${cleanPath.replace(/^\/+|\/+$/g, "")}/`;
 };
 
 const currentPath = normalizePath(Astro.url.pathname);
-const comments = await getCollection("comments");
+const allComments = await getCollection("comments");
 
-const pageComments = comments
-  .filter(
-    (entry) =>
+const pageComments = allComments
+  .filter((entry) => {
+    return (
       normalizePath(entry.data.comment.subject.path) === currentPath
-  )
-  .sort(
-    (a, b) =>
+    );
+  })
+  .sort((a, b) => {
+    return (
       Number(a.data.comment.ts_rcvd) -
       Number(b.data.comment.ts_rcvd)
-  );
+    );
+  });
 
 const recipient = "hamedeo.github.io@r3ply.com";
 
-const emailBody = `Write your comment above this line.
+const emailBody = `<WRITE YOUR COMMENT HERE>
 
-----------------------------------------
-Please do not change the email subject.
-Your email address will be anonymized.
+﹍﹍﹍﹍﹍﹍﹍﹍﹍﹍﹍﹍﹍﹍﹍﹍﹍﹍﹍
+
+1. Write your comment above this ☝️ line
+2. When you are ready, just hit send ✉️
+3. Do NOT edit the email subject ⚠️
+
+🔒 Your email address will remain private.
+
+✍️ A subset of Markdown can be used.
+No images, headings, or script tags.
+
+Email signatures below this section will be ignored.
+
+﹉﹉﹉﹉﹉﹉﹉﹉﹉﹉﹉﹉﹉﹉﹉﹉﹉﹉﹉
 `;
 
-const mailto =
-  `mailto:${recipient}` +
-  `?subject=${encodeURIComponent(currentPath)}` +
-  `&body=${encodeURIComponent(emailBody)}`;
+const createMailto = (subject: string) => {
+  return (
+    `mailto:${recipient}` +
+    `?subject=${encodeURIComponent(subject)}` +
+    `&body=${encodeURIComponent(emailBody)}`
+  );
+};
 
-const formatDate = (date: string) =>
-  new Intl.DateTimeFormat("en-GB", {
-    day: "numeric",
-    month: "long",
+const newCommentMailto = createMailto(currentPath);
+
+const formatDate = (date: string) => {
+  return new Intl.DateTimeFormat("en-GB", {
+    day: "2-digit",
+    month: "short",
     year: "numeric",
-  }).format(new Date(date));
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+    timeZone: "Europe/Amsterdam",
+  })
+    .format(new Date(date))
+    .toUpperCase();
+};
 ---
 
-<section class="responses">
-  <header class="responses-header">
-    <div>
-      <h2>Responses</h2>
-      <p>
-        {pageComments.length.toString().padStart(2, "0")} responses
+<section
+  id="responses"
+  class="r3ply-section"
+  aria-labelledby="comments-heading"
+>
+  <div class="comment-invitation">
+    <h2>Leave a Comment:</h2>
+
+    <div class="invitation-box">
+      <p class="invitation-label">
+        📩 Comments are submitted via email!&nbsp;
+        🤫 No signup is required&nbsp; 🎉
+      </p>
+
+      <hr />
+
+      <p class="invitation-instruction">
+        Just click the button below, write, and hit send.
+      </p>
+
+      <a class="add-comment-button" href={newCommentMailto}>
+        Add Comment
+      </a>
+
+      <p class="reply-note">
+        You can also “reply” to comments below.
       </p>
     </div>
+  </div>
 
-    <a href={mailto} class="response-button">
-      Write a response
-    </a>
+  <header class="comments-heading">
+    <h2 id="comments-heading">
+      Comments: ({pageComments.length})
+    </h2>
   </header>
 
   {
     pageComments.length === 0 ? (
-      <p class="empty">No responses yet.</p>
+      <p class="empty-comment">
+        No comments yet. Be the first to write one.
+      </p>
     ) : (
-      <div class="response-list">
-        {pageComments.map((entry) => (
-          <article class="response">
-            <header class="response-meta">
-              <span>
-                {entry.data.author.pseudonym.slice(0, 8)}
-              </span>
+      <div class="comment-list">
+        {pageComments.map((entry, index) => {
+          const commentId = entry.data.comment.id.slice(0, 8);
+          const authorId =
+            entry.data.author.pseudonym.slice(0, 8);
 
-              <time datetime={entry.data.email.date}>
-                {formatDate(entry.data.email.date)}
-              </time>
-            </header>
+          const rawSubjectPath =
+            entry.data.comment.subject.path;
 
-            <div
-              class="response-content"
-              set:html={entry.data.comment.html}
-            />
-          </article>
-        ))}
+          const fragment = rawSubjectPath.includes("#")
+            ? rawSubjectPath.split("#")[1]
+            : "";
+
+          const parentId =
+            fragment && !fragment.startsWith(":~:text=")
+              ? fragment.slice(0, 8)
+              : null;
+
+          const previousComment =
+            index > 0
+              ? pageComments[index - 1].data.comment.id.slice(
+                  0,
+                  8,
+                )
+              : null;
+
+          const nextComment =
+            index < pageComments.length - 1
+              ? pageComments[index + 1].data.comment.id.slice(
+                  0,
+                  8,
+                )
+              : null;
+
+          const replyMailto = createMailto(
+            `${currentPath}#${commentId}`,
+          );
+
+          return (
+            <article
+              id={`comment-${commentId}`}
+              class:list={[
+                "comment",
+                { "comment-reply": Boolean(parentId) },
+              ]}
+            >
+              <header class="comment-navigation">
+                <div class="comment-date">
+                  <span aria-hidden="true">[-]</span>
+
+                  <time datetime={entry.data.email.date}>
+                    {formatDate(entry.data.email.date)}
+                  </time>
+                </div>
+
+                <nav aria-label="Comment navigation">
+                  <a href="#responses">↖ root</a>
+
+                  {parentId && (
+                    <>
+                      <span>|</span>
+                      <a href={`#comment-${parentId}`}>
+                        ↰ parent
+                      </a>
+                    </>
+                  )}
+
+                  <span>|</span>
+
+                  <a href={`#comment-${commentId}`}>
+                    # self
+                  </a>
+
+                  {previousComment && (
+                    <>
+                      <span>|</span>
+                      <a href={`#comment-${previousComment}`}>
+                        prev ↑
+                      </a>
+                    </>
+                  )}
+
+                  {nextComment && (
+                    <>
+                      <span>|</span>
+                      <a href={`#comment-${nextComment}`}>
+                        next ↓
+                      </a>
+                    </>
+                  )}
+                </nav>
+              </header>
+
+              <div class="comment-thread">
+                <p class="comment-author">
+                  <span aria-hidden="true">✨</span>
+
+                  <strong>{authorId}</strong> wrote:
+                </p>
+
+                <div
+                  class="comment-body"
+                  set:html={entry.data.comment.html}
+                />
+
+                <a class="reply-button" href={replyMailto}>
+                  reply
+                </a>
+
+                <p class="comment-identifier">
+                  comment #{commentId}
+                </p>
+              </div>
+            </article>
+          );
+        })}
       </div>
     )
   }
 </section>
 
-<style>
-  .responses {
+<style is:global>
+  .r3ply-section {
+    --r3ply-red: #d8315b;
+    --r3ply-cyan: #75e6da;
+    --r3ply-yellow: #ffe34f;
+    --r3ply-muted: rgba(255, 255, 255, 0.65);
+
+    width: 100%;
     margin-top: 5rem;
-    padding-top: 1.5rem;
-    border-top: 2px solid currentColor;
+    color: inherit;
   }
 
-  .responses-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 2rem;
-    margin-bottom: 3rem;
+  .comment-invitation {
+    margin-bottom: 3.5rem;
   }
 
-  .responses-header h2 {
+  .comment-invitation > h2,
+  .comments-heading h2 {
     margin: 0;
-    font-size: 1.4rem;
-    text-transform: uppercase;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.03em;
   }
 
-  .responses-header p,
-  .empty {
-    margin: 0.4rem 0 0;
+  .comment-invitation > h2 {
+    margin-bottom: 1.5rem;
+    text-shadow: 4px 3px 0 rgba(216, 49, 91, 0.35);
+  }
+
+  .invitation-box {
+    padding: 1.3rem 1.5rem;
+    border: 1px dashed currentColor;
+    border-radius: 10px;
+    text-align: center;
+    font-family:
+      ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+      monospace;
+  }
+
+  .invitation-label {
+    margin: 0;
+    color: #ff9b8e;
+    font-size: 0.9rem;
+  }
+
+  .invitation-box hr {
+    margin: 1.25rem 0;
+    border: 0;
+    border-top: 1px solid var(--r3ply-cyan);
+    opacity: 0.75;
+  }
+
+  .invitation-instruction {
+    margin: 0 0 1.5rem;
+    color: var(--r3ply-yellow);
+    font-size: 0.95rem;
+  }
+
+  .add-comment-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.7rem 1rem;
+    border: 2px solid var(--r3ply-red);
+    border-radius: 12px;
+    color: inherit;
+    text-decoration: none;
+    transition:
+      background-color 160ms ease,
+      color 160ms ease,
+      transform 160ms ease;
+  }
+
+  .add-comment-button:hover {
+    color: white;
+    background: var(--r3ply-red);
+    transform: translateY(-2px);
+  }
+
+  .reply-note {
+    margin: 1.4rem 0 0;
+    color: var(--r3ply-yellow);
+    font-size: 0.75rem;
+  }
+
+  .comments-heading {
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.65rem;
+    border-bottom: 1px solid var(--r3ply-cyan);
+  }
+
+  .empty-comment {
+    margin: 2rem 0;
+    font-family:
+      ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+      monospace;
     opacity: 0.65;
   }
 
-  .response-button {
-    padding: 0.7rem 1rem;
-    border: 1px solid currentColor;
-    color: inherit;
-    text-decoration: none;
-    text-transform: uppercase;
+  .comment-list {
+    display: grid;
+    gap: 2.5rem;
   }
 
-  .response-button:hover {
-    color: white;
-    background: #d8315b;
-    border-color: #d8315b;
+  .comment {
+    scroll-margin-top: 6rem;
+    font-family:
+      ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+      monospace;
   }
 
-  .response {
-    position: relative;
-    padding: 1.5rem 0 1.5rem 1.5rem;
-    border-bottom: 1px solid currentColor;
+  .comment-reply {
+    margin-left: 2.5rem;
   }
 
-  .response::before {
-    content: "";
-    position: absolute;
-    top: 1.85rem;
-    left: 0;
-    width: 0.5rem;
-    height: 0.5rem;
-    background: #d8315b;
-  }
-
-  .response-meta {
+  .comment-navigation {
     display: flex;
+    align-items: center;
     justify-content: space-between;
     gap: 1rem;
-    margin-bottom: 1rem;
-    font-family: monospace;
-    font-size: 0.75rem;
-    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+    font-size: 0.82rem;
   }
 
-  .response-content {
-    max-width: 65ch;
-    line-height: 1.65;
+  .comment-date {
+    display: flex;
+    gap: 0.45rem;
+    color: var(--r3ply-cyan);
   }
 
-  .response-content :global(p:first-child) {
+  .comment-navigation nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.45rem;
+  }
+
+  .comment-navigation a {
+    color: inherit;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .comment-navigation a:hover {
+    color: var(--r3ply-red);
+  }
+
+  .comment-navigation nav span {
+    opacity: 0.4;
+  }
+
+  .comment-thread {
+    position: relative;
+    margin-left: 0.55rem;
+    padding: 0.2rem 0 0 1.5rem;
+    border-left: 1px dashed var(--r3ply-cyan);
+  }
+
+  .comment-author {
+    margin: 0 0 1.5rem;
+  }
+
+  .comment-author strong {
+    color: #ff9b8e;
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+
+  .comment-body {
+    max-width: 70ch;
+    margin-bottom: 1.3rem;
+    font-family: inherit;
+    line-height: 1.75;
+  }
+
+  .comment-body :global(p:first-child) {
     margin-top: 0;
   }
 
-  .response-content :global(p:last-child) {
+  .comment-body :global(p:last-child) {
     margin-bottom: 0;
   }
 
-  @media (max-width: 600px) {
-    .responses-header {
+  .comment-body :global(a) {
+    color: var(--r3ply-cyan);
+    overflow-wrap: anywhere;
+    text-underline-offset: 0.2em;
+  }
+
+  .comment-body :global(blockquote) {
+    margin-left: 0;
+    padding-left: 1rem;
+    border-left: 3px solid var(--r3ply-red);
+    opacity: 0.85;
+  }
+
+  .comment-body :global(code) {
+    padding: 0.1rem 0.3rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+  }
+
+  .reply-button {
+    display: inline-block;
+    padding: 0.55rem 1rem;
+    border: 1px solid var(--r3ply-yellow);
+    border-radius: 12px;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .reply-button:hover {
+    color: black;
+    background: var(--r3ply-yellow);
+  }
+
+  .comment-identifier {
+    margin: 1rem 0 0;
+    font-size: 0.75rem;
+    font-style: italic;
+    opacity: 0.7;
+  }
+
+  @media (max-width: 700px) {
+    .comment-invitation > h2,
+    .comments-heading h2 {
+      font-size: 2rem;
+    }
+
+    .comment-navigation {
+      align-items: flex-start;
       flex-direction: column;
+    }
+
+    .comment-navigation nav {
+      justify-content: flex-start;
+    }
+
+    .comment-reply {
+      margin-left: 1rem;
+    }
+
+    .invitation-box {
+      padding: 1.1rem;
     }
   }
 </style>
