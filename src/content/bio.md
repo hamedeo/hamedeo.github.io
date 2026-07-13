@@ -15,13 +15,13 @@ I am a **Mechanical Engineer** with background in thermo-fluids engineering and 
 
 <div class="theme-image">
   <img
-  src="\public\Engineer_of_Movement-WBG.png"
+  src="/public/Engineer_of_Movement-WBG.png"
   alt="Engineer of movement"
     class="about-image about-image-light"
   />
 
   <img
-  src="\public\Engineer_of_Movement-BBG.png"
+  src="/public/Engineer_of_Movement-BBG.png"
   alt="Engineer of movement"
     class="about-image about-image-dark"
   />
