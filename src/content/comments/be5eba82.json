@@ -4,7 +4,7 @@
     "server": "r3ply.com",
     "site": "hamedeo.github.io",
     "signet": "B5CRSI9AI4_ulHMko1JZyg",
-    "issued": "2026-07-13"
+    "issued": "2026-06-16"
   },
   "author": {
     "pseudonym": "f38730936acac382483e9dd6229fc640938ff69e0fb2e45e81957bcaec3b8041",
@@ -27,7 +27,7 @@
   "email": {
     "to": "hamedeo.github.io@r3ply.com",
     "subject": "/talks/dss-final-prototype-presentation/",
-    "date": "2026-07-13T11:25:18-00:00",
+    "date": "2026-06-16T11:25:18-00:00",
     "text": "Do not forget to save the date and register here for free: https://digitalsocietyschool.org/event/showcase-june-2026/\r",
     "auth": {
       "dkim": true,
@@ -38,7 +38,7 @@
     "from": {
       "pseudonym": "f38730936acac382483e9dd6229fc640938ff69e0fb2e45e81957bcaec3b8041",
       "signet": "B5CRSI9AI4_ulHMko1JZyg",
-      "issued": "2026-07-13",
+      "issued": "2026-06-16",
       "token": "GF_uOiGAgmh3XgU6AMB5DTYWjyZR85UY0G6o83dmsU-OKGmhAY1ehjyQr4V1RCqiJmOiR_aACL3ud92hnEnYf01bEdX5IRbnA76gJsk4dHdOWD7QgrzxOqU-bWtKr7f6UIfvU2917k2tFjhNvwraqeeTaJbJRO3nXZa47Y5ffRBjJIuTgZBGvcKtYIJLpxIo51mMEPRL8XfxWayUl4ZvBGGMSC5XOLmKAOUuFyAwlCXaN78WsU-P1sEl9G6-z-RydWuSwJaIqWJLpGo15Q-y7nenW6_AraGZbCWjAFq1-RPWWeoPHpcaf82d9shq2z0nxhssqanmGnmIj0N4Q3pgyBdqqU0QLI8rC6uTxa3fBITQv5O04hRIOpoVGCy11LkAfujAzLZ1zcbbIQjKC7SVNroVFB-8wb1xjTvkIH4H_kpkl5ajy_HWG1WQPSHC35v4TO7vxelUSFN6KKmv"
     }
   }
