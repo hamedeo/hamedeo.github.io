@@ -35,11 +35,11 @@ I am a **Mechanical Engineer** with background in thermo-fluids engineering and 
 Born three times, in Iran, Italy, and the Netherlands, I have built seven years of experience delivering solutions in engineering and project management. 
 
 <!-- My professional journey began with the successful delivery of several projects in the IT domain over three years. Then I started to work as a mechanical consultant, supporting the development of pressure vessels for a major steel manufacturer in Iran, **Mobarakeh Steel Company**. -->
-Following three years of delivering IT projects, I transitioned into mechanical consulting, where I supported pressure vessels development for Iran’s leading steel manufacturer, the Mobarakeh Steel Company. After project delivery, I pursued a master’s degree in Italy to deepen my technical skills. I later concluded my research in advanced thermo-fluids engineering for additive manufacturing in the Netherlands.
+Following three years of delivering IT projects, I transitioned into mechanical consulting, where I supported pressure vessels development for Iran’s leading steel manufacturer, the **Mobarakeh Steel Company**. After project delivery, I pursued a master’s degree in Italy to deepen my technical skills. I later concluded my research in advanced thermo-fluids engineering for additive manufacturing in the Netherlands.
 
 Immediately after, I joined semiconductor leader **ASML**. There, I learned that mastering extreme technical complexity requires cross-border collaboration and a united team spirit. A year later, I founded **Morpheidos Tech** to turn technical know-how into impactful solutions. Delivering projects taught me that execution without reflection falls short, inspiring me to intentionally strengthen the leadership and human skills I had previously sidelined.
 
-Seeking growth, I joined the "Digital Society School" at AUAS, pushing past my comfort zone and gained new insights into the meaning of teamwork, the art of communication, and the continuous pleasure of creation. Because creation is, in many ways, life’s growing light, a redemption from suffering, a discipline of change, and a willingness to be transformed by what we choose to build.
+Seeking growth, I joined the **Digital Society School** at AUAS, pushing past my comfort zone and gained new insights into the meaning of teamwork, the art of communication, and the continuous pleasure of creation. Because creation is, in many ways, life’s growing light, a redemption from suffering, a discipline of change, and a willingness to be transformed by what we choose to build.
   </section>
 </div>
 
