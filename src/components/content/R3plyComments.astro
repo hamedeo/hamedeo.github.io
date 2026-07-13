@@ -251,10 +251,16 @@ const formatDate = (date: string) => {
     margin-bottom: 3.5rem;
   }
 
-  .comment-invitation > h2,
+  .comment-invitation > h2 {
+    margin: 0 0 1.5rem;
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 1.1;
+  }
+
   .comments-heading h2 {
     margin: 0;
-    font-size: clamp(2rem, 5vw, 3rem);
+    font-size: 2rem; /*font-size: clamp(2rem, 5vw, 3rem);*/
     font-weight: 800;
     line-height: 1;
     letter-spacing: -0.03em;

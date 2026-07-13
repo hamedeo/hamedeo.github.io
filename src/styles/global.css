@@ -1036,9 +1036,9 @@ body:has(.social-link:focus-visible) .footer {
 
 /* Top page headers only */
 .page-header .page-title {
-    color: #E30613;
+    color: #d8315b; /*#e30613*/
     /* force across client-side swaps */
-    color: #E30613 !important;
+    color: #d8315b !important;
 }
 
 .page-subtitle {
@@ -1063,7 +1063,7 @@ body:has(.social-link:focus-visible) .footer {
 
 .contact-section-title {
     font-size: 1.7rem;
-    color: #e30613;
+    color: #d8315b;
 }
 
 
@@ -1971,7 +1971,7 @@ html[data-theme="dark"] .cv-resume {
 
     .cv-page .timeline-content h3,
     .cv-page .timeline-content h4 {
-        color: #e30613;
+        color: #d8315b;
     }
 
     .cv-page .cv-timeline-section-title {
