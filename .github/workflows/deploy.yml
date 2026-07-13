@@ -36,8 +36,13 @@ jobs:
       - name: Build with Astro
         run: npm run build
 
+      - name: Verify R3PLY config
+        run: |
+          ls -la dist/.well-known/r3ply
+          test -f dist/.well-known/r3ply/config.toml
+
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v5
         with:
           path: dist
           include-hidden-files: true
