@@ -1,0 +1,45 @@
+{
+  "r3ply": {
+    "config_version": "0.0.1",
+    "server": "r3ply.com",
+    "site": "hamedeo.github.io",
+    "signet": "B5CRSI9AI4_ulHMko1JZyg",
+    "issued": "2026-07-13"
+  },
+  "author": {
+    "pseudonym": "f38730936acac382483e9dd6229fc640938ff69e0fb2e45e81957bcaec3b8041",
+    "token": "NxwlT2b0qzpErQVybfMAigdkOjRN7PtY-76qlAKMIu11G8es2bh9EruAJgYajkR_OCzjbsGcHeDdaGJN-zkPM3V45MFUBsxgy7lDhmSTzgStZDABOKP-RPulRxdXRsWvkWxCaUzSkS_TCiMT8BaUiotRIqsrUI6bfDbQdfHC96ptwtFoF2uFahyYpr-lhCFcB5oiCPkI-x_gRkFTzCDb65XysNraTb-iSFpWQN2weOkAgMtzOhf44QrdlTPb3WYgkCHG11Xr-A1hixAfkgUbDbM5GIBBu2py9p1duBkmq8Jjn1VrwdD32ZOP-f5HqZ6E8VgQArVzl77cRy8JEmKm4MnXH3eskFSF3HNXzEKjdeMS7OtmcPKJp1dFxIdhVLvk_09DqAHzGfqdwBxnqh4ZvyeX6o1vh0-5fImkGrWQ9Ehmtk6TYIH7yxH_dj0zD_YQd22ROTHdPKh2Q0iz"
+  },
+  "comment": {
+    "id": "e77b4006e938499da6352c94533024a4",
+    "ts_rcvd": "1783944168",
+    "subject": {
+      "url": "https://hamedeo.github.io/talks/dss-project-pitch/",
+      "origin": "https://hamedeo.github.io",
+      "protocol": "https:",
+      "hostname": "hamedeo.github.io",
+      "path": "/talks/dss-project-pitch/"
+    },
+    "txt": "This is test for the first line\r",
+    "md": "<p>This is test for the first line</p>\n",
+    "html": "<p>This is test for the first line</p>\n"
+  },
+  "email": {
+    "to": "hamedeo.github.io@r3ply.com",
+    "subject": "/talks/dss-project-pitch/",
+    "date": "2026-07-13T12:02:45-00:00",
+    "text": "This is test for the first line\r",
+    "auth": {
+      "dkim": true,
+      "spf": true,
+      "dmarc": true,
+      "pass": true
+    },
+    "from": {
+      "pseudonym": "f38730936acac382483e9dd6229fc640938ff69e0fb2e45e81957bcaec3b8041",
+      "signet": "B5CRSI9AI4_ulHMko1JZyg",
+      "issued": "2026-07-13",
+      "token": "NxwlT2b0qzpErQVybfMAigdkOjRN7PtY-76qlAKMIu11G8es2bh9EruAJgYajkR_OCzjbsGcHeDdaGJN-zkPM3V45MFUBsxgy7lDhmSTzgStZDABOKP-RPulRxdXRsWvkWxCaUzSkS_TCiMT8BaUiotRIqsrUI6bfDbQdfHC96ptwtFoF2uFahyYpr-lhCFcB5oiCPkI-x_gRkFTzCDb65XysNraTb-iSFpWQN2weOkAgMtzOhf44QrdlTPb3WYgkCHG11Xr-A1hixAfkgUbDbM5GIBBu2py9p1duBkmq8Jjn1VrwdD32ZOP-f5HqZ6E8VgQArVzl77cRy8JEmKm4MnXH3eskFSF3HNXzEKjdeMS7OtmcPKJp1dFxIdhVLvk_09DqAHzGfqdwBxnqh4ZvyeX6o1vh0-5fImkGrWQ9Ehmtk6TYIH7yxH_dj0zD_YQd22ROTHdPKh2Q0iz"
+    }
+  }
+}
