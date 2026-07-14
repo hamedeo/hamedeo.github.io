@@ -51,7 +51,7 @@ experience:
     bullets:
         - |
           Secured stakeholder consensus on a complex problem statement by establishing a unified scope.
-          ◦ Built and tested prototypes using CNC, 3D printing, and modules to validate stakeholder needs.
+          ◦ Built and tested prototypes using CNC, 3D printer, and modules to validate stakeholder needs.
           ◦ Concluded research across available resources to shape project requirements and narrative.
         - "Slashed resource expenditures by 40% by directing sprint planning for on schedule project delivery."
   - institution: "ASML"
