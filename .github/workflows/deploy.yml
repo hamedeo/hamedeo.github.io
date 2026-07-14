@@ -2,7 +2,8 @@ name: Deploy Astro site to GitHub Pages
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
   workflow_dispatch:
 
 permissions:
@@ -17,17 +18,30 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
+      - name: Checkout website
         uses: actions/checkout@v4
 
       - name: Checkout private CV template
         uses: actions/checkout@v4
         with:
-        repository: hamedeo/cv-template-private
-        token: ${{ secrets.CV_TEMPLATE_TOKEN }}
-        path: .private
-        persist-credentials: false
+          repository: hamedeo/cv-template-private
+          token: ${{ secrets.CV_TEMPLATE_TOKEN }}
+          path: .private
+          persist-credentials: false
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Install dependencies
+        run: npm ci
 
       - name: Generate temporary CV DOCX
         env:
@@ -52,54 +66,15 @@ jobs:
             "${{ runner.temp }}/cv/Hamed_Abdollahi-CV.docx"
 
           test -s public/downloads/Hamed_Abdollahi-CV.pdf
-        
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: npm
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-
-            - name: Install dependencies
-        run: npm ci
-
-      - name: Generate CV DOCX
-        run: npm run generate:cv
-
-      - name: Install LibreOffice
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y libreoffice
-
-      - name: Convert CV DOCX to PDF
-        run: |
-          mkdir -p public/downloads
-
-          libreoffice \
-            -env:UserInstallation=file:///tmp/libreoffice-profile \
-            --headless \
-            --convert-to pdf:writer_pdf_Export \
-            --outdir public/downloads \
-            public/downloads/Hamed_Abdollahi-CV.docx
-
-      - name: Verify generated CV files
-        run: |
-          test -s public/downloads/Hamed_Abdollahi-CV.pdf
-          ls -lh public/downloads
 
       - name: Build with Astro
         run: npm run build:site
 
-      - name: Verify CV files in Astro build
+      - name: Verify generated files
         run: |
           test -s dist/downloads/Hamed_Abdollahi-CV.pdf
-
-      - name: Verify R3PLY config
-        run: |
-          ls -la dist/.well-known/r3ply
           test -f dist/.well-known/r3ply/config.toml
+          ls -lh dist/downloads
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v5
@@ -111,8 +86,10 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+
     runs-on: ubuntu-latest
     needs: build
+
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
