@@ -46,6 +46,17 @@ const contactItems = [
         <p class="page-subtitle">{PAGES.cv.subtitle}</p>
     </header>
 
+    <!-- Document Actions -->
+    <div class="cv-document-actions">
+        <a
+            href="downloads/Hamed_Abdollahi-CV.pdf"
+            download
+            class="cv-document-button"
+        >
+            Download PDF
+        </a>
+    </div>
+
     <div class="cv-page container-narrow">
         <header class="section mb-10">
             <!-- <h2 class="section-title border-b border-border pb-2">
@@ -161,3 +172,34 @@ const contactItems = [
         </div>
     </div>
 </BaseLayout>
+
+<style>
+  .cv-document-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+  }
+
+  .cv-document-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.7rem 1rem;
+    border: 1px solid currentColor;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    font-weight: 600;
+    text-decoration: none;
+    transition:
+      background-color 150ms ease,
+      color 150ms ease;
+  }
+
+  .cv-document-button:hover {
+    background: var(--foreground);
+    color: var(--background);
+  }
+</style>

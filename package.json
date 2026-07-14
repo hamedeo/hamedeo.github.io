@@ -5,12 +5,14 @@
   "engines": {
     "node": ">=22.12.0"
   },
-  "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
-  },
+"scripts": {
+  "generate:cv": "node scripts/generate-cv.mjs",
+  "dev": "astro dev",
+  "build:site": "astro build",
+  "build": "npm run generate:cv && npm run build:site",
+  "preview": "astro preview",
+  "astro": "astro"
+},
   "dependencies": {
     "@astrojs/rss": "^4.0.18",
     "@astrojs/sitemap": "^3.7.2",
@@ -28,7 +30,10 @@
   },
   "devDependencies": {
     "@tailwindcss/vite": "4.2.2",
+    "docxtemplater": "^3.69.0",
+    "pizzip": "^3.2.0",
     "tailwindcss": "4.2.2",
-    "vite": "7.3.6"
+    "vite": "7.3.6",
+    "yaml": "^2.9.0"
   }
 }

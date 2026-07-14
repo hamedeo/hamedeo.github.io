@@ -45,7 +45,7 @@ experience:
       #  Tools: Siemens STAR-CCM+, Siemense NX, 
   - institution: "Digital Society School @ AUAS"
     role: "Technical Project Manager"
-    period: "Jan 2026 - July 2026"
+    period: "Jan - July 2026"
     location: "Amsterdam, Netherlands"
     description: "Led a 5+ multidisciplinary team from engineering and marketing background, launching an interactive 3D VR experience under a strict 6-month Agile lifecycle."
     bullets:
@@ -58,16 +58,16 @@ experience:
     role: "Mechanical Engineer"
     period: "Nov 2023 - Sep 2024"
     location: "Veldhoven, Netherlands"
-    description: "Engineered PLM component databases and CAD library standardization for complex vendor component and assemblies within a team of 25+."
+    description: "Engineered PLM databases and CAD library standardization for complex vendor components & assemblies in a team of 25+."
     bullets:
         - |
           Drafted technical documentation to transition supplier designs toward PFAS-free components.
-          ◦  Liaised between internal teams and external vendors during new product introduction.
-          ◦  Established the technical compliance baseline for incoming fluid-power hardware.
+          ◦ Liaised between internal teams and external vendors during new product introduction.
+          ◦ Established the technical compliance baseline for incoming fluid-power hardware.
         - "Cut workload by ~50% by automating PLM workflow and engineering change management."
         - |
           Designed custom mechanical interfaces for core hardware modules to meet functional constraints.
-          ◦  Executed tolerance stackups and generated TPD, TDS, & BOM data using Siemens NX/TC.
+          ◦ Executed tolerance stack-up and generated TPD, TDS, & BOM data using Siemens NX/TC.
   - institution: "AurangZib Gita Co."
     role: "Mechanical Design Engineer"
     period: "Feb 2018 - Aug 2019"
@@ -82,26 +82,27 @@ experience:
     role: "Project Manager"
     period: "2015 - Jun 2018"
     location: "Tehran, IR/London, UK"
-    description: "Delivered over 10 internal and external projects for national and international clients in a team of 8+ developers, designers, and marketing team."
+    description: "Delivered 10+ internal & external projects for national & international clients in a team of 8+ developers and marketing team."
     bullets:
         - "Drove 150% business growth and improved contract renewals by 50% over 12 months."
-        - "Deployed Interactive AI Adveriser Robot (TALEE) across 3 sites, converting pilot tests into contracts."
+        - "Deployed Interactive AI advertiser Robot (TALEE) across 3 sites, converting pilot tests into contracts."
         
 education:
   - degree: "Master of Mechanical Engineering"
     institution: "Polytechnic University of Turin (PoliTo)"
-    period: "2019 - 2023"
+    period: "2023"
     location: "Turin, Italy"
+    # description: ""
     subEntries:
       - title: "Research Intern in Thermo-Fluids Engineering"
         subtitle: "Eindhoven University of Technology (TU/e)"
-        period: "2023"
+        period: "Jan - Dec 2023"
         location: "Eindhoven, Netherlands"
         description: |
           Thesis: Secondary atomization and solidification of metal melt in gas atomization.
           ◦ Developed an OpenFOAM CFD model to simulate gas atomization dynamics.
           ◦ Suggested a new thermal model for solidifying droplets.
-          ◦ Verifying code feasibility and validating results against lab experimental data.
+          ◦ Verified code feasibility and validated results against lab experimental data.
       - title: "Guest Student"
         subtitle: "ENSTA Paris, Polytechnic Institute of Paris"
         period: "Apr - May 2022"
@@ -109,15 +110,15 @@ education:
         description: "Sustainable energy for future transportation systems."
   - degree: "Bachelor of Mechanical Engineering"
     institution: "University of Isfahan (UI)"
-    period: "2013 - 2017"
+    period: "2017"
     location: "Isfahan, IR"
-    thesis: "Thermal optimization by flow-field design of a liquid cooling plate for high temperature PEM fuel cell stack using ANSYS Fluent."
+    description: "Thesis: Thermal optimization and flow-field design of a liquid cooling plate for high temperature PEM fuel cell stack using ANSYS Fluent."
     subEntries:
       - title: "Mechanical Engineer Intern"
         subtitle: "Mobarakeh Steel Co., Energy and Fluid distribution area."
-        period: "May 2017 - Sep 2017"
+        period: "May - Sep 2017"
         location: "Isfahan, IR"
-        description: "Mapped site sensor data to thermodynamic charts to isolate ambient losses, documenting fixes to prevent gas & steam power plants downtime."
+        description: "Mapped site sensor data to thermodynamic charts to isolate ambient losses, documenting fixes to prevent downtime in the gas & steam power plants."
 # languages:
 #   - name: "English"
 #     level: "Business Professional"

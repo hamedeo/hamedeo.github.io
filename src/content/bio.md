@@ -12,7 +12,7 @@ institution: |
 ---
 <meta name="description" content="..." />
 
-I am a **Mechanical Engineer** with background in thermo-fluids engineering and precision hardware. I maintained a complementary profile as a **Project Manager**  as well, because delivering is indeed pleasurable! I enjoy technical  analysis and support mechanical development where design initiates,  validation takes place and solutions seems to be not working. 
+I am a **Mechanical Engineer** with background in thermo-fluids engineering and precision hardware. I maintained a complementary profile as a **Project Manager**  as well, because delivering is indeed pleasurable! I enjoy technical  analysis and support mechanical development where design initiates,  validation takes place and solutions seem to be not working. 
 
 <div class="theme-image">
   <img
