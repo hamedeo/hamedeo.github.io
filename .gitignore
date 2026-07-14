@@ -53,6 +53,6 @@ public/downloads/Hamed_Abdollahi-CV.pdf
 .private/
 .cv-build/
 
-# Generated documents
-public/downloads/*.docx
-public/downloads/*.pdf
+# Generated CV downloads
+public/downloads/*
+!public/downloads/.gitkeep
