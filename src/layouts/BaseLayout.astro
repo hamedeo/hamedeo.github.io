@@ -2,6 +2,7 @@
 import { SITE, THEME_CONFIG, ANALYTICS, THEMES, NAV_LINKS, PAGES } from "../config";
 import { ClientRouter } from "astro:transitions";
 import LeftSidebar from "../components/layout/LeftSidebar.astro";
+import KaleidocycleExperience from "../components/layout/KaleidocycleExperience.astro";
 import RightMain from "../components/layout/RightMain.astro";
 import "@fontsource/inter/400.css";
 import "@fontsource/inter/500.css";
@@ -358,5 +359,6 @@ const currentPath = Astro.url.pathname.replace(/\/+$/, "") || "/";
                 <slot />
             </RightMain>
         </div>
+        <KaleidocycleExperience />
     </body>
 </html>

@@ -35,6 +35,10 @@ const socialLabel = (name: string) => socialLabels[name] ?? name;
                 format="webp"
                 class="sidebar-avatar mb-4 max-lg:mb-0 max-lg:mr-4"
                 loading="eager"
+                data-kaleidocycle-profile-trigger
+                role="button"
+                tabindex="0"
+                aria-label="Open interactive Kaleidocycle"
             />
         )}
         <div class="flex flex-col items-center max-lg:items-center">
@@ -73,6 +77,7 @@ const socialLabel = (name: string) => socialLabels[name] ?? name;
                     </a>
                 ))}
             </div>
+            <div class="kaleidocycle-dock" data-kaleidocycle-dock aria-hidden="true"></div>
         </div>
     </div>
     <div class="contact-overlay" aria-hidden="true">

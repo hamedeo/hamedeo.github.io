@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <script src="https://cdn.jsdelivr.net/npm/p5@2.3.0/lib/p5.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/p5.sound@0.3.0/dist/p5.sound.min.js"></script>
+    <!-- Local minified production runtime: no network request is required. -->
+    <script src="p5.min.js"></script>
     
     
     
@@ -20,5 +20,12 @@
     <script src="js/labels.js"></script>
     <script src="js/renderer.js"></script>
     <script src="js/sketch.js"></script>
+    <script>
+      window.addEventListener("message", function (event) {
+        if (event.origin !== window.location.origin) return;
+        if (event.data?.type !== "kaleidocycle-mode") return;
+        setKaleidocyclePerformanceMode(event.data.mode);
+      });
+    </script>
   </body>
 </html>

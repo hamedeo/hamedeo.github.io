@@ -1,0 +1,212 @@
+---
+// The iframe is created once and repositioned between overlay and dock states.
+// Keeping one DOM node preserves the running p5 instance throughout transitions.
+---
+
+<div
+    class="kaleidocycle-experience"
+    transition:persist="kaleidocycle-experience"
+>
+    <div
+        class="kaleidocycle-backdrop"
+        data-kaleidocycle-backdrop
+        data-state="docked"
+        aria-hidden="true"
+    ></div>
+
+    <div
+        class="kaleidocycle-shell"
+        data-kaleidocycle-shell
+        data-state="docked"
+        role="button"
+        tabindex="0"
+        aria-label="Expand interactive Kaleidocycle"
+        aria-expanded="false"
+    >
+        <iframe
+            class="kaleidocycle-frame"
+            data-kaleidocycle-frame
+            src="/Kaleidocycle/index.html"
+            title="Interactive animated Kaleidocycle"
+            scrolling="no"
+        ></iframe>
+        <button
+            class="kaleidocycle-close"
+            data-kaleidocycle-close
+            type="button"
+            aria-label="Close expanded Kaleidocycle"
+        >
+            <span aria-hidden="true">×</span>
+        </button>
+    </div>
+</div>
+
+<script>
+    function initKaleidocycleExperience() {
+        const shell = document.querySelector<HTMLElement>("[data-kaleidocycle-shell]");
+        const dock = document.querySelector<HTMLElement>("[data-kaleidocycle-dock]");
+        const backdrop = document.querySelector<HTMLElement>("[data-kaleidocycle-backdrop]");
+        const frame = document.querySelector<HTMLIFrameElement>("[data-kaleidocycle-frame]");
+        const closeButton = document.querySelector<HTMLButtonElement>("[data-kaleidocycle-close]");
+
+        if (!shell || !dock || !backdrop || !frame || !closeButton) return;
+        if (shell.dataset.initialized === "true") return;
+
+        window.__kaleidocycleCleanup?.();
+        shell.dataset.initialized = "true";
+
+        type KaleidocycleState = "docked" | "expanded";
+
+        let state: KaleidocycleState = "docked";
+
+        const viewportSquare = () =>
+            Math.max(240, Math.min(window.innerWidth * 0.85, window.innerHeight * 0.85, 900));
+
+        const centredBounds = () => {
+            const size = viewportSquare();
+            return {
+                left: (window.innerWidth - size) / 2,
+                top: (window.innerHeight - size) / 2,
+                width: size,
+                height: size,
+            };
+        };
+
+        const dockedBounds = () => {
+            // The sidebar is replaced during Astro navigation while this
+            // experience persists, so always resolve the current dock node.
+            const currentDock =
+                document.querySelector<HTMLElement>("[data-kaleidocycle-dock]") ?? dock;
+            const rect = currentDock.getBoundingClientRect();
+            return {
+                left: rect.left,
+                top: rect.top,
+                width: rect.width,
+                height: rect.height,
+            };
+        };
+
+        const applyBounds = (bounds: ReturnType<typeof centredBounds>) => {
+            shell.style.left = `${bounds.left}px`;
+            shell.style.top = `${bounds.top}px`;
+            shell.style.width = `${bounds.width}px`;
+            shell.style.height = `${bounds.height}px`;
+        };
+
+        const setPerformanceMode = (mode: KaleidocycleState) => {
+            frame.contentWindow?.postMessage(
+                { type: "kaleidocycle-mode", mode },
+                window.location.origin,
+            );
+        };
+
+        const setState = (nextState: KaleidocycleState) => {
+            state = nextState;
+            shell.dataset.state = state;
+            backdrop.dataset.state = state;
+
+            const isExpanded = state === "expanded";
+            const isDocked = state === "docked";
+
+            shell.setAttribute("aria-expanded", String(!isDocked));
+            shell.setAttribute(
+                "aria-label",
+                isDocked
+                    ? "Expand interactive Kaleidocycle"
+                    : "Interactive Kaleidocycle",
+            );
+            shell.tabIndex = isDocked ? 0 : -1;
+
+            applyBounds(isDocked ? dockedBounds() : centredBounds());
+            setPerformanceMode(state);
+
+            if (isExpanded) {
+                window.requestAnimationFrame(() => closeButton.focus({ preventScroll: true }));
+            }
+        };
+
+        const onShellClick = (event: MouseEvent) => {
+            if (event.target === closeButton || closeButton.contains(event.target as Node)) return;
+            if (state === "docked") setState("expanded");
+        };
+
+        const onShellKeydown = (event: KeyboardEvent) => {
+            if (event.key !== "Enter" && event.key !== " ") return;
+            if (state !== "docked") return;
+            event.preventDefault();
+            setState("expanded");
+        };
+
+        const onProfileClick = (event: MouseEvent) => {
+            if (!(event.target instanceof Element)) return;
+            if (!event.target.closest("[data-kaleidocycle-profile-trigger]")) return;
+            setState("expanded");
+        };
+
+        const onProfileKeydown = (event: KeyboardEvent) => {
+            if (event.key !== "Enter" && event.key !== " ") return;
+            if (!(event.target instanceof Element)) return;
+            if (!event.target.closest("[data-kaleidocycle-profile-trigger]")) return;
+            event.preventDefault();
+            setState("expanded");
+        };
+
+        const onClose = (event: MouseEvent) => {
+            event.stopPropagation();
+            setState("docked");
+            window.requestAnimationFrame(() => shell.focus({ preventScroll: true }));
+        };
+
+        const onBackdropClick = () => {
+            if (state === "expanded") setState("docked");
+        };
+
+        const onKeydown = (event: KeyboardEvent) => {
+            if (event.key === "Escape" && state === "expanded") setState("docked");
+        };
+
+        const onResize = () => {
+            applyBounds(state === "docked" ? dockedBounds() : centredBounds());
+        };
+
+        const onPageLoad = () => onResize();
+
+        const onFrameMessage = (event: MessageEvent) => {
+            if (event.origin !== window.location.origin) return;
+            if (event.source !== frame.contentWindow) return;
+            if (event.data?.type !== "kaleidocycle-ready") return;
+            setPerformanceMode(state);
+        };
+
+        applyBounds(dockedBounds());
+        window.requestAnimationFrame(() => shell.classList.add("is-ready"));
+
+        shell.addEventListener("click", onShellClick);
+        shell.addEventListener("keydown", onShellKeydown);
+        document.addEventListener("click", onProfileClick);
+        document.addEventListener("keydown", onProfileKeydown);
+        closeButton.addEventListener("click", onClose);
+        backdrop.addEventListener("click", onBackdropClick);
+        window.addEventListener("keydown", onKeydown);
+        window.addEventListener("resize", onResize);
+        window.addEventListener("message", onFrameMessage);
+        document.addEventListener("astro:page-load", onPageLoad);
+
+        window.__kaleidocycleCleanup = () => {
+            shell.removeEventListener("click", onShellClick);
+            shell.removeEventListener("keydown", onShellKeydown);
+            document.removeEventListener("click", onProfileClick);
+            document.removeEventListener("keydown", onProfileKeydown);
+            closeButton.removeEventListener("click", onClose);
+            backdrop.removeEventListener("click", onBackdropClick);
+            window.removeEventListener("keydown", onKeydown);
+            window.removeEventListener("resize", onResize);
+            window.removeEventListener("message", onFrameMessage);
+            document.removeEventListener("astro:page-load", onPageLoad);
+            shell.dataset.initialized = "false";
+        };
+    }
+
+    initKaleidocycleExperience();
+    document.addEventListener("astro:page-load", initKaleidocycleExperience);
+</script>

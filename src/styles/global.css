@@ -878,6 +878,15 @@ body:has(.social-link:focus-visible) .navbar {
     border-color: var(--accent);
 }
 
+.sidebar-avatar[data-kaleidocycle-profile-trigger] {
+    cursor: pointer;
+}
+
+.sidebar-avatar[data-kaleidocycle-profile-trigger]:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+}
+
 .sidebar-name {
     font-size: 1.5rem;
     font-weight: 800;
@@ -916,6 +925,150 @@ body:has(.social-link:focus-visible) .navbar {
     text-align: justify;
     text-wrap: pretty;
     hyphens: auto;
+}
+
+/* ===========================================
+   KALEIDOCYCLE INTRO / SIDEBAR EXPERIENCE
+   =========================================== */
+
+/* This placeholder reserves layout space below the contact links. The same
+   fixed iframe shell is positioned over it when docked, preserving one running
+   p5 instance while it moves between the sidebar and the overlay. */
+.kaleidocycle-experience {
+    display: contents;
+}
+
+.kaleidocycle-dock {
+    width: min(100%, 220px);
+    aspect-ratio: 1;
+    margin: 0.75rem auto 0;
+    flex: none;
+}
+
+.kaleidocycle-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 2147483000;
+    background: rgba(0, 0, 0, 0.68);
+    backdrop-filter: blur(4px);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition:
+        opacity 750ms cubic-bezier(0.22, 1, 0.36, 1),
+        visibility 0s linear 750ms;
+}
+
+.kaleidocycle-backdrop[data-state="expanded"] {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0s;
+}
+
+.kaleidocycle-backdrop[data-state="expanded"] {
+    pointer-events: auto;
+}
+
+.kaleidocycle-shell {
+    position: fixed;
+    z-index: 2147483010;
+    overflow: visible;
+    border-radius: 1rem;
+    background: transparent;
+    transition: none;
+    isolation: isolate;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.kaleidocycle-shell.is-ready {
+    transition:
+        left 750ms cubic-bezier(0.22, 1, 0.36, 1),
+        top 750ms cubic-bezier(0.22, 1, 0.36, 1),
+        width 750ms cubic-bezier(0.22, 1, 0.36, 1),
+        height 750ms cubic-bezier(0.22, 1, 0.36, 1),
+        filter 750ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.kaleidocycle-shell[data-state="docked"] {
+    cursor: pointer;
+}
+
+.kaleidocycle-shell[data-state="docked"] {
+    z-index: 5;
+    filter: drop-shadow(0 0.4rem 0.8rem rgba(0, 0, 0, 0.18));
+}
+
+.kaleidocycle-shell[data-state="expanded"] {
+    cursor: default;
+    filter: drop-shadow(0 1.25rem 2.5rem rgba(0, 0, 0, 0.42));
+}
+
+.kaleidocycle-shell:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+}
+
+.kaleidocycle-frame {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    border-radius: inherit;
+    background: transparent;
+}
+
+/* Intro and dock clicks belong to the shell. Pointer input reaches p5 only in
+   the expanded state, which prevents accidental orbiting in the sidebar. */
+.kaleidocycle-shell[data-state="docked"] .kaleidocycle-frame {
+    pointer-events: none;
+}
+
+.kaleidocycle-shell[data-state="expanded"] .kaleidocycle-frame {
+    pointer-events: auto;
+}
+
+.kaleidocycle-close {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    z-index: 2;
+    display: grid;
+    width: 2.75rem;
+    height: 2.75rem;
+    place-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.32);
+    border-radius: 9999px;
+    background: rgba(12, 12, 12, 0.72);
+    color: #ffffff;
+    font: inherit;
+    font-size: 1.8rem;
+    line-height: 1;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: scale(0.8);
+    transition:
+        opacity 180ms ease,
+        transform 180ms ease,
+        visibility 0s linear 180ms;
+}
+
+.kaleidocycle-shell[data-state="expanded"] .kaleidocycle-close {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: scale(1);
+    transition-delay: 0s;
+}
+
+.kaleidocycle-close:hover,
+.kaleidocycle-close:focus-visible {
+    background: rgba(12, 12, 12, 0.92);
+    outline: 2px solid #ffffff;
+    outline-offset: 2px;
 }
 
 /* Navbar */
@@ -1939,6 +2092,17 @@ html[data-theme="dark"] .cv-resume {
    =========================================== */
 
 @media (max-width: 1024px) {
+    .kaleidocycle-dock,
+    .kaleidocycle-shell[data-state="docked"],
+    .kaleidocycle-backdrop[data-state="docked"] {
+        display: none !important;
+    }
+
+    .kaleidocycle-shell[data-state="expanded"],
+    .kaleidocycle-backdrop[data-state="expanded"] {
+        display: block;
+    }
+
     .contact-message {
         --message-x: 50%;
     }
@@ -1961,6 +2125,11 @@ html[data-theme="dark"] .cv-resume {
     .sidebar-avatar {
         width: 112px;
         height: 112px;
+    }
+
+    .kaleidocycle-dock {
+        width: 160px;
+        margin: 0.5rem auto 0;
     }
 
     .main-body {
@@ -2079,6 +2248,11 @@ html[data-theme="dark"] .cv-resume {
     .sidebar-avatar {
         width: 80px;
         height: 80px;
+    }
+
+    .kaleidocycle-dock {
+        width: 128px;
+        margin-top: 0.25rem;
     }
 
     .sidebar-name {
