@@ -52,8 +52,8 @@ async function setup() {
 // view controls, folding time, construction of the six transformed tetrahedra,
 // and dispatch to the surface/label renderers. Content belongs in surfaces.js.
 function draw() {
-  // CUSTOMIZE: canvas background. A single number is a grey value (0-255).
-  background(245);
+  // Clear to transparent pixels each frame so the page beneath can show through.
+  clear();
 
   if (!assetsReady) {
     return;
