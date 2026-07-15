@@ -26,7 +26,7 @@ pnpm-debug.log*
 .idea/
 
 # Kaleidocycle
-Kaleidocycle/
+# Kaleidocycle/
 
 # Default help and contents
 src/content/posts/setting-up-portfolio.md
