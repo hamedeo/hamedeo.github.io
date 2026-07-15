@@ -11,9 +11,14 @@
 // animation is allowed to render. Keep WEBGL and textureMode(NORMAL) because all
 // face positions and UV coordinates assume those modes.
 async function setup() {
+  // Use one physical backing pixel per CSS pixel. This must precede canvas
+  // creation so high-DPI screens do not allocate an oversized WebGL buffer.
+  pixelDensity(1);
+
   // CUSTOMIZE: canvas width and height. Keep WEBGL as the third argument.
   createCanvas(700, 700, WEBGL);
   textureMode(NORMAL);
+  frameRate(targetFrameRate);
 
   // Keep culling off so labels/images do not disappear.
   drawingContext.disable(drawingContext.CULL_FACE);
@@ -46,7 +51,52 @@ async function setup() {
   buildLabelTextures();
 
   assetsReady = true;
+  syncVisibilityRendering();
+
+  // Notify the Astro host only after the canvas, images, and textures are ready.
+  window.parent.postMessage({ type: "kaleidocycle-ready" }, window.location.origin);
 }
+
+// Applies the host state without recreating the canvas. Expanded mode animates
+// at 60 FPS with orbit input; docked mode resets to the fixed isometric camera
+// and renders only one static frame.
+function setKaleidocyclePerformanceMode(mode) {
+  if (mode !== "docked" && mode !== "expanded") {
+    return;
+  }
+
+  performanceMode = mode;
+  targetFrameRate = performanceMode === "docked" ? 30 : 60;
+  orbitControlsEnabled = performanceMode === "expanded";
+  frameRate(targetFrameRate);
+
+  if (performanceMode === "docked") {
+    camera();
+    skipNextAnimationDelta = true;
+    noLoop();
+    redraw();
+  } else if (!document.hidden) {
+    skipNextAnimationDelta = true;
+    loop();
+  }
+}
+
+// Stop issuing WebGL draw calls in a hidden tab. Resetting the next delta keeps
+// elapsed-time animation from jumping forward by the entire hidden duration.
+function syncVisibilityRendering() {
+  if (document.hidden) {
+    noLoop();
+  } else if (performanceMode === "docked") {
+    skipNextAnimationDelta = true;
+    noLoop();
+    redraw();
+  } else {
+    skipNextAnimationDelta = true;
+    loop();
+  }
+}
+
+document.addEventListener("visibilitychange", syncVisibilityRendering);
 
 // p5 calls draw() once per frame. This function owns scene-level concerns only:
 // view controls, folding time, construction of the six transformed tetrahedra,
@@ -59,16 +109,22 @@ function draw() {
     return;
   }
 
-  // CUSTOMIZE: comment out orbitControl() to disable mouse orbit controls.
-  orbitControl();
+  // The Astro host enables interaction only in the expanded overlay. The
+  // standalone Kaleidocycle page still enables orbit controls by default.
+  if (orbitControlsEnabled) {
+    orbitControl();
+  }
   ortho(-420, 420, -420, 420, -1200, 1200);
 
   // CUSTOMIZE: fixed scene/camera-facing rotation. Values are radians.
   rotateX(-0.7);
   rotateZ(0.2);
 
-  // CUSTOMIZE: 0.05 is the animation speed multiplier.
-  let t = frameCount * 0.05;
+  // Elapsed time keeps the apparent folding speed identical at 30 and 60 FPS.
+  let elapsed = skipNextAnimationDelta ? 0 : deltaTime;
+  skipNextAnimationDelta = false;
+  animationTime += elapsed * ANIMATION_SPEED;
+  let t = animationTime;
 
   let base = makeDisphenoid(t);
   let mirrored = [];

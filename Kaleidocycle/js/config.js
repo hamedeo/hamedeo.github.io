@@ -18,6 +18,12 @@ let hingeEdge = sideEdge * hingeRatio;
 // Filled during setup from TWO_PI / N; used to place each mirrored pair.
 let sectorAngle;
 
+// Elapsed-time folding speed in radians per millisecond. 0.003 matches the
+// previous frameCount * 0.05 motion at 60 FPS and remains rate-independent.
+const ANIMATION_SPEED = 0.0003;
+let animationTime = 0;
+let skipNextAnimationDelta = true;
+
 // Default off-screen texture resolution. These affect texture sharpness and
 // memory use, not the physical size of labels on a triangle.
 let LABEL_W = 512;
@@ -64,3 +70,9 @@ let faceImages = {};
 
 // draw() waits for asynchronous image loading and texture creation to finish.
 let assetsReady = false;
+
+// Standalone pages keep orbit interaction enabled. The Astro host disables it
+// while the persistent iframe is docked and enables it only when expanded.
+let orbitControlsEnabled = window.self === window.top;
+let performanceMode = window.self === window.top ? "expanded" : "docked";
+let targetFrameRate = performanceMode === "docked" ? 30 : 60;
