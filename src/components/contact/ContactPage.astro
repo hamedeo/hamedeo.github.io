@@ -28,6 +28,64 @@ const tallyHref =
     </header>
 
     <div class="contact-page container-narrow">
+        <section class="section contact-methods">
+            <h2 class="section-title contact-section-title">Do you want to discuss new projects or opportunities?</h2>
+            <div class="contact-method-list">
+                <ContactMethodRow
+                    title="Email"
+                    description="Share the relevant details, and I will respond shortly."
+                    href={emailHref}
+                    cta="Email me"
+                    icon="Mail"
+                />
+
+                <ContactMethodRow
+                    title="Phone"
+                    description="For matters better discussed directly, please call me."
+                    href={`tel:${phone.replaceAll(" ", "")}`}
+                    cta="Call me"
+                    icon="Phone"
+                    ariaLabel={`Call Hamed Abdollahi at ${phone}`}
+                />
+
+                <ContactMethodRow
+                    title="WhatsApp"
+                    description="Send me a quick message for simple and direct communication."
+                    href={whatsappHref}
+                    cta="Message on WhatsApp"
+                    icon="WhatsApp"
+                    external
+                />
+
+                <ContactMethodRow
+                    title="Calendar"
+                    description="Schedule an online meeting at a convenient time."
+                    href={calHref}
+                    cta="Book a meeting"
+                    icon="Calendar"
+                    external
+                />
+
+                <ContactMethodRow
+                    title="LinkedIn"
+                    description="Connect for professional discussions and potential collaboration."
+                    href={linkedinHref}
+                    cta="Connect on LinkedIn"
+                    icon="LinkedIn"
+                    external
+                />
+
+                <ContactMethodRow
+                    title="GitHub"
+                    description="Explore my projects, technical work, and contributions."
+                    href={githubHref}
+                    cta="View GitHub"
+                    icon="Github"
+                    external
+                />
+            </div>
+        </section>
+
         <section class="contact-hero section">
             <p class="contact-intro">
                 As Nietzsche once said—All truly great thoughts are conceived while walking. Coffee, a walk, or a weekend cycle can be easier than a formal call.
@@ -60,59 +118,6 @@ const tallyHref =
                     title="Embedded contact form"
                     loading="eager"
                     referrerpolicy="no-referrer"
-                />
-            </div>
-        </section>
-
-        <section class="section contact-methods">
-            <h2 class="section-title contact-section-title">Do you want to discuss new projects or opportunities?</h2>
-
-            <div class="contact-method-list">
-                <ContactMethodRow
-                    title="Email / Call"
-                    description="Prefer a direct route? Send me an email or call me if it is easier to explain the context in words."
-                    href={emailHref}
-                    cta="Email me"
-                    secondaryCta="Call me"
-                    secondaryHref={`tel:${phone.replaceAll(" ", "")}`}
-                    icon="Mail"
-                    secondaryAriaLabel={`Call Hamed Abdollahi at ${phone}`}
-                />
-
-                <ContactMethodRow
-                    title="WhatsApp"
-                    description="For quicker coordination, WhatsApp works well. Simple, informal, and practical."
-                    href={whatsappHref}
-                    cta="Message on WhatsApp"
-                    icon="WhatsApp"
-                    external
-                />
-
-                <ContactMethodRow
-                    title="Calendar"
-                    description="If you already know you want a focused conversation, choose a time directly."
-                    href={calHref}
-                    cta="Book a meeting"
-                    icon="Calendar"
-                    external
-                />
-
-                <ContactMethodRow
-                    title="LinkedIn"
-                    description="For professional context, shared interests, or future collaboration, LinkedIn is the best place to connect."
-                    href={linkedinHref}
-                    cta="Connect on LinkedIn"
-                    icon="LinkedIn"
-                    external
-                />
-
-                <ContactMethodRow
-                    title="GitHub"
-                    description="If you want to see what I build, write, and share, GitHub is the easiest place to start."
-                    href={githubHref}
-                    cta="View GitHub"
-                    icon="Github"
-                    external
                 />
             </div>
         </section>
