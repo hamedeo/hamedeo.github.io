@@ -54,7 +54,14 @@ async function setup() {
   syncVisibilityRendering();
 
   // Notify the Astro host only after the canvas, images, and textures are ready.
-  window.parent.postMessage({ type: "kaleidocycle-ready" }, window.location.origin);
+  window.parent.postMessage(
+    {
+      type: "kaleidocycle-ready",
+      maxViewportRatio: EMBEDDED_MAX_VIEWPORT_RATIO,
+      maxSize: EMBEDDED_MAX_SIZE
+    },
+    window.location.origin
+  );
 }
 
 // Applies the host state without recreating the canvas. Expanded mode animates

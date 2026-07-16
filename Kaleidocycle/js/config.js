@@ -76,3 +76,8 @@ let assetsReady = false;
 let orbitControlsEnabled = window.self === window.top;
 let performanceMode = window.self === window.top ? "expanded" : "docked";
 let targetFrameRate = performanceMode === "docked" ? 30 : 60;
+
+// CUSTOMIZE: maximum expanded size inside the Astro website. The host uses
+// 65% of the viewport's shorter dimension, capped at 900 CSS pixels.
+const EMBEDDED_MAX_VIEWPORT_RATIO = 0.65;
+const EMBEDDED_MAX_SIZE = 900;
