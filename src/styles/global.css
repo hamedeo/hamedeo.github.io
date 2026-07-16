@@ -627,14 +627,20 @@ a:hover,
 .contact-row-cta {
     border-radius: 9999px;
     background: color-mix(in srgb, var(--surface) 82%, transparent);
+    border-color: #ffffff;
+    color: #ffffff;
 }
 
 .contact-row-cta-secondary {
     opacity: 0.88;
 }
 
-.contact-row-cta:hover {
+.contact-row-cta:hover,
+.contact-row-cta:focus-visible,
+.contact-row-cta:active {
     transform: translateY(-1px);
+    border-color: var(--accent);
+    color: var(--accent);
 }
 
 .contact-row-cta:focus-visible {
@@ -2237,6 +2243,9 @@ html[data-theme="dark"] .cv-resume {
     .contact-row {
         flex-direction: column;
         align-items: flex-start;
+        width: 100%;
+        height: auto;
+        min-height: 0;
     }
 
     .contact-row-reverse {
@@ -2246,10 +2255,17 @@ html[data-theme="dark"] .cv-resume {
 
     .contact-row-actions {
         width: 100%;
+        margin-top: 0;
+        padding-top: 0.85rem;
     }
 
     .contact-row-cta {
         width: 100%;
+    }
+
+    .contact-row-copy {
+        width: 100%;
+        min-height: 0;
     }
 
     .sidebar {
