@@ -28,8 +28,11 @@
     <script>
       window.addEventListener("message", function (event) {
         if (event.origin !== window.location.origin) return;
-        if (event.data?.type !== "kaleidocycle-mode") return;
-        setKaleidocyclePerformanceMode(event.data.mode);
+        if (event.data?.type === "kaleidocycle-mode") {
+          setKaleidocyclePerformanceMode(event.data.mode);
+        } else if (event.data?.type === "kaleidocycle-toggle-pause") {
+          toggleKaleidocycleAnimation();
+        }
       });
     </script>
   </body>

@@ -1054,7 +1054,7 @@ body:has(.social-link:focus-visible) .navbar {
     place-items: center;
     border: 1px solid rgba(255, 255, 255, 0.32);
     border-radius: 9999px;
-    background: rgba(12, 12, 12, 0.72);
+    background: var(--accent);
     color: #ffffff;
     font: inherit;
     font-size: 1.8rem;
@@ -1069,6 +1069,25 @@ body:has(.social-link:focus-visible) .navbar {
         visibility 0s linear 180ms;
 }
 
+.kaleidocycle-instruction {
+    position: absolute;
+    top: 1.35rem;
+    right: 4.25rem;
+    z-index: 2;
+    color: #ffffff;
+    font-size: clamp(0.72rem, 1.5vw, 0.9rem);
+    font-weight: 650;
+    line-height: 1.2;
+    max-width: calc(100% - 5rem);
+    text-align: right;
+    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.85);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: auto;
+    user-select: none;
+    transition: opacity 180ms ease, visibility 0s linear 180ms;
+}
+
 .kaleidocycle-shell[data-state="expanded"] .kaleidocycle-close {
     opacity: 1;
     visibility: visible;
@@ -1077,9 +1096,15 @@ body:has(.social-link:focus-visible) .navbar {
     transition-delay: 0s;
 }
 
+.kaleidocycle-shell[data-state="expanded"] .kaleidocycle-instruction {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0s;
+}
+
 .kaleidocycle-close:hover,
 .kaleidocycle-close:focus-visible {
-    background: rgba(12, 12, 12, 0.92);
+    background: color-mix(in srgb, var(--accent) 78%, #000000);
     outline: 2px solid #ffffff;
     outline-offset: 2px;
 }

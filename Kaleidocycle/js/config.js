@@ -23,6 +23,7 @@ let sectorAngle;
 const ANIMATION_SPEED = 0.0003;
 let animationTime = 0;
 let skipNextAnimationDelta = true;
+let animationPaused = false;
 
 // Default off-screen texture resolution. These affect texture sharpness and
 // memory use, not the physical size of labels on a triangle.

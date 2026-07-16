@@ -30,6 +30,9 @@
             title="Interactive animated Kaleidocycle"
             scrolling="no"
         ></iframe>
+        <span class="kaleidocycle-instruction">
+            Click or press Space to pause
+        </span>
         <button
             class="kaleidocycle-close"
             data-kaleidocycle-close
@@ -168,7 +171,31 @@
         };
 
         const onKeydown = (event: KeyboardEvent) => {
-            if (event.key === "Escape" && state === "expanded") setState("docked");
+            if (state !== "expanded") return;
+
+            if (event.key === "Escape") {
+                setState("docked");
+                return;
+            }
+
+            if (event.code !== "Space" || event.repeat) return;
+
+            const target = event.target;
+            const isEditable =
+                target instanceof Element &&
+                Boolean(
+                    target.closest(
+                        "input, textarea, select, [contenteditable='true']",
+                    ),
+                );
+
+            if (isEditable) return;
+
+            event.preventDefault();
+            frame.contentWindow?.postMessage(
+                { type: "kaleidocycle-toggle-pause" },
+                window.location.origin,
+            );
         };
 
         const onResize = () => {

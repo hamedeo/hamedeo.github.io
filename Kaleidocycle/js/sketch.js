@@ -16,9 +16,10 @@ async function setup() {
   pixelDensity(1);
 
   // CUSTOMIZE: canvas width and height. Keep WEBGL as the third argument.
-  createCanvas(700, 700, WEBGL);
+  let canvas = createCanvas(700, 700, WEBGL);
   textureMode(NORMAL);
   frameRate(targetFrameRate);
+  installPauseControls(canvas.elt);
 
   // Keep culling off so labels/images do not disappear.
   drawingContext.disable(drawingContext.CULL_FACE);
@@ -83,10 +84,98 @@ function setKaleidocyclePerformanceMode(mode) {
     noLoop();
     redraw();
   } else if (!document.hidden) {
+    animationPaused = false;
     skipNextAnimationDelta = true;
     loop();
   }
 }
+
+// Pause only folding-time progression, not the draw loop. This keeps
+// orbitControl() responsive while the geometry remains frozen in place.
+function toggleKaleidocycleAnimation() {
+  if (performanceMode !== "expanded") {
+    return;
+  }
+
+  animationPaused = !animationPaused;
+}
+
+// A short pointer gesture is a pause click; movement beyond seven pixels is a
+// camera drag and must remain exclusively available to orbitControl().
+function installPauseControls(canvasElement) {
+  const clickThreshold = 7;
+  const clickThresholdSquared = clickThreshold * clickThreshold;
+  let activePointerId = null;
+  let pointerStartX = 0;
+  let pointerStartY = 0;
+  let pointerMoved = false;
+
+  canvasElement.addEventListener("pointerdown", function (event) {
+    if (performanceMode !== "expanded") return;
+
+    activePointerId = event.pointerId;
+    pointerStartX = event.clientX;
+    pointerStartY = event.clientY;
+    pointerMoved = false;
+  });
+
+  window.addEventListener("pointermove", function (event) {
+    if (event.pointerId !== activePointerId) return;
+
+    let dx = event.clientX - pointerStartX;
+    let dy = event.clientY - pointerStartY;
+
+    if (dx * dx + dy * dy > clickThresholdSquared) {
+      pointerMoved = true;
+    }
+  });
+
+  window.addEventListener("pointerup", function (event) {
+    if (event.pointerId !== activePointerId) return;
+
+    let bounds = canvasElement.getBoundingClientRect();
+    let endedOnCanvas =
+      event.clientX >= bounds.left &&
+      event.clientX <= bounds.right &&
+      event.clientY >= bounds.top &&
+      event.clientY <= bounds.bottom;
+
+    if (
+      performanceMode === "expanded" &&
+      endedOnCanvas &&
+      !pointerMoved
+    ) {
+      toggleKaleidocycleAnimation();
+    }
+
+    activePointerId = null;
+  });
+
+  window.addEventListener("pointercancel", function (event) {
+    if (event.pointerId === activePointerId) {
+      activePointerId = null;
+    }
+  });
+}
+
+document.addEventListener("keydown", function (event) {
+  if (performanceMode !== "expanded") return;
+  if (event.code !== "Space" || event.repeat) return;
+
+  let target = event.target;
+  let isEditable =
+    target instanceof Element &&
+    Boolean(
+      target.closest(
+        "input, textarea, select, [contenteditable='true']"
+      )
+    );
+
+  if (isEditable) return;
+
+  event.preventDefault();
+  toggleKaleidocycleAnimation();
+});
 
 // Stop issuing WebGL draw calls in a hidden tab. Resetting the next delta keeps
 // elapsed-time animation from jumping forward by the entire hidden duration.
@@ -130,7 +219,9 @@ function draw() {
   // Elapsed time keeps the apparent folding speed identical at 30 and 60 FPS.
   let elapsed = skipNextAnimationDelta ? 0 : deltaTime;
   skipNextAnimationDelta = false;
-  animationTime += elapsed * ANIMATION_SPEED;
+  if (!animationPaused) {
+    animationTime += elapsed * ANIMATION_SPEED;
+  }
   let t = animationTime;
 
   let base = makeDisphenoid(t);
