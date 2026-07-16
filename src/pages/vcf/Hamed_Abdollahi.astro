@@ -1,0 +1,87 @@
+---
+const title = "Downloading Hamed Abdollahi’s contact card";
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="robots" content="noindex" />
+		<title>{title}</title>
+	</head>
+	<body>
+		<main>
+			<h1>{title}</h1>
+			<p id="status">Preparing the contact card…</p>
+			<p>
+				<a id="download-link" href="/vcf/Hamed_Abdollahi.vcf">
+					Download the contact card
+				</a>
+			</p>
+		</main>
+
+		<script>
+			const TIME_ZONE = "Europe/Amsterdam";
+			const VCARD_URL = "/vcf/Hamed_Abdollahi.vcf";
+			const FILE_NAME = "Hamed_Abdollahi.vcf";
+			const MEETING_NOTE_PATTERN = /When we met:[^\\\r\n]*/;
+
+			function formatMeetingTime(date: Date) {
+				const parts = new Intl.DateTimeFormat("en-CA", {
+					timeZone: TIME_ZONE,
+					year: "numeric",
+					month: "2-digit",
+					day: "2-digit",
+					hour: "2-digit",
+					minute: "2-digit",
+					second: "2-digit",
+					hourCycle: "h23",
+				}).formatToParts(date);
+
+				const value = (type: Intl.DateTimeFormatPartTypes) =>
+					parts.find((part) => part.type === type)?.value ?? "";
+
+				return `${value("year")}-${value("month")}-${value("day")} ${value("hour")}:${value("minute")}:${value("second")} (${TIME_ZONE})`;
+			}
+
+			async function downloadVcard() {
+				const status = document.querySelector<HTMLParagraphElement>("#status");
+				const link =
+					document.querySelector<HTMLAnchorElement>("#download-link");
+
+				try {
+					const response = await fetch(VCARD_URL, { cache: "no-store" });
+					if (!response.ok) throw new Error("The contact card could not be loaded.");
+
+					const meetingTime = formatMeetingTime(new Date());
+					const vcard = (await response.text()).replace(
+						MEETING_NOTE_PATTERN,
+						`When we met: ${meetingTime}`,
+					);
+					const blobUrl = URL.createObjectURL(
+						new Blob([vcard], { type: "text/vcard;charset=utf-8" }),
+					);
+
+					if (link) {
+						link.href = blobUrl;
+						link.download = FILE_NAME;
+						link.click();
+					}
+					if (status) status.textContent = "Your contact card is ready.";
+
+					window.setTimeout(() => URL.revokeObjectURL(blobUrl), 60_000);
+				} catch (error) {
+					if (status) {
+						status.textContent =
+							error instanceof Error
+								? error.message
+								: "The contact card could not be prepared.";
+					}
+				}
+			}
+
+			void downloadVcard();
+		</script>
+	</body>
+</html>

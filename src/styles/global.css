@@ -564,6 +564,12 @@ a:hover,
     align-items: stretch;
 }
 
+.contact-main-cta {
+    display: flex;
+    width: 100%;
+    margin: 0 0 1rem;
+}
+
 .contact-row {
     display: flex;
     gap: 1rem;
@@ -625,10 +631,14 @@ a:hover,
 }
 
 .contact-row-cta {
-    border-radius: 9999px;
+    border-radius: 0.25rem;
     background: color-mix(in srgb, var(--surface) 82%, transparent);
     border-color: #ffffff;
     color: #ffffff;
+}
+
+.social-link-save-contact {
+    display: none;
 }
 
 .contact-row-cta-secondary {
@@ -673,6 +683,62 @@ a:hover,
     animation: contact-fluid 7s ease-in-out infinite paused;
 }
 
+.touch-device .contact-overlay {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    animation: none !important;
+    backdrop-filter: none !important;
+    background: transparent !important;
+}
+
+.touch-device body:has(.social-link:hover) .navbar,
+.touch-device body:has(.social-link:focus-visible) .navbar {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.touch-device body:has(.social-link:hover) .main-body,
+.touch-device body:has(.social-link:focus-visible) .main-body,
+.touch-device body:has(.social-link:hover) .footer,
+.touch-device body:has(.social-link:focus-visible) .footer {
+    opacity: 1 !important;
+    visibility: visible;
+    animation: initial !important;
+}
+
+.touch-device .sidebar:has(.social-link:hover) .sidebar-avatar,
+.touch-device .sidebar:has(.social-link:focus-visible) .sidebar-avatar {
+    border-color: var(--border);
+    box-shadow: none;
+}
+
+.touch-device .sidebar:has(.social-link:hover) .sidebar-name,
+.touch-device .sidebar:has(.social-link:focus-visible) .sidebar-name {
+    color: var(--foreground);
+    text-shadow: none;
+}
+
+.touch-device .social-link:hover,
+.touch-device .social-link:focus-visible,
+.touch-device .sidebar:has(.social-link:hover) .social-link,
+.touch-device .sidebar:has(.social-link:focus-visible) .social-link {
+    z-index: auto;
+    color: inherit;
+    transform: none;
+}
+
+.touch-device .social-link:hover svg,
+.touch-device .social-link:focus-visible svg,
+.touch-device .sidebar:has(.social-link:hover) .social-link svg,
+.touch-device .sidebar:has(.social-link:focus-visible) .social-link svg {
+    opacity: 0.75;
+    color: currentColor;
+    stroke: currentColor;
+    filter: none;
+}
+
 .sidebar:has(.social-link[data-contact="Github"]:hover),
 .sidebar:has(.social-link[data-contact="Github"]:focus-visible) {
     --contact-a: #040404;
@@ -710,6 +776,14 @@ a:hover,
     --contact-a: #000000;
     --contact-b: #0f0f0f;
     --contact-c: #1c1c1c;
+    --contact-glow: rgba(255, 255, 255, 0.12);
+}
+
+.sidebar:has(.social-link[data-contact="SaveContact"]:hover),
+.sidebar:has(.social-link[data-contact="SaveContact"]:focus-visible) {
+    --contact-a: #050505;
+    --contact-b: #111111;
+    --contact-c: #1a1a1a;
     --contact-glow: rgba(255, 255, 255, 0.12);
 }
 
@@ -771,7 +845,9 @@ a:hover,
 .sidebar:has(.social-link[data-contact="WhatsApp"]:hover) .contact-message[data-contact="WhatsApp"],
 .sidebar:has(.social-link[data-contact="WhatsApp"]:focus-visible) .contact-message[data-contact="WhatsApp"],
 .sidebar:has(.social-link[data-contact="Cal"]:hover) .contact-message[data-contact="Cal"],
-.sidebar:has(.social-link[data-contact="Cal"]:focus-visible) .contact-message[data-contact="Cal"] {
+.sidebar:has(.social-link[data-contact="Cal"]:focus-visible) .contact-message[data-contact="Cal"],
+.sidebar:has(.social-link[data-contact="SaveContact"]:hover) .contact-message[data-contact="SaveContact"],
+.sidebar:has(.social-link[data-contact="SaveContact"]:focus-visible) .contact-message[data-contact="SaveContact"] {
     opacity: 1;
     transform: translate(-50%, -50%) scale(1);
 }
@@ -2131,6 +2207,72 @@ html[data-theme="dark"] .cv-resume {
    =========================================== */
 
 @media (max-width: 1024px) {
+    .contact-overlay {
+        display: none !important;
+        opacity: 0 !important;
+        animation: none !important;
+        backdrop-filter: none;
+    }
+
+    body:has(.social-link:hover) .navbar,
+    body:has(.social-link:focus-visible) .navbar {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
+
+    body:has(.social-link:hover) .main-body,
+    body:has(.social-link:focus-visible) .main-body,
+    body:has(.social-link:hover) .footer,
+    body:has(.social-link:focus-visible) .footer {
+        opacity: 1 !important;
+        visibility: visible;
+        animation: initial !important;
+    }
+
+    .sidebar:has(.social-link:hover) .sidebar-avatar,
+    .sidebar:has(.social-link:focus-visible) .sidebar-avatar {
+        border-color: var(--border);
+        box-shadow: none;
+    }
+
+    .sidebar:has(.social-link:hover) .sidebar-name,
+    .sidebar:has(.social-link:focus-visible) .sidebar-name {
+        color: var(--foreground);
+        text-shadow: none;
+    }
+
+    .social-link:hover,
+    .social-link:focus-visible {
+        z-index: auto;
+        color: inherit;
+        transform: none;
+    }
+
+    .sidebar:has(.social-link:hover) .social-link,
+    .sidebar:has(.social-link:focus-visible) .social-link {
+        z-index: auto;
+        color: inherit;
+    }
+
+    .sidebar:has(.social-link:hover) .social-link svg,
+    .sidebar:has(.social-link:focus-visible) .social-link svg,
+    .sidebar:has(.social-link:hover) .social-link:hover svg,
+    .sidebar:has(.social-link:focus-visible) .social-link:focus-visible svg {
+        opacity: 0.75;
+        color: currentColor;
+        stroke: currentColor;
+        filter: none;
+    }
+
+    .social-link-github {
+        display: none;
+    }
+
+    .social-link-save-contact {
+        display: inline-flex;
+    }
+
     .kaleidocycle-dock,
     .kaleidocycle-shell[data-state="docked"],
     .kaleidocycle-backdrop[data-state="docked"] {
@@ -2178,6 +2320,66 @@ html[data-theme="dark"] .cv-resume {
     .main-content {
         width: 100%;
         flex: none;
+    }
+}
+
+@media (hover: none), (pointer: coarse) {
+    .contact-overlay {
+        display: none !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        animation: none !important;
+        backdrop-filter: none !important;
+        background: transparent !important;
+    }
+
+    body:has(.social-link:hover) .navbar,
+    body:has(.social-link:focus-visible) .navbar {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
+
+    body:has(.social-link:hover) .main-body,
+    body:has(.social-link:focus-visible) .main-body,
+    body:has(.social-link:hover) .footer,
+    body:has(.social-link:focus-visible) .footer {
+        opacity: 1 !important;
+        visibility: visible;
+        animation: initial !important;
+    }
+
+    .sidebar:has(.social-link:hover) .sidebar-avatar,
+    .sidebar:has(.social-link:focus-visible) .sidebar-avatar {
+        border-color: var(--border);
+        box-shadow: none;
+    }
+
+    .sidebar:has(.social-link:hover) .sidebar-name,
+    .sidebar:has(.social-link:focus-visible) .sidebar-name {
+        color: var(--foreground);
+        text-shadow: none;
+    }
+
+    .social-link:hover,
+    .social-link:focus-visible,
+    .sidebar:has(.social-link:hover) .social-link,
+    .sidebar:has(.social-link:focus-visible) .social-link {
+        z-index: auto;
+        color: inherit;
+        transform: none;
+    }
+
+    .social-link:hover svg,
+    .social-link:focus-visible svg,
+    .sidebar:has(.social-link:hover) .social-link svg,
+    .sidebar:has(.social-link:focus-visible) .social-link svg,
+    .sidebar:has(.social-link:hover) .social-link:hover svg,
+    .sidebar:has(.social-link:focus-visible) .social-link:focus-visible svg {
+        opacity: 0.75;
+        color: currentColor;
+        stroke: currentColor;
+        filter: none;
     }
 }
 
