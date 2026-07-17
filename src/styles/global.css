@@ -536,25 +536,35 @@ a:hover,
     --meeting-glow: #60a5fa;
 }
 
-.contact-form-embed {
-    margin-top: 1rem;
-    min-height: 46rem;
-    padding: 1.5rem;
-    border: 1px solid color-mix(in srgb, var(--border) 88%, transparent);
-    border-radius: 1rem;
+.contact-form-embed,
+.meeting-form-embed {
+    width: 100%;
+    min-width: 0;
     overflow: hidden;
-    background: #000000;
-    box-shadow:
-        inset 0 1px 0 color-mix(in srgb, var(--foreground) 6%, transparent),
-        0 18px 40px rgba(0, 0, 0, 0.08);
 }
 
-.contact-form-embed iframe {
+.contact-form-embed {
+    margin: 0 0 1rem;
+}
+
+.meeting-form-embed {
+    margin-top: 1rem;
+}
+
+.contact-form-embed iframe,
+.meeting-form-embed iframe {
     display: block;
     width: 100%;
-    min-height: calc(46rem - 3rem);
+    max-width: 100%;
     border: 0;
-    background: transparent;
+}
+
+html[data-theme="light"] .tally-embed {
+    filter: invert(1) hue-rotate(180deg);
+}
+
+html[data-theme="dark"] .tally-embed {
+    filter: none;
 }
 
 .contact-method-list {
@@ -655,6 +665,11 @@ a:hover,
 
 .contact-row-cta:focus-visible {
     outline-offset: 3px;
+}
+
+html[data-theme="light"] .contact-page .contact-row-cta {
+    border-color: #000000;
+    color: #000000;
 }
 
 
@@ -2448,19 +2463,6 @@ html[data-theme="dark"] .cv-resume {
     .meeting-option-description {
         opacity: 0.96;
         transform: translateY(0);
-    }
-
-    .contact-form-embed,
-    .contact-form-embed iframe {
-        min-height: 38rem;
-    }
-
-    .contact-form-embed {
-        padding: 1rem;
-    }
-
-    .contact-form-embed iframe {
-        min-height: calc(38rem - 2rem);
     }
 
     .contact-main-cta {

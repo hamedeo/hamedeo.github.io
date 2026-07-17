@@ -17,11 +17,39 @@ const linkedinHref = socialByName.LinkedIn?.href ?? "https://www.linkedin.com/in
 const whatsappHref = socialByName.WhatsApp?.href ?? "https://api.whatsapp.com/send/?phone=31622410181";
 const calHref = socialByName.Cal?.href ?? "https://cal.eu/hamedeo";
 const githubHref = socialByName.Github?.href ?? "https://github.com/hamedeo";
-const tallyHref =
-    "https://tally.so/embed/b5GyQ1?alignLeft=1&transparentBackground=1";
+const contactDetailsTallyHref =
+    "https://tally.so/embed/QKWbMG?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1";
+const meetingTimeTallyHref =
+    "https://tally.so/embed/b5GyQ1?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1";
 ---
 
 <BaseLayout title={page.title}>
+    <Fragment slot="head">
+        <script async src="https://tally.so/widgets/embed.js" onload="window.__loadTallyEmbeds?.()"></script>
+        <script is:inline>
+            const loadTallyEmbeds = () => {
+                if (typeof window.Tally?.loadEmbeds === "function") {
+                    window.Tally.loadEmbeds();
+                    return;
+                }
+
+                document
+                    .querySelectorAll('iframe[data-tally-src]:not([src])')
+                    .forEach((iframe) => {
+                        iframe.src = iframe.dataset.tallySrc;
+                    });
+            };
+
+            if (window.__loadTallyEmbeds) {
+                document.removeEventListener("astro:page-load", window.__loadTallyEmbeds);
+            }
+
+            window.__loadTallyEmbeds = loadTallyEmbeds;
+            document.addEventListener("astro:page-load", loadTallyEmbeds);
+            window.addEventListener("load", loadTallyEmbeds, { once: true });
+        </script>
+    </Fragment>
+
     <header class="page-header">
         <h1 class="page-title">{page.title}</h1>
         <p class="page-subtitle">{page.subtitle}</p>
@@ -37,6 +65,19 @@ const tallyHref =
             >
                 Virtual Business Card
             </button>
+            <section class="contact-form-embed" aria-label="Share your contact details">
+                <iframe
+                    class="tally-embed"
+                    data-tally-src={contactDetailsTallyHref}
+                    loading="lazy"
+                    width="100%"
+                    height="532"
+                    frameborder="0"
+                    marginheight="0"
+                    marginwidth="0"
+                    title="Share your contact details"
+                ></iframe>
+            </section>
             <div class="contact-method-list">
                 <ContactMethodRow
                     title="Email"
@@ -119,14 +160,19 @@ const tallyHref =
                 />
             </div>
  -->
-            <div class="contact-form-embed" role="region" aria-label="Embedded contact form">
+            <section class="meeting-form-embed" aria-label="Suggest a time to meet">
                 <iframe
-                    src={tallyHref}
-                    title="Embedded contact form"
-                    loading="eager"
-                    referrerpolicy="no-referrer"
-                />
-            </div>
+                    class="tally-embed"
+                    data-tally-src={meetingTimeTallyHref}
+                    loading="lazy"
+                    width="100%"
+                    height="508"
+                    frameborder="0"
+                    marginheight="0"
+                    marginwidth="0"
+                    title="Suggest a time to meet"
+                ></iframe>
+            </section>
         </section>
     </div>
 </BaseLayout>
