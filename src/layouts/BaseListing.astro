@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import BaseItemCard from "../components/ui/BaseItemCard.astro";
+import UnderConstruction from "../components/UnderConstruction.astro";
 import { getListingItem } from "../utils/adapters";
 
 interface Props {
@@ -25,7 +26,7 @@ const sortedEntries = entries.sort((a: any, b: any) => {
 });
 ---
 
-<BaseLayout title={title} description={subtitle}>
+<BaseLayout title={title} description={subtitle} noindex={sortedEntries.length === 0}>
     {(title || subtitle) && (
         <header class="page-header">
             {title && <h1 class="page-title">{title}</h1>}
@@ -33,12 +34,16 @@ const sortedEntries = entries.sort((a: any, b: any) => {
         </header>
     )}
 
-    <section class="item-list">
-        {sortedEntries.map((entry: any) => {
-            const item = getListingItem(entry);
-            return <BaseItemCard {...item} href={`/${collection}/${entry.id}`} />;
-        })}
-    </section>
+    {sortedEntries.length > 0 ? (
+        <section class="item-list">
+            {sortedEntries.map((entry: any) => {
+                const item = getListingItem(entry);
+                return <BaseItemCard {...item} href={`/${collection}/${entry.id}`} />;
+            })}
+        </section>
+    ) : (
+        <UnderConstruction />
+    )}
 
     {page && page.lastPage > 1 && (
         <nav class="pagination">

@@ -13,6 +13,7 @@ const publications = defineCollection({
         image: z.string().optional(),
         description: z.string().optional(),
         tags: z.array(z.string()).optional(),
+        hidden: z.boolean().optional(),
     }),
 });
 
@@ -43,6 +44,7 @@ const posts = defineCollection({
         tags: z.array(z.string()).optional(),
         external_url: z.string().optional(),
         image: z.string().optional(),
+        hidden: z.boolean().optional(),
         image_width: z.string().optional(),
         image_height: z.string().optional(),
         image_position: z.enum(["left", "center", "right"]).optional(),
@@ -79,6 +81,7 @@ const projects = defineCollection({
         tags: z.array(z.string()).optional(),
         external_url: z.string().optional(),
         image: z.string().optional(),
+        hidden: z.boolean().optional(),
     }),
 });
 

@@ -7,7 +7,8 @@ export async function getAllTags() {
     const posts = await getCollection('posts');
     const teaching = await getCollection('teaching');
 
-    const allEntries = [...publications, ...talks, ...projects, ...posts, ...teaching];
+    const allEntries = [...publications, ...talks, ...projects, ...posts, ...teaching]
+        .filter(entry => (entry.data as any).hidden !== true);
     const tags: Record<string, number> = {};
 
     allEntries.forEach(entry => {
@@ -35,6 +36,7 @@ export async function getContentByTag(tag: string) {
     const teaching = await getCollection('teaching');
 
     const filterFn = (entry: any) => {
+        if (entry.data.hidden === true) return false;
         const entryTags = (entry.data as any).tags || [];
         return entryTags.some((t: string) => t.toLowerCase() === normalizedSearchTag);
     };

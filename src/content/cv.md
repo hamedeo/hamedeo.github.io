@@ -75,8 +75,8 @@ experience:
     description: "Designed a high-pressure oxygen storage vessel for an electric arc furnace steel manufacturing plant."
     bullets:
         - "Secured structural designs for a 40-bar vessel shell, using PV Elite calculations per ASME VIII-1."
-        - "Validated a 10K+ cycle fatigue lifespan by conducting ASME VIII-2 FEM analysis via ANSYS Mechanical."
-        - "Cutting pressure drops by 12% via reverse-engineering and running ANSYS Fluent CFD on inlet manifolds."
+        - "Validated high-cycle fatigue lifespan by conducting ASME VIII-2 FEM analysis via ANSYS Mechanical."
+        - "Cutting pressure drops by 12% via reverse-engineering & using ANSYS Fluent CFD on inlet manifolds."
         - "Prevent downtime by chacking vendor drawings against P&IDs to fix nozzle mismatches."
   - institution: "ITResearches"
     role: "Technical Project Manager"

@@ -25,7 +25,8 @@ interface Props {
     description?: string;
     ogImage?: string;
     ogType?: "website" | "article";
-    robots?: "index, follow" | "noindex, nofollow";
+    robots?: "index, follow" | "noindex, follow" | "noindex, nofollow";
+    noindex?: boolean;
 }
 
 const { 
@@ -33,8 +34,11 @@ const {
     description = SITE.desc, 
     ogImage = SITE.ogImage,
     ogType = "website",
-    robots = "index, follow"
+    robots = "index, follow",
+    noindex = false,
 } = Astro.props;
+
+const robotsContent = noindex ? "noindex, follow" : robots;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site || SITE.website);
 
@@ -82,7 +86,7 @@ const currentPath = Astro.url.pathname.replace(/\/+$/, "") || "/";
         <meta name="generator" content={Astro.generator} />
 
         <!-- Robots / Indexing -->
-        <meta name="robots" content={robots} />
+        <meta name="robots" content={robotsContent} />
 
         <style
             is:global

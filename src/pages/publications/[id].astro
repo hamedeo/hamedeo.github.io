@@ -9,7 +9,9 @@ if (PAGES.publications.isActive === false) {
 
 export async function getStaticPaths() {
     if (PAGES.publications.isActive === false) return [];
-    const publications = await getCollection("publications");
+    const publications = (await getCollection("publications")).filter(
+        (publication: any) => publication.data.hidden !== true,
+    );
     return publications.map((pub: any) => ({
         params: { id: pub.id },
         props: { pub },

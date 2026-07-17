@@ -9,10 +9,26 @@ if (PAGES.blog.isActive === false) {
 
 export async function getStaticPaths({ paginate }: any) {
     if (PAGES.blog.isActive === false) return [];
-    const posts = await getCollection("posts");
+    const posts = (await getCollection("posts")).filter(
+        (post: any) => post.data.hidden !== true,
+    );
     const sortedPosts = posts.sort(
         (a: any, b: any) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime(),
     );
+
+    if (sortedPosts.length === 0) {
+        return [{
+            params: { page: undefined },
+            props: {
+                page: {
+                    data: [],
+                    currentPage: 1,
+                    lastPage: 1,
+                    url: { prev: undefined, next: undefined },
+                },
+            },
+        }];
+    }
 
     return paginate(sortedPosts, { pageSize: SITE.postPerPage });
 }
