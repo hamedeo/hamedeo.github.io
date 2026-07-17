@@ -15,9 +15,9 @@ const workplace = institutionLines[0];
 const location = institutionLines.slice(1).join(", ");
 const socialLabels: Record<string, string> = {
     Github: "Explore my GitHub",
-    Mail: "Email me directly",
+    Mail: "Email directly",
     LinkedIn: "Connect on LinkedIn",
-    WhatsApp: "Contact me via WhatsApp",
+    WhatsApp: "Contact via WhatsApp",
     Cal: "Arrange a meeting",
 };
 const socialLabel = (name: string) => socialLabels[name] ?? name;
