@@ -1,5 +1,5 @@
 ---
-import { SITE, SOCIALS, SOCIAL_ICONS } from "../../config";
+import { SOCIALS, SOCIAL_ICONS } from "../../config";
 import { getCollection } from "astro:content";
 import Icon from "../ui/Icon.astro";
 import { Image } from 'astro:assets';
@@ -80,7 +80,7 @@ const socialLabel = (name: string) => socialLabels[name] ?? name;
                             <button
                                 type="button"
                                 aria-label="Save Hamed Abdollahi’s contact"
-                                title="Save Contact"
+                                title="Save Contact Information"
                                 data-save-contact
                                 data-contact="SaveContact"
                                 class="social-link social-link-save-contact"
@@ -113,12 +113,18 @@ const socialLabel = (name: string) => socialLabels[name] ?? name;
             </span>
         ))}
         <span class="contact-message" data-contact="SaveContact">
-            Save Contact
+            Save Contact Information
         </span>
     </div>
 </aside>
 
 <script>
+    type SidebarWindow = Window &
+        typeof globalThis & {
+            __saveContactHandler?: (event: MouseEvent) => void;
+        };
+
+    const sidebarWindow = window as SidebarWindow;
     const VCARD_URL = "/vcf/Hamed_Abdollahi.vcf";
     const VCARD_FILE_NAME = "Hamed_Abdollahi.vcf";
     const VCARD_TIME_ZONE = "Europe/Amsterdam";
@@ -162,11 +168,11 @@ const socialLabel = (name: string) => socialLabels[name] ?? name;
         return `${value("year")}-${value("month")}-${value("day")} ${value("hour")}:${value("minute")}:${value("second")} (${VCARD_TIME_ZONE})`;
     }
 
-    if (window.__saveContactHandler) {
-        document.removeEventListener("click", window.__saveContactHandler);
+    if (sidebarWindow.__saveContactHandler) {
+        document.removeEventListener("click", sidebarWindow.__saveContactHandler);
     }
 
-    window.__saveContactHandler = async (event: MouseEvent) => {
+    sidebarWindow.__saveContactHandler = async (event: MouseEvent) => {
         const target = event.target;
         if (!(target instanceof Element)) return;
 
@@ -205,5 +211,5 @@ const socialLabel = (name: string) => socialLabels[name] ?? name;
         }
     };
 
-    document.addEventListener("click", window.__saveContactHandler);
+    document.addEventListener("click", sidebarWindow.__saveContactHandler);
 </script>
