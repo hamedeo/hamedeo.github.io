@@ -39,13 +39,18 @@ jobs:
           node-version: 22
           cache: npm
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-
       - name: Install dependencies
         run: npm ci
 
+      - name: Restore generated CV
+        id: cv-cache
+        uses: actions/cache@v5
+        with:
+          path: public/downloads/Hamed_Abdollahi-CV.pdf
+          key: ${{ format('cv-pdf-{0}-{1}', runner.os, hashFiles('src/content/cv.md', 'src/content/bio.md', 'src/pages/cv/**', 'src/components/ui/Timeline.astro', 'src/layouts/BaseLayout.astro', 'src/content.config.ts', 'src/config/**', 'src/styles/global.css', 'scripts/generate-cv.mjs', 'private-cv-template/**/*.docx', 'package.json', 'package-lock.json')) }}
+
       - name: Validate private CV template
+        if: steps.cv-cache.outputs.cache-hit != 'true'
         env:
           CV_TEMPLATE_PATH: ${{ github.workspace }}/private-cv-template/Hamed_Abdollahi-CVtemp.docx
         run: |
@@ -80,12 +85,14 @@ jobs:
           fi
 
       - name: Generate temporary CV DOCX
+        if: steps.cv-cache.outputs.cache-hit != 'true'
         env:
           CV_TEMPLATE_PATH: ${{ github.workspace }}/private-cv-template/Hamed_Abdollahi-CVtemp.docx
           CV_DOCX_OUTPUT: ${{ runner.temp }}/cv/Hamed_Abdollahi-CV.docx
         run: npm run generate:cv
 
       - name: Install LibreOffice Writer
+        if: steps.cv-cache.outputs.cache-hit != 'true'
         run: |
             sudo apt-get update
             sudo apt-get install -y --no-install-recommends \
@@ -93,6 +100,7 @@ jobs:
               fontconfig
 
       - name: Convert CV to PDF
+        if: steps.cv-cache.outputs.cache-hit != 'true'
         run: |
           mkdir -p public/downloads
 
@@ -104,6 +112,18 @@ jobs:
             "${{ runner.temp }}/cv/Hamed_Abdollahi-CV.docx"
 
           test -s public/downloads/Hamed_Abdollahi-CV.pdf
+
+      - name: Verify generated CV PDF
+        run: |
+          test -s public/downloads/Hamed_Abdollahi-CV.pdf
+          signature="$(head -c 5 public/downloads/Hamed_Abdollahi-CV.pdf)"
+          if [ "$signature" != "%PDF-" ]; then
+            echo "Error: generated or restored CV is not a valid PDF." >&2
+            exit 1
+          fi
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
 
       - name: Build with Astro
         run: npm run build:site
