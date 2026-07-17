@@ -2,6 +2,7 @@
   "name": "academic-portfolio-astro",
   "type": "module",
   "version": "0.0.1",
+  "author": "Hamed Abdollahi",
   "engines": {
     "node": ">=22.12.0"
   },

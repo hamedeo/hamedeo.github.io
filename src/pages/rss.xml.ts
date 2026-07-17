@@ -25,6 +25,10 @@ export async function GET(context: any) {
         title: SITE.title,
         description: SITE.desc,
         site: context.site || SITE.website,
+        xmlns: {
+            dc: "http://purl.org/dc/elements/1.1/",
+        },
+        customData: `<language>${SITE.lang}</language><dc:creator>${SITE.author}</dc:creator>`,
         items,
     });
 }

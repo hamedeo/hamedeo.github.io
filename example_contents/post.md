@@ -2,7 +2,7 @@
 title: "Sample Post Title"
 date: "2026-04-27"
 description: "A short preview of the post seen in the blog list. This description appears in the listing and should be 1-2 sentences."
-author: "Your Name"
+author: "Hamed Abdollahi"
 tags:
   - "Tag1"
   - "Tag2"

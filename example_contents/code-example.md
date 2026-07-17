@@ -2,7 +2,7 @@
 title: "Code Example with Syntax Highlighting"
 date: "2026-04-27"
 description: "Demonstrating code blocks with syntax highlighting in your posts."
-author: "Your Name"
+author: "Hamed Abdollahi"
 tags:
   - "Code"
   - "Tutorial"
