@@ -28,7 +28,7 @@ export const PAGES: PagesConfig = {
     },
     contact: {
         title: "Let's catch up",
-        subtitle: "Meet casually, or scroll down to reach out in formal ways.",
+        subtitle: "Reach out formally below, or keep scrolling for a casual meeting.",
         isActive: true,
     },
     teaching: {
