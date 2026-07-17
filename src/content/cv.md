@@ -79,7 +79,7 @@ experience:
         - "Ran ANSYS Fluent CFD on inlet manifolds, cutting pressure drops by 12% via reverse-engineering."
         - "Checked vendor drawings against P&IDs to fix nozzle mismatches and prevent downtime."
   - institution: "ITResearches"
-    role: "Project Manager"
+    role: "Technical Project Manager"
     period: "2015 - Jun 2018"
     location: "Tehran, IR/London, UK"
     description: "Delivered 10+ internal & external projects for national & international clients in a team of 8+ developers and marketing team."
