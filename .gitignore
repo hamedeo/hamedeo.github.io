@@ -48,11 +48,11 @@ DESIGN-GUIDE.md
 # CV files
 public/downloads/Hamed_Abdollahi-CV.docx
 public/downloads/Hamed_Abdollahi-CV.pdf
-gencv.sh
+genCV.sh
 
 # Private CV source files
 .private/
-.cv-build/
+.cv-build/ 
 
 # Generated CV downloads
 public/downloads/*

@@ -38,15 +38,30 @@ const {
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site || SITE.website);
 
-const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    name: SITE.author,
-    url: SITE.website,
-    jobTitle: "Professor",
-    description: SITE.desc,
-};
+const fullTitle =
+  Astro.url.pathname === "/"
+    ? "Hamed Abdollahi | Mechanical Engineer & Product Development"
+    : `${title} | Hamed Abdollahi`;
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: SITE.author,
+  url: SITE.website,
+  jobTitle: "Mechanical Engineer",
+  description: SITE.desc,
+  knowsAbout: [
+    "Mechanical engineering",
+    "Product development",
+    "Thermo-fluid engineering",
+    "Computational analysis",
+    "Precision hardware",
+  ],
+  sameAs: [
+    "https://github.com/hamedeo",
+    "https://www.linkedin.com/in/hamedeo",
+  ],
+};
 const activeSwipeRoutes = NAV_LINKS.filter((link) => {
     const isHome = link.href === "/";
     const pageKey = isHome ? "home" : link.href.split("/").filter(Boolean)[0];
@@ -111,22 +126,21 @@ const currentPath = Astro.url.pathname.replace(/\/+$/, "") || "/";
         <link rel="canonical" href={canonicalURL} />
 
         <!-- General Meta Tags -->
-        <title>{title} | {SITE.title}</title>
-        <meta name="title" content={`${title} | ${SITE.title}`} />
-        <meta name="description" content={description} />
+        <title>{fullTitle}</title>
+        <meta name="title" content={fullTitle} />        <meta name="description" content={description} />
         <meta name="author" content={SITE.author} />
 
         <!-- Open Graph / Facebook -->
         <meta property="og:type" content={ogType} />
         <meta property="og:url" content={Astro.url} />
-        <meta property="og:title" content={title} />
+        <meta property="og:title" content={fullTitle} />
         <meta property="og:description" content={description} />
         <meta property="og:image" content={new URL(ogImage, Astro.url)} />
 
         <!-- Twitter -->
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content={Astro.url} />
-        <meta property="twitter:title" content={title} />
+        <meta property="twitter:title" content={fullTitle} />
         <meta property="twitter:description" content={description} />
         <meta property="twitter:image" content={new URL(ogImage, Astro.url)} />
 
