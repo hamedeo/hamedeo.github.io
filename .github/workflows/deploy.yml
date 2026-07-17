@@ -29,8 +29,9 @@ jobs:
         with:
           repository: hamedeo/cv-template-private
           token: ${{ secrets.CV_TEMPLATE_TOKEN }}
-          path: .private
+          path: private-cv-template
           persist-credentials: false
+          fetch-depth: 1
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -44,9 +45,43 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Validate private CV template
+        env:
+          CV_TEMPLATE_PATH: ${{ github.workspace }}/private-cv-template/Hamed_Abdollahi-CVtemp.docx
+        run: |
+          set -euo pipefail
+
+          if [ ! -f "$CV_TEMPLATE_PATH" ]; then
+            echo "Error: private CV template was not found at the expected path." >&2
+            exit 1
+          fi
+
+          if head -c 4096 "$CV_TEMPLATE_PATH" | grep -aEiq '<!doctype html|<html|<head|<body'; then
+            echo "Error: private CV template is HTML, not a DOCX file." >&2
+            exit 1
+          fi
+
+          signature="$(head -c 4 "$CV_TEMPLATE_PATH" | od -An -tx1 | tr -d '[:space:]')"
+          if [ "$signature" != "504b0304" ]; then
+            echo "Error: private CV template does not have a valid DOCX/ZIP signature." >&2
+            exit 1
+          fi
+
+          if ! unzip -tqq "$CV_TEMPLATE_PATH" >/dev/null 2>&1; then
+            echo "Error: private CV template is not a valid ZIP archive." >&2
+            exit 1
+          fi
+
+          entries="$(unzip -Z1 "$CV_TEMPLATE_PATH")"
+          if ! printf '%s\n' "$entries" | grep -Fxq '[Content_Types].xml' || \
+             ! printf '%s\n' "$entries" | grep -Fxq 'word/document.xml'; then
+            echo "Error: private CV template is a ZIP file, but not a valid DOCX document." >&2
+            exit 1
+          fi
+
       - name: Generate temporary CV DOCX
         env:
-          CV_TEMPLATE_PATH: ${{ github.workspace }}/.private/Hamed_Abdollahi-CVtemp.docx
+          CV_TEMPLATE_PATH: ${{ github.workspace }}/private-cv-template/Hamed_Abdollahi-CVtemp.docx
           CV_DOCX_OUTPUT: ${{ runner.temp }}/cv/Hamed_Abdollahi-CV.docx
         run: npm run generate:cv
 
