@@ -5,7 +5,7 @@ export const SITE: SiteConfig = {
   author: "Hamed Abdollahi",
   title: "Hamed Abdollahi | Mechanical Engineer",
   desc: "Mechanical engineer focused on product development, CAD design, GD&T, CAE, validation analysis, and thermo-fluid systems for the high-tech and energy industries in the Netherlands.",
-  ogImage: "/HamedStar.png",
+  ogImage: "/og-image-HamedeoA.png",
   postPerPage: 5,
   favicon: "/favicon.svg",
   lang: "en",
