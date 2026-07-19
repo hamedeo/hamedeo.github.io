@@ -1,0 +1,202 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 520" role="img" aria-labelledby="title desc">
+  <title id="title">GD&amp;T-style technical drawing inspired by the website interface.</title>
+  <desc id="desc">A technical drawing of the website's profile sidebar, navigation, main content column, and footer, with advanced feature-control frames, composite tolerances, dimensions, and datum symbols.</desc>
+  <defs>
+    <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M20 0H0V20" fill="none" stroke="#171717" stroke-width="1"/>
+    </pattern>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto-start-reverse">
+      <path d="M8 4 0 0v8Z" fill="#9ca3af"/>
+    </marker>
+    <style>
+      .frame{fill:none;stroke:#f5f5f5;stroke-width:1.3;vector-effect:non-scaling-stroke}
+      .fine{fill:none;stroke:#9ca3af;stroke-width:1;vector-effect:non-scaling-stroke}
+      .ghost{fill:none;stroke:#525252;stroke-width:1;stroke-dasharray:5 5;vector-effect:non-scaling-stroke}
+      .accent{fill:none;stroke:#d8315b;stroke-width:2;vector-effect:non-scaling-stroke}
+      .fill-accent{fill:#d8315b}
+      .fill-line{fill:#f5f5f5}
+      .fill-muted{fill:#737373}
+      .label{fill:#9ca3af;font:10px ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:1px}
+      .micro{fill:#737373;font:8px ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.7px}
+      .nav{fill:#d4d4d4;font:7px Inter,Arial,sans-serif;font-weight:600;letter-spacing:.3px}
+      .heading{fill:#d8315b;font:700 13px Inter,Arial,sans-serif;letter-spacing:-.2px}
+      .fcf{fill:#050505;stroke:#d4d4d4;stroke-width:1;vector-effect:non-scaling-stroke}
+      .fcf-type{fill:#f5f5f5;font:9px ui-monospace,SFMono-Regular,Consolas,monospace}
+      .fcf-value{fill:#d4d4d4;font:7px ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.2px}
+    </style>
+  </defs>
+
+  <rect width="720" height="520" fill="#000000"/>
+  <rect width="720" height="520" fill="url(#grid)" opacity=".72"/>
+
+  <!-- Drawing sheet registration and title block -->
+  <path class="fine" d="M18 18h16M26 10v16M686 18h16M694 10v16M18 502h16M26 494v16M686 502h16M694 494v16"/>
+  <rect class="fine" x="32" y="32" width="656" height="456"/>
+  <path class="fine" d="M502 452h186M502 470h186M568 452v36M636 452v36"/>
+  <text class="micro" x="508" y="464">SHEET: 404</text>
+  <text class="micro" x="574" y="464">REV: N/F</text>
+  <text class="micro" x="642" y="464">SCALE: FIT</text>
+  <text class="micro" x="508" y="481">INTERFACE ASSEMBLY / THREAD LOCATION STUDY</text>
+
+  <!-- Actual site shell: profile rail + right content -->
+  <rect x="78" y="78" width="564" height="338" fill="#050505" stroke="#f5f5f5" stroke-width="1.4"/>
+  <path class="fine" d="M226 78v338M226 116h416M226 382h416"/>
+
+  <!-- Profile/sidebar composition -->
+  <circle class="frame" cx="152" cy="137" r="37"/>
+  <path class="ghost" d="M105 137h94M152 90v94"/>
+  <circle class="fine" cx="152" cy="137" r="3"/>
+  <rect class="fill-line" x="117" y="192" width="70" height="6" rx="1"/>
+  <rect class="fill-muted" x="128" y="208" width="48" height="3"/>
+  <rect class="fill-muted" x="121" y="217" width="62" height="3"/>
+  <path class="fine" d="M112 238h80M112 246h72M112 254h76M112 262h58"/>
+  <g class="fine">
+    <circle cx="117" cy="289" r="7"/>
+    <circle cx="140" cy="289" r="7"/>
+    <circle cx="163" cy="289" r="7"/>
+    <circle cx="186" cy="289" r="7"/>
+  </g>
+  <path class="accent" d="M110 315h84"/>
+  <text class="micro" x="117" y="334">PROFILE / STICKY</text>
+
+  <!-- Real desktop navigation rhythm and labels -->
+  <text class="nav" x="252" y="101" fill="#d8315b">ABOUT</text>
+  <text class="nav" x="298" y="101">TALKS</text>
+  <text class="nav" x="339" y="101">PROJECTS</text>
+  <text class="nav" x="396" y="101">BLOG</text>
+  <text class="nav" x="433" y="101">CONTACT ME</text>
+  <text class="nav" x="501" y="101">CV</text>
+  <path class="accent" d="M251 108h29"/>
+
+  <!-- Main content, matching page-title and content proportions -->
+  <text class="heading" x="252" y="151">REQUESTED PAGE</text>
+  <path class="fine" d="M252 174h342M252 187h326M252 200h338M252 213h286"/>
+  <path class="fine" d="M252 242h342M252 255h312M252 268h333M252 281h260"/>
+  <rect class="fine" x="252" y="309" width="158" height="42" rx="2"/>
+  <path class="fine" d="M266 322h116M266 334h88"/>
+  <rect class="fine" x="426" y="309" width="168" height="42" rx="2"/>
+  <path class="fine" d="M440 322h126M440 334h96"/>
+
+  <!-- Footer controls from the real shell -->
+  <text class="micro" x="252" y="402">© 2026 HAMED ABDOLLAHI.</text>
+  <circle class="fine" cx="565" cy="399" r="8"/>
+  <circle class="fine" cx="590" cy="399" r="8"/>
+
+  <!-- Engineering dimensions and GD&T annotations -->
+  <path class="fine" d="M78 62v-14M226 62v-14M84 52h136" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <text class="label" x="126" y="46">280 PX</text>
+  <path class="fine" d="M657 78h17M657 416h17M670 84v326" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <text class="label" x="680" y="266" transform="rotate(90 680 266)">VIEWPORT HEIGHT</text>
+
+  <path class="ghost" d="M62 137h-24M152 64V38"/>
+  <path class="fine" d="M38 133v8M34 137h8"/>
+  <text class="label" x="42" y="126">Ø160</text>
+
+  <path class="fine" d="M226 352h-14v18h14"/>
+  <path class="fill-accent" d="M212 361 198 353v16Z"/>
+  <rect class="fine" x="160" y="350" width="38" height="22"/>
+  <text class="label" x="175" y="365">A</text>
+
+  <path class="fine" d="M594 309h25v-20"/>
+  <rect class="fine" x="531" y="267" width="88" height="22"/>
+  <path class="fine" d="M553 267v22M575 267v22M597 267v22"/>
+  <circle class="fine" cx="542" cy="278" r="5"/>
+  <path class="fine" d="M535 278h14M542 271v14"/>
+  <text class="micro" x="556" y="281">⌀0.1</text>
+  <text class="label" x="582" y="282">A</text>
+  <text class="label" x="604" y="282">B</text>
+
+  <path class="fine" d="M642 116h16v-16"/>
+  <path class="fill-accent" d="M658 108 672 100v16Z"/>
+  <rect class="fine" x="672" y="89" width="24" height="22"/>
+  <text class="label" x="680" y="104">B</text>
+
+  <path class="fine" d="M252 213 236 232h-36"/>
+  <text class="micro" x="114" y="235">1 PX CONTENT RULE</text>
+  <path class="accent" d="M610 151h26l20-18"/>
+  <text class="micro" x="584" y="127" fill="#d8315b">ACCENT #D8315B</text>
+
+  <!-- Advanced GD&T callouts tied to the interface geometry -->
+  <!-- Circular runout for the profile image -->
+  <path class="fine" d="M116 166 102 178H82"/>
+  <rect class="fcf" x="82" y="178" width="112" height="18"/>
+  <path class="fine" d="M104 178v18M156 178v18M176 178v18"/>
+  <path class="fine" d="m88 191 9-9m-4 0h4v4"/>
+  <text class="fcf-value" x="110" y="190">0.05</text>
+  <text class="fcf-type" x="162" y="191">A</text>
+  <text class="fcf-type" x="182" y="191">B</text>
+
+  <!-- Perpendicularity of sidebar datum to the content field -->
+  <path class="fine" d="M226 124h13"/>
+  <rect class="fcf" x="239" y="116" width="100" height="18"/>
+  <path class="fine" d="M261 116v18M309 116v18"/>
+  <path class="fine" d="M245 129h10m-5 0v-9"/>
+  <text class="fcf-value" x="268" y="128">0.05</text>
+  <text class="fcf-type" x="319" y="129">A</text>
+
+  <!-- Parallelism of the navigation baseline -->
+  <path class="fine" d="M521 116v19"/>
+  <rect class="fcf" x="491" y="135" width="104" height="18"/>
+  <path class="fine" d="M513 135v18M563 135v18"/>
+  <path class="fine" d="m497 149 5-10m4 10 5-10"/>
+  <text class="fcf-value" x="520" y="147">0.03</text>
+  <text class="fcf-type" x="576" y="148">A</text>
+
+  <!-- Surface profile controlling the content rhythm -->
+  <path class="fine" d="M594 213h17v18"/>
+  <rect class="fcf" x="476" y="231" width="135" height="18"/>
+  <path class="fine" d="M498 231v18M551 231v18M579 231v18"/>
+  <path class="fine" d="M482 245a6 6 0 0 1 12 0"/>
+  <text class="fcf-value" x="505" y="243">0.15 UZ</text>
+  <text class="fcf-type" x="560" y="244">A</text>
+  <text class="fcf-type" x="588" y="244">B</text>
+
+  <!-- Flatness control for the paired content cards -->
+  <path class="fine" d="M332 309v-20"/>
+  <rect class="fcf" x="252" y="271" width="105" height="18"/>
+  <path class="fine" d="M276 271v18"/>
+  <path class="fine" d="m258 284 5-9h9l-5 9Z"/>
+  <text class="fcf-value" x="284" y="283">0.10 CZ</text>
+
+  <!-- Composite positional tolerance for the repeated card pattern -->
+  <path class="fine" d="M510 351v6"/>
+  <rect class="fcf" x="426" y="357" width="168" height="24"/>
+  <path class="fine" d="M448 357v24M506 357v24M528 357v24M550 357v12M572 357v12M426 369h168"/>
+  <circle class="fine" cx="437" cy="363" r="4"/>
+  <path class="fine" d="M431 363h12M437 357v12"/>
+  <circle class="fine" cx="437" cy="375" r="4"/>
+  <path class="fine" d="M431 375h12M437 369v12"/>
+  <text class="fcf-value" x="452" y="366">⌀0.20 M</text>
+  <text class="fcf-value" x="452" y="378">⌀0.08 M</text>
+  <text class="fcf-type" x="514" y="367">A</text>
+  <text class="fcf-type" x="536" y="367">B</text>
+  <text class="fcf-type" x="558" y="367">C</text>
+  <text class="fcf-type" x="514" y="379">A</text>
+
+  <!-- Datum C and target identifiers -->
+  <path class="fill-accent" d="M642 351 656 343v16Z"/>
+  <path class="fine" d="M656 351h14"/>
+  <rect class="fcf" x="670" y="340" width="24" height="22"/>
+  <text class="label" x="678" y="355">C</text>
+  <circle class="fine" cx="61" cy="302" r="10"/>
+  <path class="fine" d="M51 302h20M61 292v20M61 312v17"/>
+  <text class="micro" x="42" y="340">A1</text>
+
+  <!-- Total runout and circularity inspection notes -->
+  <rect class="fcf" x="42" y="426" width="130" height="18"/>
+  <path class="fine" d="M66 426v18M122 426v18M146 426v18"/>
+  <path class="fine" d="m48 439 8-9m-4 0h4v4m-2 5 8-9m-4 0h4v4"/>
+  <text class="fcf-value" x="72" y="438">0.08 TIR</text>
+  <text class="fcf-type" x="130" y="439">A</text>
+  <text class="fcf-type" x="154" y="439">C</text>
+
+  <rect class="fcf" x="184" y="426" width="102" height="18"/>
+  <path class="fine" d="M208 426v18"/>
+  <circle class="fine" cx="196" cy="435" r="5"/>
+  <text class="fcf-value" x="216" y="438">0.04 FREE</text>
+
+  <!-- Projected tolerance zone indicator -->
+  <path class="fine" d="M357 280h33v-26"/>
+  <circle class="fine" cx="390" cy="251" r="3"/>
+  <text class="micro" x="365" y="246">P 12</text>
+</svg>

@@ -22,6 +22,7 @@ const themeDark = THEMES[themeDarkKey] || THEMES.dark_default;
 
 interface Props {
     title: string;
+    appendSiteName?: boolean;
     description?: string;
     ogImage?: string;
     ogType?: "website" | "article";
@@ -31,6 +32,7 @@ interface Props {
 
 const { 
     title, 
+    appendSiteName = true,
     description = SITE.desc, 
     ogImage = SITE.ogImage,
     ogType = "website",
@@ -45,7 +47,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || SITE.website);
 const fullTitle =
   Astro.url.pathname === "/"
     ? "Hamed Abdollahi | Mechanical Engineer & Product Development"
-    : `${title} | Hamed Abdollahi`;
+    : appendSiteName
+      ? `${title} | Hamed Abdollahi`
+      : title;
 
 const jsonLd = {
   "@context": "https://schema.org",

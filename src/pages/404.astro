@@ -2,26 +2,33 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<BaseLayout title="404: Page Not Found">
-    <div
-        class="flex flex-col items-center justify-center min-h-[50vh] text-center px-4"
-    >
-        <h1
-            class="text-9xl font-black text-accent tracking-tighter sm:text-[12rem] leading-none mb-4"
-        >
-            404
-        </h1>
-        <p
-            class="text-2xl font-bold text-foreground mb-8 opacity-80"
-            aria-label="page not found"
-        >
-            Page Not Found
-        </p>
-        <button
-            onclick="history.back()"
-            class="text-lg font-semibold text-accent hover:underline decoration-2 underline-offset-8 transition-all duration-200 cursor-pointer bg-transparent border-none p-0"
-        >
-            Go back
-        </button>
-    </div>
+<BaseLayout
+    title="404 — Thread Not Found"
+    appendSiteName={false}
+    description="The requested page could not be found."
+    robots="noindex, nofollow"
+>
+    <main class="not-found-page" aria-labelledby="not-found-title">
+        <figure class="not-found-figure">
+            <img
+                src="/images/gdt-website-404.svg"
+                alt="GD&T-style technical drawing inspired by the website interface."
+                width="720"
+                height="520"
+                loading="eager"
+                decoding="async"
+            />
+        </figure>
+
+        <div class="not-found-copy">
+            <p class="not-found-label">ERROR 404</p>
+            <h1 id="not-found-title" class="not-found-title">THREAD NOT FOUND</h1>
+            <p class="not-found-description">
+                This page did not meet the drawing specification.
+            </p>
+            <a class="btn not-found-home-link" href="/">
+                Return to homepage
+            </a>
+        </div>
+    </main>
 </BaseLayout>
