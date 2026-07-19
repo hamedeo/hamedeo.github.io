@@ -24,6 +24,15 @@ jobs:
       - name: Checkout website
         uses: actions/checkout@v4
 
+      - name: Checkout private Morpheidos Tech website
+        uses: actions/checkout@v4
+        with:
+          repository: hamedeo/Morpheidos_Tech
+          token: ${{ secrets.MORPHEIDOS_REPO_TOKEN }}
+          path: _private/morpheidos-tech
+          persist-credentials: false
+          fetch-depth: 1
+
       - name: Checkout private CV template
         uses: actions/checkout@v4
         with:
@@ -38,9 +47,29 @@ jobs:
         with:
           node-version: 22
           cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            _private/morpheidos-tech/package-lock.json
 
-      - name: Install dependencies
+      - name: Install personal website dependencies
         run: npm ci
+
+      - name: Install Morpheidos Tech dependencies
+        working-directory: _private/morpheidos-tech
+        run: npm ci
+
+      - name: Build Morpheidos Tech website
+        working-directory: _private/morpheidos-tech
+        run: npm run build
+
+      - name: Verify Morpheidos Tech build
+        run: |
+          test -s _private/morpheidos-tech/dist/index.html
+
+          if ! grep -q '"/Morpheidos_Tech/' _private/morpheidos-tech/dist/index.html; then
+            echo "Error: Morpheidos Tech build does not use the /Morpheidos_Tech/ base path." >&2
+            exit 1
+          fi
 
       - name: Restore generated CV
         id: cv-cache
@@ -128,10 +157,19 @@ jobs:
       - name: Build with Astro
         run: npm run build:site
 
-      - name: Verify generated files
+      - name: Add Morpheidos Tech website to deployment
         run: |
+          rm -rf dist/Morpheidos_Tech
+          mkdir -p dist/Morpheidos_Tech
+          cp -R _private/morpheidos-tech/dist/. dist/Morpheidos_Tech/
+
+      - name: Verify combined website output
+        run: |
+          test -f dist/index.html
+          test -f dist/Morpheidos_Tech/index.html
           test -s dist/downloads/Hamed_Abdollahi-CV.pdf
           test -f dist/.well-known/r3ply/config.toml
+          ls -lh dist/index.html dist/Morpheidos_Tech/index.html
           ls -lh dist/downloads
 
       - name: Deploy to Cloudflare Pages
@@ -143,10 +181,9 @@ jobs:
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v5
+        uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
-          include-hidden-files: true
+          path: ./dist
 
   deploy:
     environment:
