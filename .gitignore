@@ -57,3 +57,6 @@ genCV.sh
 # Generated CV downloads
 public/downloads/*
 !public/downloads/.gitkeep
+
+#Other
+public/HamedStar-old.png
