@@ -1207,6 +1207,7 @@ body:has(.social-link:focus-visible) .navbar {
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    gap: 1rem;
     background: var(--background);
     transition: background 0.3s ease;
 }
@@ -1221,11 +1222,62 @@ body:has(.social-link:focus-visible) .navbar {
 
 .nav-links {
     display: flex;
+    flex: 1 1 auto;
     gap: 1.5rem;
     list-style: none;
     padding: 0;
     margin: 0;
     flex-wrap: wrap;
+}
+
+.morpheidos-nav-button {
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    width: 4.75rem;
+    padding: 0;
+    margin-left: auto;
+    color: #000000;
+    background: transparent;
+    border: 0;
+    border-radius: 9999px;
+    text-decoration: none;
+    transition:
+        color 0.2s ease,
+        opacity 0.2s ease,
+        transform 0.2s ease;
+}
+
+html[data-theme="dark"] .morpheidos-nav-button,
+html.dark .morpheidos-nav-button {
+    color: #ffffff;
+}
+
+.morpheidos-nav-button:hover {
+    opacity: 0.72;
+    transform: translateY(-1px);
+}
+
+.morpheidos-nav-button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+}
+
+.morpheidos-nav-logo {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+@media (max-width: 640px) {
+    .navbar {
+        align-items: flex-start;
+    }
+
+    .morpheidos-nav-button {
+        width: 4rem;
+    }
 }
 
 .nav-link {

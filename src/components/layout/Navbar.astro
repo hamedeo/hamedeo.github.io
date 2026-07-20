@@ -1,5 +1,6 @@
 ---
 import { NAV_LINKS, PAGES } from "../../config";
+import MorpheidosTechLogo from "./MorpheidosTechLogo.astro";
 
 const currentPath = Astro.url.pathname;
 ---
@@ -33,4 +34,12 @@ const currentPath = Astro.url.pathname;
             ))
         }
     </ul>
+    <a
+        class="morpheidos-nav-button"
+        href="/Morpheidos_Tech/"
+        aria-label="Visit the Morpheidos Tech website"
+        title="Morpheidos Tech"
+    >
+        <MorpheidosTechLogo />
+    </a>
 </nav>
