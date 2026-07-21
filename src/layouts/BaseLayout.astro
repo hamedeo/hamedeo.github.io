@@ -43,6 +43,7 @@ const {
 const robotsContent = noindex ? "noindex, follow" : robots;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site || SITE.website);
+const socialImageURL = new URL(ogImage, Astro.site || SITE.website);
 
 const fullTitle =
   Astro.url.pathname === "/"
@@ -140,17 +141,17 @@ const currentPath = Astro.url.pathname.replace(/\/+$/, "") || "/";
 
         <!-- Open Graph / Facebook -->
         <meta property="og:type" content={ogType} />
-        <meta property="og:url" content={Astro.url} />
+        <meta property="og:url" content={canonicalURL} />
         <meta property="og:title" content={fullTitle} />
         <meta property="og:description" content={description} />
-        <meta property="og:image" content={new URL(ogImage, Astro.url)} />
+        <meta property="og:image" content={socialImageURL} />
 
         <!-- Twitter -->
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content={Astro.url} />
+        <meta property="twitter:url" content={canonicalURL} />
         <meta property="twitter:title" content={fullTitle} />
         <meta property="twitter:description" content={description} />
-        <meta property="twitter:image" content={new URL(ogImage, Astro.url)} />
+        <meta property="twitter:image" content={socialImageURL} />
 
         <!-- Structured Data (JSON-LD) -->
         <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />

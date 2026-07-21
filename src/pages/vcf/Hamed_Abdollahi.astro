@@ -1,5 +1,9 @@
 ---
+import { SITE } from "../../config";
+
 const title = "Downloading Hamed Abdollahi’s contact card";
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || SITE.website);
+const socialImageURL = new URL(SITE.ogImage, Astro.site || SITE.website);
 ---
 
 <!doctype html>
@@ -7,8 +11,18 @@ const title = "Downloading Hamed Abdollahi’s contact card";
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
 		<meta name="robots" content="noindex" />
+		<link rel="canonical" href={canonicalURL} />
 		<title>{title}</title>
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={canonicalURL} />
+		<meta property="og:title" content={title} />
+		<meta property="og:image" content={socialImageURL} />
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content={canonicalURL} />
+		<meta property="twitter:title" content={title} />
+		<meta property="twitter:image" content={socialImageURL} />
 	</head>
 	<body>
 		<main>

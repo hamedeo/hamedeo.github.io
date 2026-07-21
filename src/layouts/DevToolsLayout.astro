@@ -16,6 +16,10 @@ interface Props {
 }
 
 const { title, description } = Astro.props;
+const fullTitle = `${title} | Dev Tools`;
+const pageDescription = description || "Development internal tools.";
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || SITE.website);
+const socialImageURL = new URL(SITE.ogImage, Astro.site || SITE.website);
 
 const themeLightKey = (THEME_CONFIG.themeLight.startsWith('light_') ? THEME_CONFIG.themeLight : `light_${THEME_CONFIG.themeLight}`) as keyof typeof THEMES;
 const themeDarkKey = (THEME_CONFIG.themeDark.startsWith('dark_') ? THEME_CONFIG.themeDark : `dark_${THEME_CONFIG.themeDark}`) as keyof typeof THEMES;
@@ -29,11 +33,23 @@ const themeDark = THEMES[themeDarkKey] || THEMES.dark_default;
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
         <link rel="icon" type="image/svg+xml" href={SITE.favicon} />
         <link rel="icon" href="/favicon.ico" sizes="any" />
-        <title>{title} | Dev Tools</title>
-        <meta name="description" content={description || "Development internal tools."} />
+        <link rel="canonical" href={canonicalURL} />
+        <title>{fullTitle}</title>
+        <meta name="description" content={pageDescription} />
         <meta name="robots" content="noindex, nofollow" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={canonicalURL} />
+        <meta property="og:title" content={fullTitle} />
+        <meta property="og:description" content={pageDescription} />
+        <meta property="og:image" content={socialImageURL} />
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content={canonicalURL} />
+        <meta property="twitter:title" content={fullTitle} />
+        <meta property="twitter:description" content={pageDescription} />
+        <meta property="twitter:image" content={socialImageURL} />
 
         <style
             is:global

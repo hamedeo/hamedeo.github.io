@@ -18,6 +18,6 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-  site: 'https://hamedeo.github.io',
+  site: 'https://hamed.morpheidos.tech',
   integrations: [sitemap()],
 });
