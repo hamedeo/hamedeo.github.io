@@ -38,7 +38,7 @@ Following three years of delivering IT projects, I transitioned into mechanical 
 
 Immediately after, I joined semiconductor leader **ASML**. There, I learned that mastering extreme technical complexity requires cross-border collaboration and a united team spirit. A year later, I founded **Morpheidos Tech** to turn technical know-how into impactful solutions. Delivering projects taught me that execution without reflection falls short, inspiring me to intentionally strengthen the leadership and human skills I had previously sidelined.
 
-Seeking growth, I joined the **Digital Society School** at AUAS, pushing past my comfort zone and gained new insights into the meaning of teamwork, the art of communication, and the continuous pleasure of creation. Because creation is, in many ways, life’s growing light, a redemption from suffering, a discipline of change, and a willingness to be transformed by what we choose to build.
+Seeking growth, I joined the **Digital Society School** at Amsterdam University of Applied Sciences, pushing past my comfort zone and gained new insights into the meaning of teamwork, the art of communication, and the continuous pleasure of creation. Because creation is, in many ways, life’s growing light, a redemption from suffering, a discipline of change, and a willingness to be transformed by what we choose to build.
   </section>
 </div>
 
