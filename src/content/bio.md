@@ -12,7 +12,7 @@ institution: |
 ---
 <meta name="description" content="..." />
 
-I am a **Mechanical Engineer** with background in thermo-fluids engineering and precision hardware. I maintained a complementary profile as a **Project Manager**  as well, because delivering is indeed pleasurable! I enjoy technical  analysis and support mechanical development where design initiates,  validation takes place and solutions seem to be not working. 
+As a **Mechanical Engineer** with a background in thermo-fluid systems and precision hardware, I specialize in mechanical design and engineering analysis. I support mechanical development through design, analysis, validation and technical problem-solving. Alongside my technical work, I have developed project coordination and stakeholder management experience that helps me move engineering activities from analysis and design through validation and implementation.
 
 <div class="theme-image">
   <img
@@ -34,7 +34,6 @@ I am a **Mechanical Engineer** with background in thermo-fluids engineering and 
 
 Born three times, in Iran, Italy, and the Netherlands, I have built seven years of experience delivering solutions in engineering and project management. 
 
-<!-- My professional journey began with the successful delivery of several projects in the IT domain over three years. Then I started to work as a mechanical consultant, supporting the development of pressure vessels for a major steel manufacturer in Iran, **Mobarakeh Steel Company**. -->
 Following three years of delivering IT projects, I transitioned into mechanical consulting, where I supported pressure vessels development for Iran’s leading steel manufacturer, the **Mobarakeh Steel Company**. After project delivery, I pursued a master’s degree in Italy to deepen my technical skills. I later concluded my research in advanced thermo-fluids engineering for additive manufacturing in the Netherlands.
 
 Immediately after, I joined semiconductor leader **ASML**. There, I learned that mastering extreme technical complexity requires cross-border collaboration and a united team spirit. A year later, I founded **Morpheidos Tech** to turn technical know-how into impactful solutions. Delivering projects taught me that execution without reflection falls short, inspiring me to intentionally strengthen the leadership and human skills I had previously sidelined.
@@ -56,4 +55,4 @@ Also, I know a lot of dad jokes. I enjoy reading psychoanalysis and long-distanc
 
 <h2 class="competency-heading">Competancy Domain</h2>
 
-**Fluid & Thermal Systems**, **Mechanical Design**, **Product Development**, **Analysis**, **Project Management**.
+**Fluid & Thermal Systems**, **Mechanical Design**, **Product Development**, **Analysis**, **Technical Project Coordination**.

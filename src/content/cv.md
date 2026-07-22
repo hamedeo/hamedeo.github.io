@@ -1,59 +1,35 @@
 ---
 
 name: "Hamed Abdollahi"
-title: "TITLE"
-#   headline: "Thermo-Fluids Engineer"
-#   subtitle: "MSc in Mechanical Engineering"
-# competencies:
-#   - title: "Fluid & Thermal Systems"
-#     summary: "Flow calculations, heat transfer, energy, thermodynamics analysis."
-#     tools:
-#       - "ANSYS"
-#       - "MATLAB"
-#       - "BPVC"
-#     extra:
-#       - "Python [NumPy, Pandas]"
-#       - "C++"
-#   - title: "Product Development"
-#     summary: "CAD Design, GD&T, rapid prototyping, testing & validation, engineering documentation."
-#     tools:
-#       - "SolidWorks"
-#       - "Siemens NX"
-#       - "PLM (Teamcenter)"
-#       - "ASME Y14.5"
-#       - "RCA"
-#       - "DFMA"
-#       - "SAP"
-#   - title: "Project Management"
-#     summary: "Stakeholder management, communication, planning & coordination, facilitation."
-#     tools:
-#       - "Agile/Scrum (Kanban)"
-#       - "MS Suite (Teams, Excel/VBA, ...)"
+title: "Resume"
 experience:
   - institution: "Morpheidos Tech"
-    role: "Mechanical Engineer Consultant"
+    role: "Mechanical Engineering Consultant"
     period: "Mar 2025 - Present"
     location: "The Randstad, Netherlands"
-    description: "Providing engineering analysis and simulation support for mechanical system design and optimization across high-tech and energy industries."
+    description: "Providing independent engineering analysis and development support for mechanical systems across high-tech and energy industries."
     bullets:
        - |
-         Supported early design decisions by developing simulation models for high vacuum systems.
-         ◦ 60% reduction in execution time by integrating data driven model (PI ML).
-       - "Cutting 7% in thermal energy loss in a district heating network by digital twin development."
-       - "Feasibility analysis of digital twin usage in adopting barge over road transportation in Utrecht area."
-       - "Mechanical analysis of seabed cable movement for marine operation."
-      #  Tools: Siemens STAR-CCM+, Siemense NX, 
+         Developed simulation models to support design decisions for high-vacuum systems.
+         ◦ Reduced model execution time by 60% by integrating a data-driven surrogate model.
+       - |
+         Developed a digital-twin model to assess thermal performance in a district heating network.
+         ◦ Identified measures with the potential to reduce thermal energy loss by 7%.
+      #  - |
+      #   Performed mechanical analysis of seabed-cable movement during offshore handling operations.
+      #   ◦ Evaluated cable behaviour and mechanical loading to support operational planning.
   - institution: "Digital Society School @ AUAS"
-    role: "Technical Project Manager"
+    role: "Technical Project Lead"
     period: "Jan - July 2026"
     location: "Amsterdam, Netherlands"
     description: "Led a 5+ multidisciplinary team from engineering and marketing background, launching an interactive 3D VR experience under a strict 6-month Agile lifecycle."
     bullets:
+        - "Engineered, built, and tested prototypes using CNC machining, 3D printing, and electronic modules"
         - |
           Secured stakeholder consensus on a complex problem statement by establishing a unified scope.
-          ◦ Built and tested prototypes using CNC, 3D printer, and modules to validate stakeholder needs.
-          ◦ Concluded research across available resources to shape project requirements and narrative.
-        - "Slashed resource expenditures by 40% by directing sprint planning for on schedule project delivery."
+          ◦ Conducted research across available resources to validate project requirements and narrative.
+        #  ◦ Built and tested prototypes using CNC, 3D printer, and modules to validate stakeholder needs.
+        - "Slashed resource expenditures by 40% by directing sprint planning for on-schedule project delivery."
   - institution: "ASML"
     role: "Mechanical Engineer"
     period: "Nov 2023 - Sep 2024"
@@ -76,13 +52,13 @@ experience:
     bullets:
         - "Secured structural designs for a 40-bar vessel shell, using PV Elite calculations per ASME VIII-1."
         - "Validated high-cycle fatigue lifespan by conducting ASME VIII-2 FEM analysis via ANSYS Mechanical."
-        - "Cutting pressure drops by 12% via reverse-engineering & using ANSYS Fluent CFD on inlet manifolds."
-        - "Prevent downtime by chacking vendor drawings against P&IDs to fix nozzle mismatches."
+        - "Reduced pressure drop by 12% via reverse-engineering & using ANSYS Fluent CFD on inlet manifolds."
+        - "Prevented downtime by checking vendor drawings against P&IDs to fix nozzle mismatches."
   - institution: "ITResearches"
-    role: "Technical Project Manager"
+    role: "Technical Project Lead"
     period: "2015 - Jun 2018"
     location: "Tehran, IR/London, UK"
-    description: "Delivered 10+ internal & external projects for national & international clients in a team of 8+ developers and marketing team."
+    description: "Developed software and delivered 10+ technical internal & external projects for national & international clients in a team of 8+."
     bullets:
         - "Drove 150% business growth and improved contract renewals by 50% over 12 months."
         - "Deployed Interactive AI advertiser Robot (TALEE) across 3 sites, converting pilot tests into contracts."
@@ -101,7 +77,7 @@ education:
         description: |
           Thesis: Secondary atomization and solidification of metal melt in gas atomization.
           ◦ Developed an OpenFOAM CFD model to simulate gas atomization dynamics.
-          ◦ Suggested a new thermal model for solidifying droplets.
+          ◦ Suggested a new thermal model to handle droplet solidification.
           ◦ Verified code feasibility and validated results against lab experimental data.
       - title: "Guest Student"
         subtitle: "ENSTA Paris, Polytechnic Institute of Paris"
@@ -114,16 +90,9 @@ education:
     location: "Isfahan, IR"
     description: "Thesis: Thermal optimization and flow-field design of a liquid cooling plate for high temperature PEM fuel cell stack using ANSYS Fluent."
     subEntries:
-      - title: "Mechanical Engineer Intern"
+      - title: "Mechanical Engineering Intern"
         subtitle: "Mobarakeh Steel Co., Energy and Fluid distribution area."
         period: "May - Sep 2017"
         location: "Isfahan, IR"
         description: "Mapped site sensor data to thermodynamic charts to isolate ambient losses, documenting fixes to prevent downtime in the gas & steam power plants."
-# languages:
-#   - name: "English"
-#     level: "Business Professional"
-#   - name: "Persian"
-#     level: "Fluent"
-#   - name: "Dutch"
-#     level: "Elementary (A2)"
 ---
