@@ -7,10 +7,10 @@ experience:
     role: "Mechanical Engineering Consultant"
     period: "Mar 2025 - Present"
     location: "The Randstad, Netherlands"
-    description: "Providing independent engineering analysis and development support for mechanical systems across high-tech and energy industries."
+    description: "Providing engineering analysis & development support for mechanical systems across high-tech & energy industries."
     bullets:
        - |
-         Developed simulation models to support design decisions for high-vacuum systems.
+         Developed simulation models to support design decisions for high-vacuum equipment.
          ◦ Reduced model execution time by 60% by integrating a data-driven surrogate model.
        - |
          Developed a digital-twin model to assess thermal performance in a district heating network.
@@ -22,19 +22,19 @@ experience:
     role: "Technical Project Lead"
     period: "Jan - July 2026"
     location: "Amsterdam, Netherlands"
-    description: "Led a 5+ multidisciplinary team from engineering and marketing background, launching an interactive 3D VR experience under a strict 6-month Agile lifecycle."
+    description: "Led a multidisciplinary team of 5+ members from engineering and marketing backgrounds, launching an interactive 3D VR experience within a six-month Agile project."
     bullets:
         - "Engineered, built, and tested prototypes using CNC machining, 3D printing, and electronic modules"
         - |
           Secured stakeholder consensus on a complex problem statement by establishing a unified scope.
-          ◦ Conducted research across available resources to validate project requirements and narrative.
+          ◦ Validate project requirements by concluding research across available resources.
         #  ◦ Built and tested prototypes using CNC, 3D printer, and modules to validate stakeholder needs.
-        - "Slashed resource expenditures by 40% by directing sprint planning for on-schedule project delivery."
+        - "Cut project expenditure by 40% by sprint planning & scope control for on-schedule project delivery."
   - institution: "ASML"
     role: "Mechanical Engineer"
     period: "Nov 2023 - Sep 2024"
     location: "Veldhoven, Netherlands"
-    description: "Engineered PLM databases and CAD library standardization for complex vendor components & assemblies in a team of 25+."
+    description: "Supported PLM data and CAD-library standardization for complex supplier components and assemblies in a team of 25+."
     bullets:
         - |
           Drafted technical documentation to transition supplier designs toward PFAS-free components.
@@ -50,8 +50,8 @@ experience:
     location: "Isfahan, IR" 
     description: "Designed a high-pressure oxygen storage vessel for an electric arc furnace steel manufacturing plant."
     bullets:
-        - "Secured structural designs for a 40-bar vessel shell, using PV Elite calculations per ASME VIII-1."
-        - "Validated high-cycle fatigue lifespan by conducting ASME VIII-2 FEM analysis via ANSYS Mechanical."
+        - "Completed structural design calculations for a 40-bar vessel shell, using PV Elite per ASME VIII-1."
+        - "Validated high-cycle fatigue life by conducting ASME VIII-2 FEM analysis via ANSYS Mechanical."
         - "Reduced pressure drop by 12% via reverse-engineering & using ANSYS Fluent CFD on inlet manifolds."
         - "Prevented downtime by checking vendor drawings against P&IDs to fix nozzle mismatches."
   - institution: "ITResearches"
@@ -77,8 +77,8 @@ education:
         description: |
           Thesis: Secondary atomization and solidification of metal melt in gas atomization.
           ◦ Developed an OpenFOAM CFD model to simulate gas atomization dynamics.
-          ◦ Suggested a new thermal model to handle droplet solidification.
-          ◦ Verified code feasibility and validated results against lab experimental data.
+          ◦ Developed a thermal model for droplet cooling and solidification.
+          ◦ Verified the numerical implementation and validated results against experimental data.
       - title: "Guest Student"
         subtitle: "ENSTA Paris, Polytechnic Institute of Paris"
         period: "Apr - May 2022"
