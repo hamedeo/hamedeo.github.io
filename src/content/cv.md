@@ -7,13 +7,13 @@ experience:
     role: "Mechanical Engineering Consultant"
     period: "Mar 2025 - Present"
     location: "The Randstad, Netherlands"
-    description: "Providing engineering analysis & development support for mechanical systems across high-tech & energy industries."
+    description: "Providing mechanical engineering analysis and product development support across high-tech & energy industries."
     bullets:
        - |
-         Developed simulation models to support design decisions for high-vacuum equipment.
-         ◦ Reduced model execution time by 60% by integrating a data-driven surrogate model.
+         Developed models to support design decisions for high-vacuum equipment.
+         ◦ Reduced simulation execution time by 60% by integrating a data-driven surrogate model.
        - |
-         Developed a digital-twin model to assess thermal performance in a district heating network.
+         Developed a digital twin model to assess thermal performance in a district heating network.
          ◦ Identified measures with the potential to reduce thermal energy loss by 7%.
       #  - |
       #   Performed mechanical analysis of seabed-cable movement during offshore handling operations.
@@ -27,7 +27,7 @@ experience:
         - "Engineered, built, and tested prototypes using CNC machining, 3D printing, and electronic modules"
         - |
           Secured stakeholder consensus on a complex problem statement by establishing a unified scope.
-          ◦ Validate project requirements by concluding research across available resources.
+          ◦ Validated project requirements by synthesizing research findings and stakeholder input.
         #  ◦ Built and tested prototypes using CNC, 3D printer, and modules to validate stakeholder needs.
         - "Cut project expenditure by 40% by sprint planning & scope control for on-schedule project delivery."
   - institution: "ASML"
@@ -61,7 +61,7 @@ experience:
     description: "Developed software and delivered 10+ technical internal & external projects for national & international clients in a team of 8+."
     bullets:
         - "Drove 150% business growth and improved contract renewals by 50% over 12 months."
-        - "Deployed Interactive AI advertiser Robot (TALEE) across 3 sites, converting pilot tests into contracts."
+        - "Deployed an interactive AI advertising robot (TALEE) across 3 sites, converting pilot tests into contracts."
         
 education:
   - degree: "Master of Mechanical Engineering"
@@ -70,12 +70,12 @@ education:
     location: "Turin, Italy"
     # description: ""
     subEntries:
-      - title: "Research Intern in Thermo-Fluids Engineering"
+      - title: "Research Intern in Thermofluids Engineering"
         subtitle: "Eindhoven University of Technology (TU/e)"
         period: "Jan - Dec 2023"
         location: "Eindhoven, Netherlands"
         description: |
-          Thesis: Secondary atomization and solidification of metal melt in gas atomization.
+          Thesis: Secondary atomization and solidification of molten metal in gas atomization.
           ◦ Developed an OpenFOAM CFD model to simulate gas atomization dynamics.
           ◦ Developed a thermal model for droplet cooling and solidification.
           ◦ Verified the numerical implementation and validated results against experimental data.
