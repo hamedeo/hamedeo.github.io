@@ -20,7 +20,7 @@ experience:
       #   ◦ Evaluated cable behaviour and mechanical loading to support operational planning.
   - institution: "Digital Society School @ AUAS"
     role: "Technical Project Lead"
-    period: "Jan - July 2026"
+    period: "Jan - Jul 2026"
     location: "Amsterdam, Netherlands"
     description: "Led a multidisciplinary team of 5+ members from engineering and marketing backgrounds, launching an interactive 3D VR experience within a six-month Agile project."
     bullets:
