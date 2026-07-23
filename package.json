@@ -11,7 +11,8 @@
   "sync:kaleidocycle": "node scripts/sync-kaleidocycle.mjs",
   "dev": "npm run sync:kaleidocycle && astro dev",
   "build:site": "npm run sync:kaleidocycle && astro build",
-  "build": "npm run generate:cv && npm run build:site",
+  "build": "npm run build:site",
+  "build:with-cv": "npm run generate:cv && npm run build:site",
   "preview": "astro preview",
   "astro": "astro"
 },
