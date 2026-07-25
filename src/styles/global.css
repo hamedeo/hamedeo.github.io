@@ -2044,6 +2044,63 @@ html[data-theme="dark"] .cv-resume {
     border-radius: 0.5rem;
 }
 
+.prose .linkedin-video-preview {
+    margin: 1.5rem auto 2rem;
+    width: 100%;
+}
+
+.prose .linkedin-video-poster {
+    position: relative;
+    display: block;
+    width: 100%;
+    aspect-ratio: 504 / 399;
+    overflow: hidden;
+    padding: 0;
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    background: #000000;
+    cursor: pointer;
+}
+
+.prose .linkedin-video-poster img {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    object-fit: contain;
+}
+
+.prose .linkedin-video-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    width: 68px;
+    height: 68px;
+    align-items: center;
+    justify-content: center;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.78);
+    color: #ffffff;
+    font-size: 29px;
+    line-height: 1;
+    padding-left: 4px;
+    transition: transform 0.2s ease;
+}
+
+.prose .linkedin-video-poster:hover .linkedin-video-play,
+.prose .linkedin-video-poster:focus-visible .linkedin-video-play {
+    transform: translate(-50%, -50%) scale(1.08);
+}
+
+.prose .linkedin-video-frame {
+    display: block;
+    width: 100%;
+    aspect-ratio: 504 / 399;
+    border: 0;
+    border-radius: 0.5rem;
+}
+
 .prose .pitch-video {
     position: relative;
     width: 100%;

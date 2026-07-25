@@ -5,6 +5,7 @@ import BackLink from "../components/ui/BackLink.astro";
 import Tag from "../components/ui/Tag.astro";
 import Icon from "../components/ui/Icon.astro";
 import YouTubeThumbnail from "../components/content/YouTubeThumbnail.astro";
+import LinkedInVideoPreview from "../components/content/LinkedInVideoPreview.astro";
 import { getDetailItem } from "../utils/adapters";
 import { SITE } from "../config";
 
@@ -31,7 +32,10 @@ if (detail.extraInput) {
 }
 
 const description = entry.data.description || detail.description || SITE.desc;
-const ogImage = entry.data.image || SITE.ogImage;
+const contentImages = import.meta.glob<{ default: ImageMetadata }>("/src/content/**/*.{png,jpg,jpeg,webp,gif}", {
+    eager: true,
+});
+const ogImage = (detail.image && contentImages[detail.image]?.default?.src) || entry.data.image || SITE.ogImage;
 
 function parseTimeParam(value: string | null): number {
     if (!value) return 0;
@@ -103,6 +107,15 @@ const youtubeVideo = collection === "talks" ? getYouTubeVideo(detail.externalUrl
         )}
 
         <div class="prose">
+            {entry.data.linkedin_embed_url && detail.image && (
+                <LinkedInVideoPreview
+                    embedUrl={entry.data.linkedin_embed_url}
+                    title={detail.title}
+                    image={detail.image}
+                    imageAlt={detail.imageAlt}
+                />
+            )}
+
             <Content />
 
             {youtubeVideo && detail.image && (

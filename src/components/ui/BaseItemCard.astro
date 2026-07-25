@@ -16,6 +16,7 @@ interface Props {
     tags?: string[];
     externalUrl?: string;
     image?: string;
+    imageAlt?: string;
     imageWidth?: string;
     imageHeight?: string;
     imagePosition?: "left" | "center" | "right";
@@ -31,6 +32,7 @@ const {
     tags,
     externalUrl,
     image,
+    imageAlt,
     imageWidth,
     imageHeight,
     imagePosition = "left",
@@ -83,7 +85,7 @@ const previewStyle = [
             <a href={href} class={`card-preview card-preview-${imagePosition}`} style={previewStyle}>
                 <img
                     src={previewImage}
-                    alt={`Preview for ${title}`}
+                    alt={imageAlt || `Preview for ${title}`}
                     class="card-preview-image"
                     loading="lazy"
                     decoding="async"

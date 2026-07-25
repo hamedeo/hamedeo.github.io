@@ -1,0 +1,64 @@
+---
+interface Props {
+    embedUrl: string;
+    title: string;
+    image: string;
+    imageAlt?: string;
+}
+
+const { embedUrl, title, image, imageAlt } = Astro.props;
+const contentImages = import.meta.glob<{ default: ImageMetadata }>("/src/content/**/*.{png,jpg,jpeg,webp,gif}", {
+    eager: true,
+});
+const previewImage = contentImages[image]?.default?.src || image;
+---
+
+<section class="linkedin-video-preview" aria-label="LinkedIn interview">
+    <button
+        type="button"
+        class="linkedin-video-poster"
+        data-linkedin-video
+        data-embed-url={embedUrl}
+        data-title={`${title} — LinkedIn interview`}
+        aria-label={`Play the LinkedIn interview: ${title}`}
+    >
+        <img
+            src={previewImage}
+            alt={imageAlt || `Interview preview for ${title}`}
+            loading="lazy"
+            decoding="async"
+        />
+        <span class="linkedin-video-play" aria-hidden="true">▶</span>
+    </button>
+</section>
+
+<script>
+    function initializeLinkedInVideoPreviews() {
+        const destination = document.querySelector("[data-linkedin-video-slot]");
+        const preview = document.querySelector<HTMLElement>(".linkedin-video-preview");
+        if (destination && preview && preview.parentElement !== destination) {
+            destination.appendChild(preview);
+        }
+
+        document.querySelectorAll<HTMLButtonElement>("[data-linkedin-video]").forEach((poster) => {
+            if (poster.dataset.initialized === "true") return;
+            poster.dataset.initialized = "true";
+
+            poster.addEventListener("click", () => {
+                const embedUrl = poster.dataset.embedUrl;
+                if (!embedUrl) return;
+
+                const iframe = document.createElement("iframe");
+                iframe.className = "linkedin-video-frame";
+                iframe.src = embedUrl;
+                iframe.title = poster.dataset.title || "LinkedIn interview";
+                iframe.allowFullscreen = true;
+                iframe.loading = "lazy";
+                poster.replaceWith(iframe);
+            });
+        });
+    }
+
+    initializeLinkedInVideoPreviews();
+    document.addEventListener("astro:page-load", initializeLinkedInVideoPreviews);
+</script>

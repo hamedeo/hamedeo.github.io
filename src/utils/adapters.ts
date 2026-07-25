@@ -26,6 +26,7 @@ export function getListingItem(entry: any, collection?: string): ListingItem {
         tags: d.tags || [],
         externalUrl: d.external_url,
         image: getContentImagePath(entry),
+        imageAlt: d.image_alt,
         imageWidth: d.image_width,
         imageHeight: d.image_height,
         imagePosition: d.image_position,

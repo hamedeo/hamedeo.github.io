@@ -28,9 +28,11 @@ const talks = defineCollection({
         tags: z.array(z.string()).optional(),
         hidden: z.boolean().optional(),
         image: z.string().optional(),
+        image_alt: z.string().optional(),
         image_width: z.string().optional(),
         image_height: z.string().optional(),
         image_position: z.enum(["left", "center", "right"]).optional(),
+        linkedin_embed_url: z.string().url().optional(),
     }),
 });
 

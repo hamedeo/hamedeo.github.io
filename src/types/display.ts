@@ -18,6 +18,7 @@ export interface ListingItem {
     tags: string[];
     externalUrl?: string;
     image?: string;
+    imageAlt?: string;
     imageWidth?: string;
     imageHeight?: string;
     imagePosition?: "left" | "center" | "right";

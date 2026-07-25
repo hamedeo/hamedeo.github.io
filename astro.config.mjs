@@ -11,6 +11,9 @@ export default defineConfig({
   markdown: {
     remarkPlugins: [remarkMath],
     rehypePlugins: [rehypeKatex],
+    remarkRehype: {
+      footnoteLabel: 'References',
+    },
   },
   build: {
     inlineStylesheets: 'always'
