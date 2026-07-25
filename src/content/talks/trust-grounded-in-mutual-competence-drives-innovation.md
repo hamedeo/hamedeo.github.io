@@ -16,24 +16,36 @@ tags:
   - "Leadership"
 ---
 
-Trust grounded in mutual competence drives innovation. This is especially important in international hiring, where unfamiliarity can be mistaken for deficiency and professional dependence for commitment.
+# Trust Grounded in Mutual Competence Drives Innovation
 
-Aristotle provides the ethical foundation for such trust. In the *Nicomachean Ethics*, durable cooperation is distinguished from relationships based only on utility: it depends on character, reciprocity, and excellence demonstrated through action.[^1] Machiavelli provides the necessary realist correction. Necessity can influence behaviour and secure obedience, but it does not establish trust. His concept of *virtù* instead emphasises practical judgement, initiative, and the capacity to act effectively under changing circumstances.[^2]
+Trust grounded in mutual competence drives innovation. This is especially relevant when organisations hire international professionals, whose unfamiliarity with a local system can too easily be mistaken for limited capability.
 
-Together, these perspectives reveal an important professional distinction: compliance is not the same as commitment. Where one party’s limited alternatives are treated as permission to impose disproportionate conditions, an agreement may remain formally voluntary while losing the reciprocity on which meaningful trust depends. An organisation may obtain obedience in this way, but risk suppressing the independent judgement it needs for innovation.
+International professionals often bring experience formed across different countries, institutions, industries, and technical traditions. Their value does not arise from difference alone, but from the ability to connect ideas that established structures may keep separate. That wider frame can help teams question assumptions, transfer knowledge, and recognise alternative solutions.
 
-The practical expression of trust is ownership. International professionals often bring experience formed across different technical, institutional, and cultural systems. Their value lies not simply in being different, but in being able to connect disciplines, question inherited assumptions, and introduce alternative ways of framing a problem. This value becomes productive only when they receive sufficient authority to apply their competence and accept responsibility for the outcome.
+Aristotle offers a useful ethical framework. In the *Nicomachean Ethics*, he distinguishes relationships grounded only in utility from those sustained by character, reciprocity, and demonstrated virtue. He also argues that trust develops through experience: people cannot truly trust one another until each has had the opportunity to demonstrate their character. Applied to professional life, trust should therefore be neither blind nor unilateral. Employees must show competence, integrity, and accountability; organisations must provide fair recognition and meaningful opportunities to exercise those qualities.[^1]
 
-The empirical evidence supports this view. A study of US inventors found that immigrants represented approximately 16% of inventors but produced 23% of patents, while also generating stronger innovation spillovers among their collaborators.[^3] These findings do not mean that international experience automatically produces innovation. They show that international talent can be an important source of invention, knowledge exchange, and organisational renewal.
+Machiavelli adds a necessary realism. His work reminds us that behaviour is often shaped by circumstances, necessity, and unequal power—not solely by loyalty or conviction. Apparent compliance should therefore not automatically be interpreted as genuine commitment. His idea of *virtù* instead emphasises practical judgement, initiative, adaptability, and the ability to act effectively when circumstances change. Machiavelli also observes that leadership is judged partly by its ability to recognise capable people and retain their commitment.[^2]
+
+Together, these perspectives reveal an important distinction: **compliance can be required, but commitment must be earned**.
+
+This distinction matters where professional relationships contain structural imbalances. An agreement may be formally voluntary while one party has substantially fewer alternatives than the other. In such circumstances, trust requires restraint as well as responsibility. Expectations should be transparent, obligations proportionate, and professional independence preserved. Otherwise, an organisation may receive obedience while suppressing precisely the judgement, initiative, and constructive disagreement it hired the person to contribute.
+
+The practical expression of trust is ownership. Ownership does not mean removing oversight or accountability. It means defining a meaningful problem, providing access to the necessary information, allowing room for independent judgement, and making the individual responsible for explaining and validating the result. Trust can then be tested through work rather than inferred from conformity.
+
+The empirical evidence supports the value of this approach. A major study of US inventors found that immigrants represented approximately 16% of inventors but authored 23% of patents.[^3] The researchers also found that immigrant inventors contributed significantly to knowledge diffusion across national borders and through collaboration with other inventors. These findings do not imply that international experience automatically produces innovation. They do show that international talent can be a substantial source of invention, knowledge exchange, and technological renewal.
 
 <div data-linkedin-video-slot></div>
 
-I experienced this principle early in one of my own roles. The company interviewed me for a video after I contributed a new perspective by connecting ideas across disciplines. The value of that contribution came neither from conformity nor from international identity alone. It came from being trusted with enough ownership to make a different perspective useful.
+I experienced this principle early in one of my own roles. After contributing a new perspective by connecting ideas across disciplines, I was invited to discuss my experience in a company video. The significance was not simply that an international employee had been included. It was that a different perspective had been recognised early enough—and given sufficient ownership—to become useful.
 
-International hiring should therefore not be regarded as accommodation. When competence is recognised, obligations remain reciprocal, and ownership is granted responsibly, it becomes an investment in broader perception and stronger innovation.
+International hiring should therefore not be understood as accommodation or compromise. When selection remains rigorous, obligations remain reciprocal, and competence is met with meaningful ownership, it becomes an investment in broader perception and stronger innovation.
 
-[^1]: Aristotle, *Nicomachean Ethics*, Book VIII, particularly his discussion of virtue, utility, equality, and reciprocity in human relationships.
+Trust is not demonstrated by how much one party can demand from another. It is demonstrated by what capable people can achieve when responsibility and professional agency are shared.
 
-[^2]: Niccolò Machiavelli, *The Prince*, together with the concept of *virtù* as practical capability, judgement, and the capacity to achieve consequential results.
+### References
+
+[^1]: Aristotle, *Nicomachean Ethics*, Book VIII—particularly the discussions of utility, reciprocity, virtue, inequality, and the development of trust through experience.
+
+[^2]: Niccolò Machiavelli, *The Prince*—particularly the discussions of *virtù*, practical judgement, dependence, leadership, and the recognition of capable advisers.
 
 [^3]: Bernstein, S., Diamond, R., Jiranaphawiboon, A., McQuade, T. J., and Pousada, B., “[The Contribution of High-Skilled Immigrants to Innovation in the United States](https://doi.org/10.3386/w30797),” *NBER Working Paper* No. 30797, 2022.
