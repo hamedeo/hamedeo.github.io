@@ -2046,6 +2046,12 @@ html[data-theme="dark"] .cv-resume {
     line-height: 1.4;
 }
 
+.prose img[src*="MobarakehSteelFactory-HamedAbdollahi"] {
+    display: block;
+    width: 50%;
+    margin: 1.5rem auto;
+}
+
 .prose iframe.linkedin-embed {
     display: block;
     margin: 1rem 0 3rem;
