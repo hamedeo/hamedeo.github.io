@@ -45,8 +45,6 @@ International hiring should therefore not be understood as accommodation or comp
 
 Trust is not demonstrated by how much one party can demand from another. It is demonstrated by what capable people can achieve when responsibility and professional agency are shared.
 
-### References
-
 [^1]: Aristotle, *Nicomachean Ethics*, Book VIII—particularly the discussions of utility, reciprocity, virtue, inequality, and the development of trust through experience.
 
 [^2]: Niccolò Machiavelli, *The Prince*—particularly the discussions of *virtù*, practical judgement, dependence, leadership, and the recognition of capable advisers.
