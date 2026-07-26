@@ -1,0 +1,7 @@
+.projects-detail {
+    min-width: 0;
+}
+
+.projects-detail .prose {
+    overflow-wrap: anywhere;
+}

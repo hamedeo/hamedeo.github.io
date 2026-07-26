@@ -3,6 +3,7 @@ import { defineConfig } from 'astro/config';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 import sitemap from '@astrojs/sitemap';
+import rehypeImageClasses from './src/utils/rehypeImageClasses.mjs';
 
 import tailwindcss from '@tailwindcss/vite';
 
@@ -10,7 +11,7 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   markdown: {
     remarkPlugins: [remarkMath],
-    rehypePlugins: [rehypeKatex],
+    rehypePlugins: [rehypeImageClasses, rehypeKatex],
     remarkRehype: {
       footnoteLabel: 'References',
     },

@@ -2,6 +2,7 @@
 import { getEntry, render } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { PAGES } from "../config";
+import "../styles/pages/about.css";
 
 // Load bio content
 const bioEntry = await getEntry("bio", "bio");

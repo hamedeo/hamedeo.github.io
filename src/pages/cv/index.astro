@@ -3,6 +3,7 @@ import { getEntry, render } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Timeline from "../../components/ui/Timeline.astro";
 import { PAGES } from "../../config";
+import "../../styles/pages/cv.css";
 
 if (PAGES.cv.isActive === false) {
     return Astro.redirect("/404");
@@ -172,34 +173,3 @@ const contactItems = [
         </div>
     </div>
 </BaseLayout>
-
-<style>
-  .cv-document-actions {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    gap: 0.75rem;
-    margin-bottom: 2rem;
-  }
-
-  .cv-document-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.7rem 1rem;
-    border: 1px solid currentColor;
-    background: transparent;
-    color: inherit;
-    font: inherit;
-    font-weight: 600;
-    text-decoration: none;
-    transition:
-      background-color 150ms ease,
-      color 150ms ease;
-  }
-
-  .cv-document-button:hover {
-    background: var(--foreground);
-    color: var(--background);
-  }
-</style>

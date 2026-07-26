@@ -1,5 +1,26 @@
 ---
-export async function getStaticPaths() {
-    return [];
+import { getCollection } from "astro:content";
+import BaseDetail from "../../layouts/BaseDetail.astro";
+import { PAGES } from "../../config";
+import "../../styles/pages/projects.css";
+
+if (PAGES.projects.isActive === false) {
+    return Astro.redirect("/404");
 }
+
+export async function getStaticPaths() {
+    if (PAGES.projects.isActive === false) return [];
+    const projects = (await getCollection("projects")).filter(
+        (project: any) => project.data.hidden !== true,
+    );
+
+    return projects.map((project: any) => ({
+        params: { id: project.id },
+        props: { project },
+    }));
+}
+
+const { id } = Astro.params;
 ---
+
+<BaseDetail collection="projects" id={id} />

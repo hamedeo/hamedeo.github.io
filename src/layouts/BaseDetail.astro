@@ -84,7 +84,7 @@ const youtubeVideo = collection === "talks" ? getYouTubeVideo(detail.externalUrl
         )}
     </div>
 
-    <article>
+    <article class={`${collection}-detail`}>
         <h1 class="page-title mb-4">{detail.title}</h1>
 
         {meta.length > 0 && (

@@ -5,6 +5,7 @@ import ShareButtons from "../../components/ui/ShareButtons.astro";
 import { getReadingTime } from "../../utils/readingTime";
 import { PAGES, SITE } from "../../config";
 import R3plyComments from "../../components/content/R3plyComments.astro";
+import "../../styles/pages/posts.css";
 
 if (PAGES.blog.isActive === false) {
     return Astro.redirect("/404");

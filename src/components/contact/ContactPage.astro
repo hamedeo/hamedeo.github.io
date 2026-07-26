@@ -4,6 +4,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import { PAGES, SOCIALS } from "../../config";
 import MeetingOptionCard from "./MeetingOptionCard.astro";
 import ContactMethodRow from "./ContactMethodRow.astro";
+import "../../styles/pages/contact.css";
 
 const pageKey = Astro.props.pageKey ?? "contact";
 const page = (PAGES as any)[pageKey] ?? PAGES.contact;

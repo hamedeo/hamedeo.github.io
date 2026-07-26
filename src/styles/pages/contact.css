@@ -1,0 +1,307 @@
+.contact-page {
+    display: grid;
+    gap: 2.5rem;
+}
+
+.contact-intro {
+    max-width: 48rem;
+    margin: 0 0 1.25rem;
+    color: var(--foreground);
+    font-size: 1rem;
+    opacity: 0.84;
+}
+
+.meeting-option-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.meeting-option {
+    position: relative;
+    min-height: 10.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.1rem 1rem;
+    overflow: hidden;
+    border: 1px solid color-mix(in srgb, var(--border) 76%, transparent);
+    border-radius: 1rem;
+    background:
+        linear-gradient(180deg, color-mix(in srgb, var(--surface) 72%, transparent), color-mix(in srgb, var(--background) 92%, transparent)),
+        radial-gradient(circle at top left, color-mix(in srgb, var(--meeting-glow, var(--accent)) 26%, transparent), transparent 58%);
+    box-shadow:
+        0 0 0 1px color-mix(in srgb, var(--foreground) 4%, transparent) inset,
+        0 16px 40px rgba(0, 0, 0, 0.08);
+    transition: transform 0.24s ease, border-color 0.24s ease, box-shadow 0.24s ease, background 0.24s ease;
+}
+
+.meeting-option::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(135deg, color-mix(in srgb, var(--meeting-glow, var(--accent)) 12%, transparent), transparent 40%),
+        radial-gradient(circle at 20% 15%, color-mix(in srgb, var(--meeting-glow, var(--accent)) 24%, transparent), transparent 34%);
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.meeting-option:hover,
+.meeting-option:focus-within {
+    border-color: color-mix(in srgb, var(--meeting-glow, var(--accent)) 50%, var(--border));
+    box-shadow:
+        0 0 0 1px color-mix(in srgb, var(--meeting-glow, var(--accent)) 32%, transparent) inset,
+        0 10px 28px color-mix(in srgb, var(--meeting-glow, var(--accent)) 10%, transparent),
+        0 24px 42px rgba(0, 0, 0, 0.14);
+    transform: translateY(-3px);
+}
+
+.meeting-option-icon {
+    position: relative;
+    z-index: 1;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid color-mix(in srgb, var(--meeting-glow, var(--accent)) 30%, var(--border));
+    border-radius: 9999px;
+    background: color-mix(in srgb, var(--surface) 82%, transparent);
+    color: var(--foreground);
+    box-shadow: 0 0 18px color-mix(in srgb, var(--meeting-glow, var(--accent)) 22%, transparent);
+}
+
+.meeting-option-copy {
+    position: relative;
+    z-index: 1;
+}
+
+.meeting-option-title {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+.meeting-option-description {
+    margin: 0.45rem 0 0;
+    color: var(--foreground);
+    opacity: 0.74;
+    transform: translateY(0.22rem);
+    transition: opacity 0.24s ease, transform 0.24s ease;
+}
+
+.meeting-option:hover .meeting-option-description,
+.meeting-option:focus-within .meeting-option-description {
+    opacity: 0.96;
+    transform: translateY(0);
+}
+
+.meeting-option-coffee {
+    --meeting-glow: #f59e0b;
+}
+
+.meeting-option-cycle {
+    --meeting-glow: #22c55e;
+}
+
+.meeting-option-walk {
+    --meeting-glow: #60a5fa;
+}
+
+.contact-form-embed,
+.meeting-form-embed {
+    width: 100%;
+    min-width: 0;
+    overflow: hidden;
+}
+
+.contact-form-embed {
+    margin: 0 0 1rem;
+}
+
+.meeting-form-embed {
+    margin-top: 1rem;
+}
+
+.contact-form-embed iframe,
+.meeting-form-embed iframe {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    border: 0;
+}
+
+html[data-theme="light"] .tally-embed {
+    filter: invert(1) hue-rotate(180deg);
+}
+
+html[data-theme="dark"] .tally-embed {
+    filter: none;
+}
+
+.contact-method-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    align-items: stretch;
+}
+
+.contact-main-cta {
+    display: flex;
+    width: 100%;
+    margin: 0 0 1rem;
+}
+
+.contact-row {
+    display: flex;
+    min-height: 100%;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.15rem 1.1rem;
+    border: 1px solid color-mix(in srgb, var(--border) 78%, transparent);
+    border-radius: 1rem;
+    background:
+        linear-gradient(135deg, color-mix(in srgb, var(--surface) 78%, transparent), color-mix(in srgb, var(--background) 92%, transparent)),
+        radial-gradient(circle at top left, color-mix(in srgb, var(--accent) 10%, transparent), transparent 46%);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.06);
+}
+
+.contact-row-reverse {
+    flex-direction: row-reverse;
+}
+
+.contact-row-icon {
+    flex: 0 0 auto;
+    width: 3.25rem;
+    height: 3.25rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid color-mix(in srgb, var(--accent) 26%, var(--border));
+    border-radius: 9999px;
+    background: color-mix(in srgb, var(--surface) 84%, transparent);
+    color: var(--foreground);
+    box-shadow: 0 0 18px color-mix(in srgb, var(--accent) 18%, transparent);
+}
+
+.contact-row-copy {
+    flex: 1 1 auto;
+    min-width: 0;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-row-title {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 700;
+}
+
+.contact-row-description {
+    max-width: 42rem;
+    margin: 0.45rem 0 0;
+    opacity: 0.82;
+}
+
+.contact-row-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: auto;
+    padding-top: 0.85rem;
+}
+
+.contact-row-cta {
+    border-color: #ffffff;
+    border-radius: 0.25rem;
+    background: color-mix(in srgb, var(--surface) 82%, transparent);
+    color: #ffffff;
+}
+
+.contact-row-cta-secondary {
+    opacity: 0.88;
+}
+
+.contact-row-cta:hover,
+.contact-row-cta:focus-visible,
+.contact-row-cta:active {
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-1px);
+}
+
+.contact-row-cta:focus-visible {
+    outline-offset: 3px;
+}
+
+html[data-theme="light"] .contact-page .contact-row-cta {
+    border-color: #000000;
+    color: #000000;
+}
+
+.contact-section-title {
+    color: var(--foreground);
+    font-size: 1.3rem;
+    transition: color 0.3s ease;
+}
+
+@media (max-width: 1024px) {
+    .meeting-option-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-method-list {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-page {
+        gap: 2rem;
+    }
+
+    .meeting-option-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .meeting-option-description {
+        opacity: 0.96;
+        transform: translateY(0);
+    }
+
+    .contact-main-cta {
+        width: 100%;
+    }
+
+    .contact-row {
+        width: 100%;
+        height: auto;
+        min-height: 0;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .contact-row-reverse {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .contact-row-actions {
+        width: 100%;
+        margin-top: 0;
+        padding-top: 0.85rem;
+    }
+
+    .contact-row-cta {
+        width: 100%;
+    }
+
+    .contact-row-copy {
+        width: 100%;
+        min-height: 0;
+    }
+}

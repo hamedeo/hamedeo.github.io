@@ -19,7 +19,7 @@ Years ago, I worked at Mobarakeh Steel Company near Isfahan.
 
 What stayed with me was not the scale of the machinery. It was the people who kept it running: operators, technicians, engineers, drivers, contractors and thousands of families whose lives were tied to that place.
 
-![Hamed Abdollahi wearing blue protective workwear and a hard hat inside the control room at Mobarakeh Steel Company](./Pics/MobarakehSteelFactory-HamedAbdollahi.jpg)
+![Hamed Abdollahi wearing blue protective workwear and a hard hat inside the control room at Mobarakeh Steel Company](./Pics/MobarakehSteelFactory-HamedAbdollahi.jpg "class:article-image article-image--half")
 
 > **A factory is never just a factory.**
 
