@@ -16,7 +16,7 @@ tags:
   - "Leadership"
 ---
 
-# Trust Grounded in Mutual Competence Drives Innovation
+# Trust Out Of Virtue
 
 Trust grounded in mutual competence drives innovation. This is especially relevant when organisations hire international professionals, whose unfamiliarity with a local system can too easily be mistaken for limited capability.
 
