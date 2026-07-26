@@ -13,6 +13,14 @@
     width: 100%;
 }
 
+.posts-detail .article-image-credit {
+    display: block;
+    margin: -1.25rem 0 2rem;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    line-height: 1.4;
+}
+
 @media (max-width: 700px) {
     .posts-detail .article-image--half {
         width: 100%;
