@@ -21,6 +21,8 @@ What stayed with me was not the scale of the machinery, but the people who kept 
 
 ![Hamed Abdollahi wearing blue protective workwear and a hard hat inside the control room at Mobarakeh Steel Company](./Pics/MobarakehSteelFactory-HamedAbdollahi.jpg "class\:article-image article-image--full")
 
+<small class="article-image-credit">Me in the control room of the steam power plant at Mobarakeh Steel Company.</small>
+
 > **A factory is never just a factory.**
 
 It is wages, food, rent, education and security. It connects workers with suppliers, transport companies, workshops and entire communities. When it is attacked, the damage does not stop at the factory gates. It spreads through society, while those with the least power carry the greatest cost.
