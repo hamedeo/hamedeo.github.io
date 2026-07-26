@@ -22,11 +22,14 @@ Trust grounded in mutual competence drives innovation. This is especially releva
 
 International professionals often bring experience formed across different countries, institutions, industries, and technical traditions. Their value does not arise from difference alone, but from the ability to connect ideas that established structures may keep separate. That wider frame can help teams question assumptions, transfer knowledge, and recognise alternative solutions.
 
+![Jacob Lawrence’s painting The Builders, depicting people working together with tools and construction materials](./Pics/Jacob-Lawrence-The-Builders.jpg)
+<small class="image-credit">*The Builders* — Jacob Lawrence.</small>
+
 Aristotle offers a useful ethical framework. In the *Nicomachean Ethics*, he distinguishes relationships grounded only in utility from those sustained by character, reciprocity, and demonstrated virtue. He also argues that trust develops through experience: people cannot truly trust one another until each has had the opportunity to demonstrate their character. Applied to professional life, trust should therefore be neither blind nor unilateral. Employees must show competence, integrity, and accountability; organisations must provide fair recognition and meaningful opportunities to exercise those qualities.[^1]
 
-Machiavelli adds a necessary realism. His work reminds us that behaviour is often shaped by circumstances, necessity, and unequal power—not solely by loyalty or conviction. Apparent compliance should therefore not automatically be interpreted as genuine commitment. His idea of *virtù* instead emphasises practical judgement, initiative, adaptability, and the ability to act effectively when circumstances change. Machiavelli also observes that leadership is judged partly by its ability to recognise capable people and retain their commitment.[^2]
+Machiavelli adds a necessary realism. His work reminds us that behaviour is often shaped by circumstances, necessity, and unequal power, not solely by loyalty or conviction. Apparent compliance should therefore not automatically be interpreted as genuine commitment. His idea of *virtù* instead emphasises practical judgement, initiative, adaptability, and the ability to act effectively when circumstances change. Machiavelli also observes that leadership is judged partly by its ability to recognise capable people and retain their commitment.[^2]
 
-Together, these perspectives reveal an important distinction: **compliance can be required, but commitment must be earned**.
+> **Compliance can be required; commitment must be earned.**
 
 This distinction matters where professional relationships contain structural imbalances. An agreement may be formally voluntary while one party has substantially fewer alternatives than the other. In such circumstances, trust requires restraint as well as responsibility. Expectations should be transparent, obligations proportionate, and professional independence preserved. Otherwise, an organisation may receive obedience while suppressing precisely the judgement, initiative, and constructive disagreement it hired the person to contribute.
 
@@ -36,7 +39,7 @@ The empirical evidence supports the value of this approach. A major study of US 
 
 <div data-linkedin-video-slot></div>
 
-I experienced this principle early in one of my own roles. After contributing a new perspective by connecting ideas across disciplines, I was invited to discuss my experience in a company video. The significance was not simply that an international employee had been included. It was that a different perspective had been recognised early enough—and given sufficient ownership—to become useful.
+I experienced this principle early in one of my own roles. After contributing a new perspective by connecting ideas across disciplines, I was invited to discuss my experience in a company video. The significance was not simply that an international employee had been included. It was that a different perspective had been recognised early enough and given sufficient ownership to become useful.
 
 International hiring should therefore not be understood as accommodation or compromise. When selection remains rigorous, obligations remain reciprocal, and competence is met with meaningful ownership, it becomes an investment in broader perception and stronger innovation.
 
