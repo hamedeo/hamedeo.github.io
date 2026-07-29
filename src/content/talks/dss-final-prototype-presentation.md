@@ -1,5 +1,5 @@
 ---
-title: "DSS Final prototype presentation - Team The Thread"
+title: "DSS Final prototype presentation"
 date: "2026-06-07"
 event: "Digital Society School, Amsterdam"
 external_url: "https://www.linkedin.com/posts/digitalsocietyschoolamsterdam_showcase-is-tomorrow-and-this-time-activity-7475156637666766848-ocLC"
@@ -9,8 +9,6 @@ image_width: "1000px"
 image_position: "left"
 tags:
   - "DigitalSocietySchool"
-  - "ProjectSprints"
-  - "TheThreadProject"
 ---
 
 ## DSS Final Prototype Presentation

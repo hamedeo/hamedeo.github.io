@@ -1,5 +1,5 @@
 ---
-title: "DSS Project Pitch - Team The Thread"
+title: "DSS Project Pitch"
 date: "2026-06-24"
 event: "Digital Society School, Amsterdam"
 external_url: "https://youtu.be/4rvM5zNBeKQ?t=3857"
