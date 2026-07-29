@@ -1,0 +1,88 @@
+<div class="life-canvas-column">
+    <div class="life-canvas-sticky">
+        <div
+            class="life-canvas"
+            data-life-canvas
+            aria-hidden="true"
+        >
+            <div class="life-canvas-fallback" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+        <div class="life-progress" aria-label="Life journey progress">
+            <span class="life-progress-label mono">Journey</span>
+            <progress data-life-progress max="1" value="0">0%</progress>
+            <span class="life-progress-value mono" data-life-progress-value>
+                01
+            </span>
+        </div>
+    </div>
+</div>
+
+<script>
+    import {
+        mountLifeJourney,
+        type LifeRuntimeLoader,
+        type LifeRuntime,
+    } from "../../scripts/life-journey";
+
+    type LifeJourneyWindow = Window &
+        typeof globalThis & {
+            __lifeJourneyCleanup?: () => void;
+            __lifeJourneyEvents?: AbortController;
+            __lifeRuntimePromise?: Promise<LifeRuntime>;
+        };
+
+    const lifeWindow = window as LifeJourneyWindow;
+
+    const loadLifeRuntime: LifeRuntimeLoader = () => {
+        if (!lifeWindow.__lifeRuntimePromise) {
+            lifeWindow.__lifeRuntimePromise = (async () => {
+                const { default: p5 } = await import("p5");
+                const { createLifeSketch } =
+                    await import("../../scripts/life-sketch");
+
+                return { P5: p5, createLifeSketch };
+            })();
+        }
+
+        return lifeWindow.__lifeRuntimePromise;
+    };
+
+    lifeWindow.__lifeJourneyEvents?.abort();
+    const eventController = new AbortController();
+    lifeWindow.__lifeJourneyEvents = eventController;
+
+    const initialise = () => {
+        const root =
+            document.querySelector<HTMLElement>("[data-life-journey]");
+
+        if (!root) {
+            lifeWindow.__lifeJourneyCleanup?.();
+            lifeWindow.__lifeJourneyCleanup = undefined;
+            return;
+        }
+
+        if (root.dataset.initialized === "true") return;
+
+        lifeWindow.__lifeJourneyCleanup?.();
+        lifeWindow.__lifeJourneyCleanup =
+            mountLifeJourney(loadLifeRuntime);
+    };
+
+    const destroy = () => {
+        lifeWindow.__lifeJourneyCleanup?.();
+        lifeWindow.__lifeJourneyCleanup = undefined;
+    };
+
+    initialise();
+    document.addEventListener("astro:page-load", initialise, {
+        signal: eventController.signal,
+    });
+    document.addEventListener("astro:before-swap", destroy, {
+        signal: eventController.signal,
+    });
+</script>
