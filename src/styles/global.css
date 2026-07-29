@@ -1418,8 +1418,9 @@ body:has(.social-link:focus-visible) .footer {
     position: sticky;
     top: 4.25rem;
     z-index: 6;
-    width: fit-content;
-    max-width: 42rem;
+    width: min(39rem, calc(64% - 1rem));
+    max-width: none;
+    box-sizing: border-box;
     margin-bottom: 1.5rem;
     padding: 0.35rem 0.85rem 0.45rem 0;
     background: var(--background);
@@ -1882,6 +1883,8 @@ body:has(.social-link:focus-visible) .footer {
 }
 
 .life-morpheidos-logo {
+    position: relative;
+    z-index: 2;
     width: 100%;
     color: currentColor;
 }
@@ -1890,6 +1893,7 @@ body:has(.social-link:focus-visible) .footer {
     position: absolute;
     top: calc(100% + 0.75rem);
     left: 50%;
+    z-index: 2;
     display: flex;
     width: max-content;
     align-items: center;
@@ -2126,6 +2130,7 @@ body:has(.social-link:focus-visible) .footer {
 @media (max-width: 900px) {
     .life-journey-header {
         top: 1rem;
+        width: calc(59.2% - 0.8rem);
     }
 
     .life-journey-layout {

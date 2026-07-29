@@ -253,10 +253,13 @@ export function mountLifeJourney(
         frameRequested = false;
         if (disposed) return;
 
-        const readingLine = window.scrollY + window.innerHeight * 0.5;
+        const upperTriggerLine =
+            window.scrollY + window.innerHeight * 0.25;
+        const lowerTriggerLine =
+            window.scrollY + window.innerHeight * 0.75;
         const denominator = Math.max(1, finalAnchor - firstAnchor);
         const nextProgress = clamp(
-            (readingLine - firstAnchor) / denominator,
+            (lowerTriggerLine - firstAnchor) / denominator,
         );
         const nextDirection =
             window.scrollY > previousScrollY
@@ -268,31 +271,28 @@ export function mountLifeJourney(
 
         let activeIndex = 0;
         for (let index = 1; index < milestoneAnchors.length; index += 1) {
-            if (readingLine >= milestoneAnchors[index]) {
+            if (lowerTriggerLine >= milestoneAnchors[index]) {
                 activeIndex = index;
             } else {
                 break;
             }
         }
 
-        const lowerIndex = activeIndex;
-        const upperIndex = Math.min(
-            milestones.length - 1,
-            lowerIndex + 1,
-        );
-        const segmentLength = Math.max(
+        if (
+            activeIndex < milestones.length - 1 &&
+            upperTriggerLine >= milestoneAnchors[activeIndex]
+        ) {
+            activeIndex += 1;
+        }
+
+        const triggerBandHeight = Math.max(
             1,
-            milestoneAnchors[upperIndex] - milestoneAnchors[lowerIndex],
+            lowerTriggerLine - upperTriggerLine,
         );
-        const segmentProgress =
-            readingLine <= firstAnchor
-                ? 0
-                : readingLine >= finalAnchor
-                  ? 1
-                  : clamp(
-                        (readingLine - milestoneAnchors[lowerIndex]) /
-                            segmentLength,
-                    );
+        const segmentProgress = clamp(
+            (lowerTriggerLine - milestoneAnchors[activeIndex]) /
+                triggerBandHeight,
+        );
         const nextStageProgress = stagePositions[activeIndex];
 
         state.targetProgress = nextProgress;

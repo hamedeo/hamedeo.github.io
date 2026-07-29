@@ -12,7 +12,7 @@ institution: |
 ---
 <meta name="description" content="..." />
 
-I am a **mechanical engineer** who enjoys turning complicated technical problems into workable solutions. I work with systems in motion, from rigid structures to fluid flow, and use design and analysis to make them perform as intended. I also enjoy the collaborative side of engineering, bringing people and technical work together from early design through validation and implementation.
+I am a **mechanical design engineer** with a background in the high-tech and energy industries. I enjoy analysis and work with systems in motion, from rigid structures to fluid flow.
 
 <!-- As a **Mechanical Engineer** with a background in thermo-fluid systems and precision hardware, I specialize in mechanical design and engineering analysis. I support mechanical development through design, analysis, validation and technical problem-solving. Alongside my technical work, I have developed project coordination and stakeholder management experience that helps me move engineering activities from analysis and design through validation and implementation. -->
 
