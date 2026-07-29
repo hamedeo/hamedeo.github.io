@@ -27,14 +27,14 @@ experience:
         - "Engineered, built, and tested prototypes using CNC machining, 3D printing, and electronic modules"
         - |
           Secured stakeholder consensus on a complex problem statement by establishing a unified scope.
-          ◦ Validated project requirements by synthesizing research findings and stakeholder input.
+          ◦ Validated project requirements by aligning research findings and stakeholder input.
         #  ◦ Built and tested prototypes using CNC, 3D printer, and modules to validate stakeholder needs.
         - "Cut project expenditure by 40% by sprint planning & scope control for on-schedule project delivery."
   - institution: "ASML"
     role: "Mechanical Engineer"
     period: "Nov 2023 - Sep 2024"
     location: "Veldhoven, Netherlands"
-    description: "Supported PLM data and CAD-library standardization for complex supplier components and assemblies in a team of 25+."
+    description: "Supported product development and standardization for complex supplier components and assemblies in a team of 25+."
     bullets:
         - |
           Drafted technical documentation to transition supplier designs toward PFAS-free components.

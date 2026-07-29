@@ -1,6 +1,6 @@
 ---
 title: "Between Repression and Destruction: What a Steel Plant Really Holds"
-date: "2026-08-05"
+date: "2026-03-05"
 author: "Hamed Abdollahi"
 description: "A reflection on the March 2026 attack on Mobarakeh Steel Factory, its human cost, and solidarity against brutal domestic repression and foreign violence."
 image: "Pics/MobarakehSteelFactory-HamedAbdollahi.jpg"
@@ -9,8 +9,7 @@ image_width: "1000px"
 image_position: "left"
 tags:
   - "Iran"
-  - "SteelIndustry"
-  - "Infrastructure"
+  - "Freedom"
   - "Solidarity"
   - "HumanRights"
 ---
