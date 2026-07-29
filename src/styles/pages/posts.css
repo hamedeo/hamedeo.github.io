@@ -21,6 +21,10 @@
     line-height: 1.4;
 }
 
+.posts-detail .article-image-credit--spaced {
+    margin-top: 0.5rem;
+}
+
 .posts-detail .article-quotation {
     margin: 1.5rem 0;
     padding: 0;

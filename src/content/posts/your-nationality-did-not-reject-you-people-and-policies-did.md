@@ -92,7 +92,8 @@ def hiring_pipeline(candidates):
 def exclusion_and_hypocrisy():
     return True
 ```
-<small class="article-image-credit">How repeated nationality-based decisions become systemic, bury their original justification, and turn compliance into a reusable tool of exclusion.</small>
+
+<small class="article-image-credit article-image-credit--spaced">How repeated nationality-based decisions become systemic, bury their original justification, and turn compliance into a reusable tool of exclusion.</small>
 
 Nationality screening may sometimes satisfy a specific legal obligation, but it should not be confused with a complete security assessment. Information can be compromised by people of any nationality. Effective protection also requires controlled access, monitoring and individual accountability.[^7] When that distinction is lost, a narrow compliance measure can become systemic: copied across organisations, widened beyond its original purpose and reused as a general tool of exclusion.
 
