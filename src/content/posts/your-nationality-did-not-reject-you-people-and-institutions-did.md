@@ -61,6 +61,8 @@ The distinction matters because a narrow compliance requirement can easily becom
 
 Yet once nationality restrictions become normalised, their effects can spread beyond the original position. A hiring manager may reject someone because a future client might object. A secondment agency may decide that an Iranian candidate is harder to place. Contractors and subcontractors may adopt stricter internal rules than their clients or the law actually require. One Dutch ruling concerned precisely such a situation: an Iranian applicant was rejected by a technical secondment agency after broad references to clients working with American companies, without a demonstrated legal exception for the position.[^5]
 
+> **A narrow compliance rule can become a system of exclusion long after its original justification has disappeared.**
+
 The result is not merely a series of isolated decisions. It is a self-reinforcing employment structure in which Iranian professionals are treated as less deployable before the actual role has been assessed.
 
 This also changes the recruitment process itself. Other candidates can begin by asking:
