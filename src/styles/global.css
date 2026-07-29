@@ -1217,6 +1217,12 @@ body:has(.social-link:focus-visible) .footer {
     text-justify: inter-word;
 }
 
+@media (max-width: 640px) {
+    .prose > p:first-of-type {
+        text-align: left;
+    }
+}
+
 .prose ul,
 .prose ol {
     margin-bottom: 1rem;
