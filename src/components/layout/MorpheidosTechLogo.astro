@@ -1,10 +1,25 @@
+---
+interface Props {
+    decorative?: boolean;
+    titleId?: string;
+    class?: string;
+}
+
+const {
+    decorative = false,
+    titleId = "morpheidos-nav-logo-title",
+    class: className,
+} = Astro.props;
+---
+
 <svg
-    class="morpheidos-nav-logo"
+    class:list={["morpheidos-nav-logo", className]}
     viewBox="0 0 204 110"
-    role="img"
-    aria-labelledby="morpheidos-nav-logo-title"
+    role={decorative ? "presentation" : "img"}
+    aria-hidden={decorative ? "true" : undefined}
+    aria-labelledby={decorative ? undefined : titleId}
 >
-    <title id="morpheidos-nav-logo-title">Morpheidos Tech</title>
+    {!decorative && <title id={titleId}>Morpheidos Tech</title>}
 
     <ellipse
         cx="102"

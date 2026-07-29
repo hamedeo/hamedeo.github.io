@@ -1,0 +1,116 @@
+---
+import LifeLogoLayer from "./LifeLogoLayer.astro";
+import { lifeJourney } from "../../data/lifeJourney";
+
+const fallbackDots = [
+    { x: "12%", y: "23%", size: "0.42rem" },
+    { x: "30%", y: "12%", size: "0.3rem" },
+    { x: "53%", y: "18%", size: "0.38rem" },
+    { x: "78%", y: "15%", size: "0.3rem" },
+    { x: "88%", y: "38%", size: "0.46rem" },
+    { x: "79%", y: "70%", size: "0.34rem" },
+    { x: "57%", y: "82%", size: "0.44rem" },
+    { x: "32%", y: "76%", size: "0.32rem" },
+    { x: "14%", y: "65%", size: "0.4rem" },
+    { x: "23%", y: "43%", size: "0.28rem" },
+];
+---
+
+<div class="life-canvas-column">
+    <div class="life-canvas-sticky">
+        <div
+            class="life-canvas"
+            data-life-canvas
+            aria-hidden="true"
+        >
+            <LifeLogoLayer />
+            <div class="life-canvas-fallback" aria-hidden="true">
+                <span class="life-canvas-fallback-focus">3+</span>
+                {
+                    fallbackDots.map((dot) => (
+                        <span
+                            class="life-canvas-fallback-dot"
+                            style={`--life-fallback-x: ${dot.x}; --life-fallback-y: ${dot.y}; --life-fallback-size: ${dot.size};`}
+                        />
+                    ))
+                }
+            </div>
+        </div>
+
+        <div class="life-progress" aria-label="Life journey progress">
+            <span class="life-progress-label mono">Journey</span>
+            <progress data-life-progress max="1" value="0">0%</progress>
+            <span class="life-progress-value mono" data-life-progress-value>
+                01
+            </span>
+            <span class="life-progress-period mono" data-life-progress-period>
+                {lifeJourney[0]?.period}
+            </span>
+        </div>
+    </div>
+</div>
+
+<script>
+    import {
+        mountLifeJourney,
+        type LifeRuntimeLoader,
+        type LifeRuntime,
+    } from "../../scripts/life-journey";
+
+    type LifeJourneyWindow = Window &
+        typeof globalThis & {
+            __lifeJourneyCleanup?: () => void;
+            __lifeJourneyEvents?: AbortController;
+            __lifeRuntimePromise?: Promise<LifeRuntime>;
+        };
+
+    const lifeWindow = window as LifeJourneyWindow;
+
+    const loadLifeRuntime: LifeRuntimeLoader = () => {
+        if (!lifeWindow.__lifeRuntimePromise) {
+            lifeWindow.__lifeRuntimePromise = (async () => {
+                const { default: p5 } = await import("p5");
+                const { createLifeSketch } =
+                    await import("../../scripts/life-sketch");
+
+                return { P5: p5, createLifeSketch };
+            })();
+        }
+
+        return lifeWindow.__lifeRuntimePromise;
+    };
+
+    lifeWindow.__lifeJourneyEvents?.abort();
+    const eventController = new AbortController();
+    lifeWindow.__lifeJourneyEvents = eventController;
+
+    const initialise = () => {
+        const root =
+            document.querySelector<HTMLElement>("[data-life-journey]");
+
+        if (!root) {
+            lifeWindow.__lifeJourneyCleanup?.();
+            lifeWindow.__lifeJourneyCleanup = undefined;
+            return;
+        }
+
+        if (root.dataset.initialized === "true") return;
+
+        lifeWindow.__lifeJourneyCleanup?.();
+        lifeWindow.__lifeJourneyCleanup =
+            mountLifeJourney(loadLifeRuntime);
+    };
+
+    const destroy = () => {
+        lifeWindow.__lifeJourneyCleanup?.();
+        lifeWindow.__lifeJourneyCleanup = undefined;
+    };
+
+    initialise();
+    document.addEventListener("astro:page-load", initialise, {
+        signal: eventController.signal,
+    });
+    document.addEventListener("astro:before-swap", destroy, {
+        signal: eventController.signal,
+    });
+</script>

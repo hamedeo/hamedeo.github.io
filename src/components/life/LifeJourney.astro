@@ -1,0 +1,57 @@
+---
+import LifeCanvas from "./LifeCanvas.astro";
+import { lifeJourney } from "../../data/lifeJourney";
+---
+
+<section
+    class="life-journey"
+    data-life-journey
+    aria-labelledby="life-journey-heading"
+>
+    <header class="life-journey-header">
+        <h2
+            id="life-journey-heading"
+            class="about-section-heading"
+        >
+            My Life — A Continuous Path
+        </h2>
+        <p class="life-journey-intro">
+            Born three times—in Iran, Italy and the Netherlands—my path has
+            evolved through engineering, movement, research and creation.
+        </p>
+    </header>
+
+    <div class="life-journey-layout">
+        <LifeCanvas />
+
+        <ol class="life-milestones" aria-label="Life milestones">
+            {
+                lifeJourney.map((milestone, index) => (
+                    <li
+                        id={`life-${milestone.id}`}
+                        class="life-milestone"
+                        data-life-milestone
+                        data-life-index={index}
+                        data-visual-stage={milestone.visualStage}
+                        data-life-period={milestone.period}
+                    >
+                        <article class="life-milestone-content">
+                            <p class="life-milestone-number mono" aria-hidden="true">
+                                {String(index + 1).padStart(2, "0")}
+                            </p>
+                            <p class="life-milestone-meta mono">
+                                <time class="life-milestone-period">
+                                    {milestone.period}
+                                </time>
+                                {milestone.place && <span>{milestone.place}</span>}
+                            </p>
+                            <h3>{milestone.title}</h3>
+                            <p>{milestone.description}</p>
+                        </article>
+                    </li>
+                ))
+            }
+        </ol>
+    </div>
+
+</section>
