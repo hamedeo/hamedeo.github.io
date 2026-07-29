@@ -6,18 +6,19 @@
   "engines": {
     "node": ">=22.12.0"
   },
-"scripts": {
-  "generate:cv": "node scripts/generate-cv.mjs",
-  "sync:kaleidocycle": "node scripts/sync-kaleidocycle.mjs",
-  "dev": "npm run sync:kaleidocycle && astro dev",
-  "build:site": "npm run sync:kaleidocycle && astro build",
-  "build": "npm run build:site",
-  "build:with-cv": "npm run generate:cv && npm run build:site",
-  "watch:cv-deploy": "node scripts/watch-cv-deploy.mjs",
-  "check:cv-deploy": "node scripts/watch-cv-deploy.mjs --dry-run",
-  "preview": "astro preview",
-  "astro": "astro"
-},
+  "scripts": {
+    "generate:cv": "node scripts/generate-cv.mjs",
+    "prepare:life-logos": "node scripts/prepare-life-logo-masks.mjs",
+    "sync:kaleidocycle": "node scripts/sync-kaleidocycle.mjs",
+    "dev": "npm run prepare:life-logos && npm run sync:kaleidocycle && astro dev",
+    "build:site": "npm run prepare:life-logos && npm run sync:kaleidocycle && astro build",
+    "build": "npm run build:site",
+    "build:with-cv": "npm run generate:cv && npm run build:site",
+    "watch:cv-deploy": "node scripts/watch-cv-deploy.mjs",
+    "check:cv-deploy": "node scripts/watch-cv-deploy.mjs --dry-run",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
   "dependencies": {
     "@astrojs/rss": "^4.0.18",
     "@astrojs/sitemap": "^3.7.2",
@@ -38,6 +39,7 @@
     "@tailwindcss/vite": "4.2.2",
     "docxtemplater": "^3.69.0",
     "pizzip": "^3.2.0",
+    "sharp": "0.34.5",
     "tailwindcss": "4.2.2",
     "vite": "7.3.6",
     "yaml": "^2.9.0"

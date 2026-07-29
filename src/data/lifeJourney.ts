@@ -1,123 +1,122 @@
 export const LIFE_VISUAL_STAGES = [
-    "origins",
-    "mechanical",
-    "technology",
-    "industrial",
-    "movement",
-    "thermofluid",
-    "precision",
-    "creation",
+    "it",
+    "mechanical-consulting",
+    "masters",
+    "research",
+    "asml",
+    "morpheidos",
+    "dss",
+    "kaleidocycle",
+    "liminal",
 ] as const;
 
 export type LifeVisualStage = (typeof LIFE_VISUAL_STAGES)[number];
 
-export type LifeMilestone = {
+export type LifeLogoId =
+    | "msc"
+    | "azg"
+    | "polito"
+    | "tue"
+    | "asml"
+    | "morpheidos"
+    | "dss";
+
+export type LifeJourneyStage = {
     id: string;
-    year: string;
-    place: string;
+    period: string;
+    place?: string;
     title: string;
-    sentence: string;
+    description: string;
     visualStage: LifeVisualStage;
+    logoIds?: LifeLogoId[];
 };
 
-export const lifeJourney: LifeMilestone[] = [
+export const lifeJourney: LifeJourneyStage[] = [
     {
-        id: "isfahan-origins",
-        year: "Early years",
-        place: "Isfahan, Iran",
-        title: "Questions before answers",
-        sentence:
-            "Curiosity about motion, energy and how things work became the thread I would keep following.",
-        visualStage: "origins",
-    },
-    {
-        id: "mechanical-foundations",
-        year: "2017",
-        place: "Isfahan, Iran",
-        title: "Engineering takes shape",
-        sentence:
-            "A mechanical engineering degree and fuel-cell cooling research gave that curiosity a rigorous technical structure.",
-        visualStage: "mechanical",
-    },
-    {
-        id: "technical-projects",
-        year: "2015–2018",
+        id: "it-projects",
+        period: "2015–2018",
         place: "Tehran & London",
-        title: "Learning through delivery",
-        sentence:
-            "Building software and coordinating technical projects taught me to connect people, systems and practical outcomes.",
-        visualStage: "technology",
+        title: "More than three years delivering projects",
+        description:
+            "I worked with clients to develop and deliver solutions, learning how technical ideas become coordinated outcomes. Programming became a practical tool as I prepared to become a mechanical engineer.",
+        visualStage: "it",
     },
     {
-        id: "energy-and-steel",
-        year: "2017–2019",
+        id: "pressure-vessel",
+        period: "2018–2019",
         place: "Isfahan, Iran",
-        title: "Working at industrial scale",
-        sentence:
-            "Energy systems and pressure-vessel work at Mobarakeh Steel turned analysis into decisions for large physical infrastructure.",
-        visualStage: "industrial",
+        title: "Mechanical design at industrial scale",
+        description:
+            "At AurangZib Gita Co., I supported pressure-vessel development for major steel manufacturing, translating engineering analysis into a delivered industrial system.",
+        visualStage: "mechanical-consulting",
+        logoIds: ["msc", "azg"],
     },
     {
-        id: "paris-energy",
-        year: "2022",
-        place: "Palaiseau, France",
-        title: "A wider engineering horizon",
-        sentence:
-            "Studying sustainable transport energy at ENSTA Paris widened the scale and context of the systems I wanted to understand.",
-        visualStage: "movement",
-    },
-    {
-        id: "turin-masters",
-        year: "2023",
+        id: "masters-italy",
+        period: "2023",
         place: "Turin, Italy",
-        title: "A second beginning",
-        sentence:
-            "Completing a master’s in mechanical engineering at Politecnico di Torino deepened both my technical range and independence.",
-        visualStage: "movement",
+        title: "Deepening my technical capabilities",
+        description:
+            "Following project delivery, I completed a master’s degree in mechanical engineering at Politecnico di Torino.",
+        visualStage: "masters",
+        logoIds: ["polito"],
     },
     {
-        id: "eindhoven-research",
-        year: "2023",
+        id: "thermofluid-research",
+        period: "2023",
         place: "Eindhoven, Netherlands",
-        title: "Following matter in motion",
-        sentence:
-            "At TU/e, I modelled molten-metal atomization, droplet cooling and solidification through computational thermo-fluids research.",
-        visualStage: "thermofluid",
+        title: "Researching droplets in motion",
+        description:
+            "At Eindhoven University of Technology (TU/e), I completed advanced thermo-fluid research for additive manufacturing.",
+        visualStage: "research",
+        logoIds: ["tue"],
     },
     {
-        id: "precision-engineering",
-        year: "2023–2024",
+        id: "asml",
+        period: "2023–2024",
         place: "Veldhoven, Netherlands",
-        title: "Precision through coordination",
-        sentence:
-            "At ASML, complex hardware development showed me how tight tolerances depend on equally precise collaboration.",
-        visualStage: "precision",
+        title: "Precision depends on collaboration",
+        description:
+            "At ASML, I learned that mastering extreme technical complexity depends on cross-border collaboration and a united team spirit.",
+        visualStage: "asml",
+        logoIds: ["asml"],
     },
     {
-        id: "morpheidos",
-        year: "2025 onward",
+        id: "morpheidos-tech",
+        period: "2025 onward",
         place: "The Randstad, Netherlands",
-        title: "Engineering independently",
-        sentence:
-            "I founded Morpheidos Tech to turn mechanical analysis and product-development knowledge into useful, grounded solutions.",
-        visualStage: "creation",
+        title: "Turning knowledge into solutions",
+        description:
+            "A year later, I founded Morpheidos Tech to turn technical know-how into useful, impactful engineering solutions.",
+        visualStage: "morpheidos",
+        logoIds: ["morpheidos"],
     },
     {
         id: "digital-society-school",
-        year: "2026",
+        period: "2026",
         place: "Amsterdam, Netherlands",
-        title: "Creation is collaborative",
-        sentence:
-            "Leading a multidisciplinary Digital Society School team strengthened the human, communicative side of making.",
-        visualStage: "creation",
+        title: "Developing the human side of making",
+        description:
+            "Realizing that execution without reflection is incomplete, I joined the Digital Society School at AUAS to push my teamwork, communication and leadership skills past beyond my comfort zone.",
+        visualStage: "dss",
+        logoIds: ["dss"],
     },
     {
-        id: "current-direction",
-        year: "Now",
+        id: "kaleidocycle",
+        period: "Ongoing",
         place: "Netherlands",
-        title: "Building what moves",
-        sentence:
-            "Engineering, reflection and independent creation now converge in a practice that remains stable enough to grow and open enough to change.",
-        visualStage: "creation",
+        title: "Creation as a discipline of change",
+        description:
+            "A personal exploration of balanced motion in space, response to change and a willingness to be transformed by what we build.",
+        visualStage: "kaleidocycle",
+    },
+    {
+        id: "liminal",
+        period: "Now",
+        place: "Netherlands",
+        title: "Embracing the process of finding",
+        description:
+            "I am in a liminal state—moving toward my next role and assignment, open to being transformed by what I choose to build next.",
+        visualStage: "liminal",
     },
 ];
