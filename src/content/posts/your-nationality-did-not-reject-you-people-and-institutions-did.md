@@ -1,5 +1,5 @@
 ---
-title: "Your Nationality Did Not Reject You—People and Policies Did"
+title: "Your Nationality Did Not Reject You—People and Institutions Did"
 date: "2026-07-29"
 author: "Hamed Abdollahi"
 description: "A discussion with fellow Iranians on how saying “I was rejected for being Iranian” can help craft a race out of ourselves."
@@ -13,7 +13,7 @@ tags:
   - "IranianDiaspora"
 ---
 
-### *When Exclusion Becomes Identity*
+## When Exclusion Becomes Identity
 
 <p class="article-quotation">“I was rejected because I am Iranian.”</p>
 
@@ -50,6 +50,8 @@ A more accurate description would be:
 <p class="article-quotation">“The hiring team appears to have excluded me based on its interpretation of the company’s export-control policy.”</p>
 
 This wording does not deny discrimination. It locates it. It also leaves open the question of whether the policy was necessary, correctly interpreted or applied more broadly than the law required.
+
+### When a Narrow Rule Becomes a System
 
 The distinction matters because a narrow compliance requirement can easily become a general hiring shortcut. In the Netherlands, nationality is a protected ground, and employers generally may not exclude applicants merely because of their passport.[^3] Dutch human-rights decisions distinguish between a demonstrated restriction affecting a particular position and exclusion based on assumptions that were never individually verified.[^4]
 
@@ -109,14 +111,14 @@ Changing our language will not remove the barrier. But it can prevent the barrie
 
 [^2]: US Bureau of Industry and Security, [Iran Export Controls](https://www.bis.gov/licensing/country-guidance/iran-export-controls) and [Deemed Export FAQs](https://www.bis.gov/media/documents/deemed-exports-faqs.pdf). BIS states that releasing certain controlled technology or software to Iranian nationals may require a license, but that the Export Administration Regulations do not prohibit or regulate the employment of foreign nationals.
 
-[^3]: UK National Cyber Security Centre, [Reducing Data Exfiltration by Malicious Insiders](https://www.ncsc.gov.uk/guidance/reducing-data-exfiltration-by-malicious-insiders). The guidance emphasizes organizational, procedural and technical controls for managing insider threats.
+[^3]: US Bureau of Industry and Security, [Deemed Export Licensing Guidelines for Foreign Persons](https://www.bis.gov/sites/default/files/documents/deemed-exports-licensing-guidelines-foreign-persons.pdf) and [The Elements of an Effective Export Compliance Program](https://www.bis.gov/sites/default/files/documents/ECP_0.pdf). The guidance addresses license applications, technology-control plans and internal access controls for foreign-national employees.
 
-[^4]: Government of the Netherlands, [Prohibition of discrimination](https://www.government.nl/themes/migration-and-travel/discrimination/prohibition-of-discrimination). Dutch law recognizes nationality as a protected ground and prohibits unequal treatment under equal circumstances.
+[^4]: UK National Cyber Security Centre, [Reducing Data Exfiltration by Malicious Insiders](https://www.ncsc.gov.uk/guidance/reducing-data-exfiltration-by-malicious-insiders). The guidance emphasizes organizational, procedural and technical controls for managing insider threats.
 
-[^5]: Netherlands Institute for Human Rights, [Ruling 2025-49](https://oordelen.mensenrechten.nl/oordeel/2025-49/132a89f8-0a5c-4fd6-9ab1-aefd8b904d80), where an applicant was unlawfully excluded based on an unverified assumption about security screening; and [Ruling 2026-42](https://oordelen.mensenrechten.nl/oordeel/2026-42/03a1c1ef-1799-4449-94d8-6dc84786be0a), where a narrowly defined nationality restriction was accepted after the employer demonstrated a concrete conflict with US export-control requirements.
+[^5]: Government of the Netherlands, [Prohibition of discrimination](https://www.government.nl/themes/migration-and-travel/discrimination/prohibition-of-discrimination). Dutch law recognizes nationality as a protected ground and prohibits unequal treatment under equal circumstances.
 
-[^6]: Netherlands Institute for Human Rights, [Ruling 2020-8](https://oordelen.mensenrechten.nl/oordeel/2020-8). A technical secondment agency unlawfully rejected an Iranian applicant after referring broadly to clients that worked with American companies, without demonstrating that a legal exception applied to the position.
+[^6]: Netherlands Institute for Human Rights, [Ruling 2025-49](https://oordelen.mensenrechten.nl/oordeel/2025-49/132a89f8-0a5c-4fd6-9ab1-aefd8b904d80), where an applicant was unlawfully excluded based on an unverified assumption about security screening; and [Ruling 2026-42](https://oordelen.mensenrechten.nl/oordeel/2026-42/03a1c1ef-1799-4449-94d8-6dc84786be0a), where a narrowly defined nationality restriction was accepted after the employer demonstrated a concrete conflict with US export-control requirements.
 
-[^7]: US Bureau of Industry and Security, [Deemed Export Licensing Guidelines for Foreign Persons](https://www.bis.gov/sites/default/files/documents/deemed-exports-licensing-guidelines-foreign-persons.pdf) and [The Elements of an Effective Export Compliance Program](https://www.bis.gov/sites/default/files/documents/ECP_0.pdf). The guidance addresses license applications, technology-control plans and internal access controls for foreign-national employees.
+[^7]: Netherlands Institute for Human Rights, [Ruling 2020-8](https://oordelen.mensenrechten.nl/oordeel/2020-8). A technical secondment agency unlawfully rejected an Iranian applicant after referring broadly to clients that worked with American companies, without demonstrating that a legal exception applied to the position.
 
 [^8]: UN Office of the High Commissioner for Human Rights, [Iran: Government Continues Systematic Repression and Escalates Surveillance](https://www.ohchr.org/en/press-releases/2025/03/iran-government-continues-systematic-repression-and-escalates-surveillance).
