@@ -254,7 +254,7 @@ export function mountLifeJourney(
         if (disposed) return;
 
         const upperTriggerLine =
-            window.scrollY + window.innerHeight * 0;
+            window.scrollY + window.innerHeight * 0.25;
         const lowerTriggerLine =
             window.scrollY + window.innerHeight * 0.75;
         const denominator = Math.max(1, finalAnchor - firstAnchor);
@@ -276,13 +276,6 @@ export function mountLifeJourney(
             } else {
                 break;
             }
-        }
-
-        if (
-            activeIndex < milestones.length - 1 &&
-            upperTriggerLine >= milestoneAnchors[activeIndex]
-        ) {
-            activeIndex += 1;
         }
 
         const triggerBandHeight = Math.max(
