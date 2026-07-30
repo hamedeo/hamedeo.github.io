@@ -63,7 +63,9 @@ Yet once nationality restrictions become normalised, their effects can spread be
 
 > **A narrow compliance rule can become a system of exclusion long after its original justification has disappeared.**
 
-The result is not merely a series of isolated decisions. It is a self-reinforcing employment structure in which Iranian professionals are treated as less deployable before the actual role has been assessed.
+This is not merely an inference. I have received messages from the hiring manager saying that I was suitable for an interview but could not be presented to a client as a “doubtful candidate”; in another case, my nationality was described as a hiring “block”; and in a third, a recruiter said the company would not proceed because it did not want to “take the risk”, even though some projects were acknowledged to be accessible. At a career fair in Delft, after I asked whether such a policy existed, a company representative also told me directly that they would not hire me because they wanted to “protect themselves.” These are only the instances in which the reason was stated openly. In many other cases, the process simply ends without explanation.
+
+At that point, exclusion becomes institutionalised. It is no longer reconsidered for each person or position, but reproduced through routines, internal policies and anticipated client preferences.
 
 This also changes the recruitment process itself. Other candidates can begin by asking:
 
