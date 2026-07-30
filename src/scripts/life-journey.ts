@@ -256,7 +256,7 @@ export function mountLifeJourney(
         const upperTriggerLine =
             window.scrollY + window.innerHeight * 0;
         const lowerTriggerLine =
-            window.scrollY + window.innerHeight * 0.75;
+            window.scrollY + window.innerHeight * 1.25;
         const denominator = Math.max(1, finalAnchor - firstAnchor);
         const nextProgress = clamp(
             (lowerTriggerLine - firstAnchor) / denominator,
