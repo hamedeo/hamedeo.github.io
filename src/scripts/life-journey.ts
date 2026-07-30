@@ -19,6 +19,7 @@ export type LifeRuntimeLoader = () => Promise<LifeRuntime>;
 const stageIndexes = new Map<LifeVisualStage, number>(
     LIFE_VISUAL_STAGES.map((stage, index) => [stage, index]),
 );
+const LIFE_MOBILE_MEDIA_QUERY = "(max-width: 680px)";
 
 function clamp(value: number, minimum = 0, maximum = 1) {
     return Math.min(maximum, Math.max(minimum, value));
@@ -69,6 +70,9 @@ export function mountLifeJourney(
     const controller = new AbortController();
     const reducedMotionQuery = window.matchMedia(
         "(prefers-reduced-motion: reduce)",
+    );
+    const mobileLayoutQuery = window.matchMedia(
+        LIFE_MOBILE_MEDIA_QUERY,
     );
     const state: LifeSketchState = {
         progress: 0,
@@ -246,7 +250,8 @@ export function mountLifeJourney(
             milestoneAnchors[milestoneAnchors.length - 1] || firstAnchor + 1;
         const canvasBounds = canvas.getBoundingClientRect();
         logoOrbitRadius =
-            canvasBounds.width * (canvasBounds.width < 560 ? 0.41 : 0.415);
+            canvasBounds.width *
+            (mobileLayoutQuery.matches ? 0.41 : 0.415);
     };
 
     const update = () => {
@@ -256,7 +261,7 @@ export function mountLifeJourney(
         const upperTriggerLine =
             window.scrollY + window.innerHeight * 0;
         const lowerTriggerLine =
-            window.scrollY + window.innerHeight * 0.25;
+            window.scrollY + window.innerHeight * 0.75;
         const denominator = Math.max(1, finalAnchor - firstAnchor);
         const nextProgress = clamp(
             (lowerTriggerLine - firstAnchor) / denominator,

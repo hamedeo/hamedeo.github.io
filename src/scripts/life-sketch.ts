@@ -3,6 +3,7 @@ import { LIFE_VISUAL_STAGES } from "../data/lifeJourney";
 
 const DESKTOP_PARTICLE_COUNT = 72;
 const MOBILE_PARTICLE_COUNT = 40;
+const LIFE_MOBILE_MEDIA_QUERY = "(max-width: 680px)";
 const TAU = Math.PI * 2;
 
 type ThemeColour = {
@@ -417,10 +418,15 @@ export function createLifeSketch(
     let instance: p5;
     let resizeObserver: ResizeObserver | undefined;
     let themeObserver: MutationObserver | undefined;
+    let mobileLayoutQuery: MediaQueryList | undefined;
+    let handleMobileLayoutChange: (() => void) | undefined;
     let refresh = () => {};
     let setVisible = (_visible: boolean) => {};
 
     instance = new P5((p: p5) => {
+        mobileLayoutQuery = window.matchMedia(
+            LIFE_MOBILE_MEDIA_QUERY,
+        );
         const stageCount = LIFE_VISUAL_STAGES.length;
         const stageTargets = Array.from(
             { length: stageCount },
@@ -929,7 +935,7 @@ export function createLifeSketch(
             const bounds = container.getBoundingClientRect();
             width = Math.max(1, Math.round(bounds.width));
             height = Math.max(1, Math.round(bounds.height));
-            isMobile = width < 560;
+            isMobile = Boolean(mobileLayoutQuery?.matches);
             particleCount = isMobile
                 ? MOBILE_PARTICLE_COUNT
                 : DESKTOP_PARTICLE_COUNT;
@@ -980,7 +986,7 @@ export function createLifeSketch(
             const bounds = container.getBoundingClientRect();
             width = Math.max(1, Math.round(bounds.width));
             height = Math.max(1, Math.round(bounds.height));
-            isMobile = width < 560;
+            isMobile = Boolean(mobileLayoutQuery?.matches);
             particleCount = isMobile
                 ? MOBILE_PARTICLE_COUNT
                 : DESKTOP_PARTICLE_COUNT;
@@ -1000,6 +1006,11 @@ export function createLifeSketch(
 
             resizeObserver = new ResizeObserver(updateSize);
             resizeObserver.observe(container);
+            handleMobileLayoutChange = updateSize;
+            mobileLayoutQuery?.addEventListener(
+                "change",
+                handleMobileLayoutChange,
+            );
 
             themeObserver = new MutationObserver(refreshTheme);
             themeObserver.observe(document.documentElement, {
@@ -1212,6 +1223,12 @@ export function createLifeSketch(
             destroyed = true;
             resizeObserver?.disconnect();
             themeObserver?.disconnect();
+            if (handleMobileLayoutChange) {
+                mobileLayoutQuery?.removeEventListener(
+                    "change",
+                    handleMobileLayoutChange,
+                );
+            }
             instance?.remove();
             container.removeAttribute("data-rendered");
             container.removeAttribute("data-loading");
