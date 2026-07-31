@@ -1295,6 +1295,7 @@ body:has(.social-link:focus-visible) .footer {
     font-style: italic;
 }
 
+
 .prose hr {
     border: none;
     border-top: 1px solid var(--border);
