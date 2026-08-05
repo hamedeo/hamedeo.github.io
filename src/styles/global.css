@@ -890,42 +890,62 @@ body:has(.social-link:focus-visible) .navbar {
 
 .kaleidocycle-close {
     position: absolute;
-    top: 0.75rem;
-    right: 0.75rem;
-    z-index: 2;
+    top: -4rem;
+    right: 0rem;
+    z-index: 3;
+
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0;
+    border: 0.05rem solid #ffffff;
+    border-radius: 50%;
+    background: #e52b62;
+
     display: grid;
-    width: 2.75rem;
-    height: 2.75rem;
     place-items: center;
-    border: 1px solid rgba(255, 255, 255, 0.32);
-    border-radius: 9999px;
-    background: var(--accent);
-    color: #ffffff;
-    font: inherit;
-    font-size: 1.8rem;
-    line-height: 1;
+
+    /* Hidden while the Kaleidocycle is docked */
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    transform: scale(0.8);
+    transform: scale(0.9);
+
     transition:
         opacity 180ms ease,
         transform 180ms ease,
         visibility 0s linear 180ms;
 }
 
+.kaleidocycle-close span {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 300;
+    line-height: 1;
+    transform: translateY(-0.25rem);
+}
+
 .kaleidocycle-instruction {
     position: absolute;
-    top: 1.35rem;
-    right: 4.25rem;
+    top: -4rem;
+    left: 0;
+    right: 4rem;
+    height: 3rem;
     z-index: 2;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+    padding: 0 0.5rem;
+
     color: #ffffff;
-    font-size: clamp(0.72rem, 1.5vw, 0.9rem);
+    font-size: clamp(1.1rem, 1.5vw, 0.9rem);
     font-weight: 650;
     line-height: 1.2;
-    max-width: calc(100% - 5rem);
-    text-align: right;
-    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.85);
+    text-align: center;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.85);
+
     opacity: 0;
     visibility: hidden;
     pointer-events: auto;
