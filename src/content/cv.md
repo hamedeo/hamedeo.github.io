@@ -24,7 +24,7 @@ experience:
     location: "Amsterdam, Netherlands"
     description: "Led a multidisciplinary team of 5+ members from engineering and marketing backgrounds, launching an interactive 3D VR experience within a six-month Agile project."
     bullets:
-        - "Engineered, built, and tested prototypes using CNC machining, 3D printing, and electronic modules"
+        - "Engineered, built, and tested prototypes using CNC machining, 3D printing, and electronic modules."
         - |
           Secured stakeholder consensus on a complex problem statement by establishing a unified scope.
           ◦ Validated project requirements by aligning research findings and stakeholder input.
