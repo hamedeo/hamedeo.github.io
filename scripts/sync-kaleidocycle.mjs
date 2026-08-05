@@ -1,15 +1,43 @@
-import { mkdir, rm, stat, writeFile } from "node:fs/promises";
+import { mkdir, readFile, rm, stat, writeFile } from "node:fs/promises";
 import { dirname, resolve, sep } from "node:path";
 import { gunzipSync } from "node:zlib";
 
 const REPOSITORY = "hamedeo/kaleidocycle";
-// Override this pinned default with KALEIDOCYCLE_GIT_REF. The override may be
-// another commit, tag, or branch, but builds remain reproducible by default.
-const DEFAULT_GIT_REF = "f0f51889c019b4e7195ef27b5853564d0ee55885";
+
+// Follow the latest commit on the main branch automatically.
+const DEFAULT_GIT_REF = "main";
+
 const gitRef = process.env.KALEIDOCYCLE_GIT_REF?.trim() || DEFAULT_GIT_REF;
-const archiveUrl = `https://codeload.github.com/${REPOSITORY}/tar.gz/${encodeURIComponent(gitRef)}`;
+
 const publicDirectory = resolve("public");
 const target = resolve(publicDirectory, "Kaleidocycle");
+const versionFile = resolve(target, ".source-commit");
+
+async function resolveCommitSha(ref) {
+    const response = await fetch(
+        `https://api.github.com/repos/${REPOSITORY}/commits/${encodeURIComponent(ref)}`,
+        {
+            headers: {
+                Accept: "application/vnd.github+json",
+                "User-Agent": "hamedeo.github.io-kaleidocycle-sync",
+            },
+        },
+    );
+
+    if (!response.ok) {
+        throw new Error(
+            `Could not resolve Kaleidocycle commit: HTTP ${response.status} ${response.statusText}`,
+        );
+    }
+
+    const data = await response.json();
+
+    if (typeof data.sha !== "string" || !/^[0-9a-f]{40}$/i.test(data.sha)) {
+        throw new Error("GitHub returned an invalid Kaleidocycle commit hash.");
+    }
+
+    return data.sha;
+}
 
 function readTarText(archive, offset, length) {
     const end = archive.indexOf(0, offset);
@@ -109,27 +137,61 @@ async function extractGitHubTar(archive) {
 
 try {
     await mkdir(publicDirectory, { recursive: true });
-    await rm(target, { recursive: true, force: true });
 
-    const response = await fetch(archiveUrl, {
-        headers: { "User-Agent": "hamedeo.github.io-kaleidocycle-sync" },
-        redirect: "follow",
-    });
+    const latestCommit = await resolveCommitSha(gitRef);
 
-    if (!response.ok) {
-        throw new Error(`Download returned HTTP ${response.status} ${response.statusText}`);
+    const previousCommit = await readFile(versionFile, "utf8")
+        .then((value) => value.trim())
+        .catch(() => "");
+
+    const existingEntryPointIsValid = await stat(resolve(target, "index.html"))
+        .then((entry) => entry.isFile())
+        .catch(() => false);
+
+    if (previousCommit === latestCommit && existingEntryPointIsValid) {
+        console.log(
+            `Kaleidocycle is already current at ${latestCommit}. Download skipped.`,
+        );
+    } else {
+        const archiveUrl =
+            `https://codeload.github.com/${REPOSITORY}/tar.gz/${latestCommit}`;
+
+        const response = await fetch(archiveUrl, {
+            headers: {
+                "User-Agent": "hamedeo.github.io-kaleidocycle-sync",
+            },
+            redirect: "follow",
+        });
+
+        if (!response.ok) {
+            throw new Error(
+                `Download returned HTTP ${response.status} ${response.statusText}`,
+            );
+        }
+
+        const compressedArchive = Buffer.from(await response.arrayBuffer());
+
+        await rm(target, { recursive: true, force: true });
+        await extractGitHubTar(gunzipSync(compressedArchive));
+
+        const entryPoint = await stat(resolve(target, "index.html"));
+
+        if (!entryPoint.isFile()) {
+            throw new Error("Extracted index.html is not a file.");
+        }
+
+        await writeFile(versionFile, `${latestCommit}\n`, "utf8");
+
+        console.log(
+            `Synced ${REPOSITORY}@${latestCommit} to public/Kaleidocycle/`,
+        );
     }
-
-    const compressedArchive = Buffer.from(await response.arrayBuffer());
-    await extractGitHubTar(gunzipSync(compressedArchive));
-
-    const entryPoint = await stat(resolve(target, "index.html"));
-    if (!entryPoint.isFile()) throw new Error("Extracted index.html is not a file.");
-
-    console.log(`Synced ${REPOSITORY}@${gitRef} to public/Kaleidocycle/`);
 } catch (error) {
-    await rm(target, { recursive: true, force: true }).catch(() => {});
     const reason = error instanceof Error ? error.message : String(error);
-    console.error(`Kaleidocycle synchronization failed (${REPOSITORY}@${gitRef}): ${reason}`);
+
+    console.error(
+        `Kaleidocycle synchronization failed (${REPOSITORY}@${gitRef}): ${reason}`,
+    );
+
     process.exitCode = 1;
 }
