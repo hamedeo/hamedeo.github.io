@@ -1,5 +1,5 @@
 ---
-title: "DSS Final prototype presentation"
+title: "DSS Final Prototype Presentation"
 date: "2026-06-07"
 event: "Digital Society School, Amsterdam"
 external_url: "https://www.linkedin.com/posts/digitalsocietyschoolamsterdam_showcase-is-tomorrow-and-this-time-activity-7475156637666766848-ocLC"

@@ -33,7 +33,9 @@ Machiavelli adds a necessary realism. His work reminds us that behaviour is ofte
 
 This distinction matters where professional relationships contain structural imbalances. An agreement may be formally voluntary while one party has substantially fewer alternatives than the other. In such circumstances, trust requires restraint as well as responsibility. Expectations should be transparent, obligations proportionate, and professional independence preserved. Otherwise, an organisation may receive obedience while suppressing precisely the judgement, initiative, and constructive disagreement it hired the person to contribute.
 
-The practical expression of trust is ownership. Ownership does not mean removing oversight or accountability. It means defining a meaningful problem, providing access to the necessary information, allowing room for independent judgement, and making the individual responsible for explaining and validating the result. Trust can then be tested through work rather than inferred from conformity.
+> **The practical expression of trust is ownership.**
+
+Ownership does not mean removing oversight or accountability. It means defining a meaningful problem, providing access to the necessary information, allowing room for independent judgement, and making the individual responsible for explaining and validating the result. Trust can then be tested through work rather than inferred from conformity.
 
 The empirical evidence supports the value of this approach. A major study of US inventors found that immigrants represented approximately 16% of inventors but authored 23% of patents.[^3] The researchers also found that immigrant inventors contributed significantly to knowledge diffusion across national borders and through collaboration with other inventors. These findings do not imply that international experience automatically produces innovation. They do show that international talent can be a substantial source of invention, knowledge exchange, and technological renewal.
 
