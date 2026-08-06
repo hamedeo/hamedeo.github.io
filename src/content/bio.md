@@ -2,9 +2,7 @@
 name: "Hamed Abdollahi"
 avatar: "HamedStar.png"
 shortBio: |
-  〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰
-  〰〰 Engineer of what moves 〰〰
-  〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰
+  〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰 Engineer of what moves 〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰
   I'm a Mechanical Engineer, working across energy and high-tech Industries, who specializes in mechanical design and analysis.
 institution: |
   Morpheidos Tech
