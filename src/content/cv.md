@@ -7,7 +7,7 @@ experience:
     role: "Mechanical Engineering Consultant"
     period: "Mar 2025 - Present"
     location: "The Randstad, Netherlands"
-    description: "Providing mechanical engineering analysis and product development support across high-tech & energy industries."
+    description: "Providing engineering analysis and product development support for ."
     bullets:
        - |
          Developed models to support design decisions for high-vacuum equipment.
@@ -22,7 +22,8 @@ experience:
     role: "Technical Project Lead"
     period: "Jan - Jul 2026"
     location: "Amsterdam, Netherlands"
-    description: "Led a multidisciplinary team of 5+ members from engineering and marketing backgrounds, launching an interactive 3D VR experience within a six-month Agile project."
+    description: "Led a multidisciplinary team of 5+ from requirements definition to final prototype delivery within a six-month Agile project."
+    # "Led a multidisciplinary team of 5+ members from engineering and marketing backgrounds, launching an interactive 3D VR experience within a six-month Agile project."
     bullets:
         - "Engineered, built, and tested prototypes using CNC machining, 3D printing, and electronic modules."
         - |
@@ -34,12 +35,13 @@ experience:
     role: "Mechanical Engineer"
     period: "Nov 2023 - Sep 2024"
     location: "Veldhoven, Netherlands"
-    description: "Supported product development and standardization for complex supplier components and assemblies in a team of 25+."
+    description: "Worked on qualification, design integration, and lifecycle engineering of complex mechanical components within ASML Development & Engineering department."
+    # "Supported product development and standardization for complex supplier components and assemblies in a team of 25+."
     bullets:
         - |
-          Drafted technical documentation to transition supplier designs toward PFAS-free components.
-          ◦ Liaised between internal teams and external vendors during new product introduction.
-          ◦ Established the technical compliance baseline for incoming fluid-power hardware.
+          Prepared technical specifications and documentation for the transition of PFAS-free components.
+          ◦ Coordinated internal competencies and suppliers during NPI and component qualification.
+          ◦ Defined technical compliance criteria for supplier fluid-power mechanical hardware.
         - "Cut workload by ~50% by automating PLM workflow and engineering change management."
         - |
           Designed custom mechanical interfaces for core hardware modules to meet functional constraints.
@@ -94,5 +96,5 @@ education:
         subtitle: "Mobarakeh Steel Co., Energy and Fluid distribution area."
         period: "May - Sep 2017"
         location: "Isfahan, IR"
-        description: "Mapped site sensor data to thermodynamic charts to isolate ambient losses, documenting fixes to prevent downtime in the gas & steam power plants."
+        description: "Analyzed plant operating data to identify causes of performance losses in gas & steam power plant & documented corrective actions."
 ---
