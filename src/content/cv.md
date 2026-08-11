@@ -7,7 +7,7 @@ experience:
     role: "Mechanical Engineering Consultant"
     period: "Mar 2025 - Present"
     location: "The Randstad, Netherlands"
-    description: "Providing engineering analysis and product development support for ."
+    description: "Providing engineering analysis and product development support for industrial hardware and mechanical systems."
     bullets:
        - |
          Developed models to support design decisions for high-vacuum equipment.
