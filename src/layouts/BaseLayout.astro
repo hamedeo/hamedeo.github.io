@@ -13,6 +13,7 @@ import "@fontsource/jetbrains-mono/400.css";
 import "@fontsource/jetbrains-mono/500.css";
 import "katex/dist/katex.min.css";
 import "../styles/global.css";
+import PersonJsonLd from "../components/PersonJsonLd.astro";
 
 const themeLightKey = (THEME_CONFIG.themeLight.startsWith('light_') ? THEME_CONFIG.themeLight : `light_${THEME_CONFIG.themeLight}`) as keyof typeof THEMES;
 const themeDarkKey = (THEME_CONFIG.themeDark.startsWith('dark_') ? THEME_CONFIG.themeDark : `dark_${THEME_CONFIG.themeDark}`) as keyof typeof THEMES;
@@ -373,6 +374,7 @@ const currentPath = Astro.url.pathname.replace(/\/+$/, "") || "/";
 
             document.addEventListener("astro:page-load", initToggle);
         </script>
+        <PersonJsonLd />
     </head>
     <body
         class="bg-background text-foreground transition-colors duration-300 min-h-screen"

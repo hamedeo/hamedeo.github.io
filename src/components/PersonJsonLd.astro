@@ -1,0 +1,100 @@
+---
+const person = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+
+  "@id": "https://hamed.morpheidos.tech/#person",
+
+  "name": "Hamed Abdollahi",
+  "givenName": "Hamed",
+  "familyName": "Abdollahi",
+
+  "url": "https://hamed.morpheidos.tech/",
+
+  "jobTitle": "Mechanical Engineer",
+
+  "description":
+  "Hamed Abdollahi is a mechanical engineer with experience at ASML in the Netherlands, MSc education at Politecnico di Torino, and thesis research at Eindhoven University of Technology in thermo-fluid engineering.",
+  
+  "disambiguatingDescription":
+    "Hamed Abdollahi, mechanical engineer and engineering analyst based in the Netherlands, with MSc thesis research conducted at Eindhoven University of Technology.",
+
+  "email": "hamed.abdollahi@outlook.com",
+
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Eindhoven",
+    "addressCountry": "NL"
+  },
+
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Morpheidos Tech",
+    "url": "https://morpheidos.tech/"
+  },
+
+  "sameAs": [
+    "https://hamedeo.github.io/",
+    "https://www.linkedin.com/in/hamedeo/",
+    "https://github.com/hamedeo",
+    "https://www.xing.com/profile/Hamed_Abdollahi027301"
+  ],
+
+  "alumniOf": [
+    {
+      "@type": "CollegeOrUniversity",
+      "name": "Politecnico di Torino",
+      "url": "https://www.polito.it/"
+    },
+    {
+      "@type": "CollegeOrUniversity",
+      "name": "University of Isfahan",
+      "url": "https://ui.ac.ir/"
+    }
+  ],
+
+  "affiliation": [
+    {
+    "@type": "Organization",
+    "name": "Eindhoven University of Technology",
+    "alternateName": "TU/e",
+    "url": "https://www.tue.nl/",
+    "department": {
+        "@type": "Organization",
+        "name": "Power & Flow Group"
+    }
+    },
+    {
+      "@type": "Organization",
+      "name": "Digital Society School",
+      "url": "https://digitalsocietyschool.org/community/"
+    },
+    {
+        "@type": "Organization",
+        "name": "ASML",
+        "url": "https://www.asml.com/"
+    }
+  ],
+
+  "knowsAbout": [
+    "Mechanical Engineering",
+    "Mechanical Design",
+    "Engineering Analysis",
+    "Product Development",
+    "CAD",
+    "GD&T",
+    "Tolerance Analysis",
+    "CFD",
+    "FEM",
+    "Thermofluid Engineering",
+    "Multiphase Flow",
+    "Spray Atomization",
+    "Fluid and Thermal Systems"
+  ]
+};
+---
+
+<script
+  type="application/ld+json"
+  set:html={JSON.stringify(person)}
+></script>
