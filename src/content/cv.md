@@ -57,7 +57,7 @@ experience:
     description: "Developed software and delivered 10+ technical projects in a team of 8+."
     bullets:
          - |
-            Projects: Talee AI Intelligent Advertiser - International Served Offices - Raya Office Solutions - MicrosoftPersia - IrPublishers - Vakaav - HotelM management (IOS, Android), Provider of Corporate Service, ...
+            Projects: Talee AI Intelligent Advertiser - International Corporate Services - Raya Office Solutions - MicrosoftPersia - IrPublishers - Vakaav - HotelM management (IOS, Android), ...
     #       Drove 150% business growth and improved contract renewals by 50% over 12 months.
     #       ◦ Talee AI - International Served Offices - Raya Office Solutions - MicrosoftPersia - IrPublishers - Vakaav - HotelM management app
     #       ◦ Deployed an interactive AI advertising robot (TALEE) across 3 sites, converting pilot tests into contracts."
