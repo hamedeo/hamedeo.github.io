@@ -29,7 +29,7 @@ experience:
     role: "Mechanical Engineer"
     period: "Nov 2023 - Sep 2024"
     location: "Veldhoven, Netherlands"
-    description: "Component engineering and mechanical design of complex mechanical components within ASML Development & Engineering department."
+    description: "Component engineering and design of complex mechanical components within Development & Engineering department."
     bullets:
         - "Prepared technical specifications and compliance criteria for vendor components, acting as a point of contact for internal competencies and external suppliers through NPI and qualification."
         # - |
