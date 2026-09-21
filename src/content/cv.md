@@ -31,7 +31,8 @@ experience:
     location: "Veldhoven, Netherlands"
     description: "Component engineering and design of complex mechanical components within Development & Engineering department."
     bullets:
-        - "Prepared technical specifications and compliance criteria for vendor components, acting as a point of contact for internal competencies and external suppliers through NPI and qualification."
+        - "Prepared technical specifications and compliance criteria for vendor components."
+        - "Technical liaison between internal competencies and external suppliers during NPI and qualification."
         # - |
         #   Prepared technical specifications and documentation for the transition of PFAS-free components.
         #   ◦ Coordinated internal competencies and suppliers during NPI and component qualification.
