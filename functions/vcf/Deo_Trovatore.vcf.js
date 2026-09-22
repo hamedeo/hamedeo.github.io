@@ -36,7 +36,7 @@ export async function onRequestGet({ env, request }) {
 		headers: {
 			"Cache-Control": "no-store, max-age=0",
 			"Content-Disposition":
-				'attachment; filename="Hamed_Abdollahi.vcf"',
+				'attachment; filename="Deo_Trovatore.vcf"',
 			"Content-Type": "text/vcard; charset=utf-8",
 		},
 	});

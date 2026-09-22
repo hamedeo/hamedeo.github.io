@@ -1,5 +1,5 @@
 ---
-name: "Hamed Abdollahi"
+name: "Deo Trovatore"
 avatar: "HamedStar.png"
 shortBio: |
   〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰 Engineer of what moves 〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰

@@ -13,7 +13,7 @@ const cvEntry = await getEntry("cv", "cv");
 const phone = cvEntry?.data.phone ?? "+31 622410181";
 
 const socialByName = Object.fromEntries(SOCIALS.map((social) => [social.name, social]));
-const emailHref = socialByName.Mail?.href ?? "mailto:hamed.abdollahi+website@outlook.com";
+const emailHref = socialByName.Mail?.href ?? "mailto:deotrovatore@outlook.com";
 const linkedinHref = socialByName.LinkedIn?.href ?? "https://www.linkedin.com/in/hamedeo";
 const whatsappHref = socialByName.WhatsApp?.href ?? "https://api.whatsapp.com/send/?phone=31622410181";
 const calHref = socialByName.Cal?.href ?? "https://cal.eu/hamedeo";
@@ -94,7 +94,7 @@ const meetingTimeTallyHref =
                     href={`tel:${phone.replaceAll(" ", "")}`}
                     cta="Call me"
                     icon="Phone"
-                    ariaLabel={`Call Hamed Abdollahi at ${phone}`}
+                    ariaLabel={`Call Deo Trovatore at ${phone}`}
                 />
 
                 <ContactMethodRow

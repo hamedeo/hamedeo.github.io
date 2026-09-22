@@ -1,7 +1,7 @@
 ---
 title: "Your Nationality Did Not Reject You—People and Institutions Did"
 date: "2026-07-29"
-author: "Hamed Abdollahi"
+author: "Deo Trovatore"
 description: "A discussion with fellow Iranians on how saying “I was rejected for being Iranian” can help craft a race out of ourselves."
 image: "Pics/Il-Minotauro-fa-Paura-alla-Gente-per-Bene.jpeg"
 image_alt: "Bahman Mohassess's Il Minotauro fa Paura alla Gente per Bene"

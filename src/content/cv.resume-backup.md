@@ -1,8 +1,8 @@
 ---
-name: "Hamed Abdollahi"
+name: "Deo Trovatore"
 title: "Thermo-Fluids Engineer"
 location: "Eindhoven, Netherlands"
-email: "hamed.abdollahi@outlook.com"
+email: "deotrovatore@outlook.com"
 phone: "+31 622410181"
 linkedin: "In/hamedeo"
 github: "github.com/hamedeo"

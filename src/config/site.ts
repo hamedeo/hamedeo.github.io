@@ -2,8 +2,8 @@ import type { SiteConfig, ThemeConfig, SettingsConfig, UmamiAnalyticsConfig, Ana
 
 export const SITE: SiteConfig = {
   website: "https://hamed.morpheidos.tech/",
-  author: "Hamed Abdollahi",
-  title: "Hamed Abdollahi | Mechanical Engineer",
+  author: "Deo Trovatore",
+  title: "Deo Trovatore | Mechanical Engineer",
   desc: "Mechanical engineer focused on product development, CAD design, GD&T, CAE, validation analysis, and thermo-fluid systems for the high-tech and energy industries in the Netherlands.",
   ogImage: "/og-image-HamedeoA.png",
   postPerPage: 5,

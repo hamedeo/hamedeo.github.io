@@ -6,7 +6,7 @@ external_url: "https://www.linkedin.com/feed/update/urn:li:ugcPost:7248963379619
 linkedin_embed_url: "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7248963379619332096?compact=1"
 description: "Why innovation depends on trust grounded in competence, recognition, and the freedom to take ownership, especially when organizations hire international professionals."
 image: "Pics/EUflex-Interview-SES-Hamed.png"
-image_alt: "Hamed Abdollahi speaking during an EU-Flex interview at High Tech Campus about professional international trust and innovation"
+image_alt: "Deo Trovatore speaking during an EU-Flex interview at High Tech Campus about professional international trust and innovation"
 image_width: "1000px"
 image_position: "left"
 tags:
