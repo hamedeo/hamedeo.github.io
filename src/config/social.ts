@@ -27,7 +27,7 @@ export const SOCIALS: SocialLink[] = [
     },
     {
         name: "Cal",
-        href: "https://cal.eu/hamedeo",
+        href: "https://cal.com/hamedeo",
         linkTitle: `Book a meeting with Deo Trovatore`,
         isActive: true,
     },
