@@ -22,7 +22,7 @@ const templatePath = path.resolve(
     path.join(
       projectRoot,
       ".private",
-      "Hamed_Abdollahi-CVtemp.docx",
+      "Deo_Trovatore-CVtemp.docx",
     ),
 );
 

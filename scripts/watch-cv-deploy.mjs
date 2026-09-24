@@ -15,7 +15,7 @@ const projectRoot = path.resolve(currentDirectory, "..");
 const templatePath = path.join(
   projectRoot,
   ".private",
-  "Hamed_Abdollahi-CVtemp.docx",
+  "Deo_Trovatore-CVtemp.docx",
 );
 
 // generate-cv.mjs has one generated output: Deo_Trovatore.docx.

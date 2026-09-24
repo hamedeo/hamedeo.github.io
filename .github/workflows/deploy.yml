@@ -53,7 +53,7 @@ jobs:
       - name: Validate private CV template
         if: steps.cv-cache.outputs.cache-hit != 'true'
         env:
-          CV_TEMPLATE_PATH: ${{ github.workspace }}/private-cv-template/Hamed_Abdollahi-CVtemp.docx
+          CV_TEMPLATE_PATH: ${{ github.workspace }}/private-cv-template/Deo_Trovatore-CVtemp.docx
         run: |
           set -euo pipefail
 
@@ -88,7 +88,7 @@ jobs:
       - name: Generate temporary CV DOCX
         if: steps.cv-cache.outputs.cache-hit != 'true'
         env:
-          CV_TEMPLATE_PATH: ${{ github.workspace }}/private-cv-template/Hamed_Abdollahi-CVtemp.docx
+          CV_TEMPLATE_PATH: ${{ github.workspace }}/private-cv-template/Deo_Trovatore-CVtemp.docx
           CV_DOCX_OUTPUT: ${{ runner.temp }}/cv/Deo_Trovatore.docx
         run: npm run generate:cv
 
