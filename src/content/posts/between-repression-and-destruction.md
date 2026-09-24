@@ -3,7 +3,7 @@ title: "Between Repression and Destruction: What a Steel Plant Really Holds"
 date: "2026-03-05"
 author: "Deo Trovatore"
 description: "A reflection on the March 2026 attack on Mobarakeh Steel Factory, its human cost, and solidarity against brutal domestic repression and foreign violence."
-image: "Pics/MobarakehSteelFactory-HamedAbdollahi.jpg"
+image: "Pics/MobarakehSteelFactory-DeoTrovatore.jpg"
 image_alt: "Deo Trovatore wearing blue protective workwear and a hard hat inside the control room at Mobarakeh Steel Company"
 image_width: "1000px"
 image_position: "left"
@@ -18,7 +18,7 @@ Years ago, I worked at Mobarakeh Steel Company near Isfahan.
 
 What stayed with me was not the scale of the machinery, but the people who kept it running: operators, technicians, engineers, drivers, contractors and thousands of families whose lives were tied to that place.
 
-![Deo Trovatore wearing blue protective workwear and a hard hat inside the control room at Mobarakeh Steel Company](./Pics/MobarakehSteelFactory-HamedAbdollahi.jpg "class\:article-image article-image--full")
+![Deo Trovatore wearing blue protective workwear and a hard hat inside the control room at Mobarakeh Steel Company](./Pics/MobarakehSteelFactory-DeoTrovatore.jpg "class\:article-image article-image--full")
 
 <small class="article-image-credit">Me in the control room of the steam power plant at Mobarakeh Steel Company.</small>
 

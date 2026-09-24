@@ -236,6 +236,26 @@ try {
 
   document.render(documentData);
 
+  // Replace inherited template authorship before LibreOffice exports the PDF.
+  const outputZip = document.getZip();
+  const coreProperties = outputZip.file("docProps/core.xml");
+  if (!coreProperties || !documentData.name) {
+    throw new Error("CV author metadata requires core properties and a CV name.");
+  }
+  const authorXml = documentData.name
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;");
+  let metadata = coreProperties.asText();
+  for (const tag of ["dc:creator", "cp:lastModifiedBy"]) {
+    const element = new RegExp(`<${tag}\\b[^>]*(?:/>|>[\\s\\S]*?</${tag}>)`);
+    const replacement = `<${tag}>${authorXml}</${tag}>`;
+    metadata = element.test(metadata)
+      ? metadata.replace(element, () => replacement)
+      : metadata.replace("</cp:coreProperties>", `${replacement}</cp:coreProperties>`);
+  }
+  outputZip.file("docProps/core.xml", metadata);
+
   fs.mkdirSync(path.dirname(outputPath), {
   recursive: true,
   });
