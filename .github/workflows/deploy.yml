@@ -47,7 +47,7 @@ jobs:
         id: cv-cache
         uses: actions/cache@v5
         with:
-          path: public/downloads/Hamed_Abdollahi-CV.pdf
+          path: public/downloads/Deo_Trovatore.pdf
           key: ${{ format('cv-pdf-{0}-{1}', runner.os, hashFiles('src/content/cv.md', 'src/content/bio.md', 'src/pages/cv/**', 'src/components/ui/Timeline.astro', 'src/layouts/BaseLayout.astro', 'src/content.config.ts', 'src/config/**', 'src/styles/global.css', 'scripts/generate-cv.mjs', 'private-cv-template/**/*.docx', 'package.json', 'package-lock.json')) }}
 
       - name: Validate private CV template
@@ -89,7 +89,7 @@ jobs:
         if: steps.cv-cache.outputs.cache-hit != 'true'
         env:
           CV_TEMPLATE_PATH: ${{ github.workspace }}/private-cv-template/Hamed_Abdollahi-CVtemp.docx
-          CV_DOCX_OUTPUT: ${{ runner.temp }}/cv/Hamed_Abdollahi-CV.docx
+          CV_DOCX_OUTPUT: ${{ runner.temp }}/cv/Deo_Trovatore.docx
         run: npm run generate:cv
 
       - name: Install LibreOffice Writer
@@ -110,14 +110,14 @@ jobs:
             --headless \
             --convert-to pdf:writer_pdf_Export \
             --outdir public/downloads \
-            "${{ runner.temp }}/cv/Hamed_Abdollahi-CV.docx"
+            "${{ runner.temp }}/cv/Deo_Trovatore.docx"
 
-          test -s public/downloads/Hamed_Abdollahi-CV.pdf
+          test -s public/downloads/Deo_Trovatore.pdf
 
       - name: Verify generated CV PDF
         run: |
-          test -s public/downloads/Hamed_Abdollahi-CV.pdf
-          signature="$(head -c 5 public/downloads/Hamed_Abdollahi-CV.pdf)"
+          test -s public/downloads/Deo_Trovatore.pdf
+          signature="$(head -c 5 public/downloads/Deo_Trovatore.pdf)"
           if [ "$signature" != "%PDF-" ]; then
             echo "Error: generated or restored CV is not a valid PDF." >&2
             exit 1
@@ -132,7 +132,7 @@ jobs:
       - name: Verify personal website output
         run: |
           test -f dist/index.html
-          test -s dist/downloads/Hamed_Abdollahi-CV.pdf
+          test -s dist/downloads/Deo_Trovatore.pdf
           test -f dist/.well-known/r3ply/config.toml
           test ! -e dist/Morpheidos_Tech
 

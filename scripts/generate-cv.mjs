@@ -31,7 +31,7 @@ const outputPath = path.resolve(
     path.join(
       projectRoot,
       ".cv-build",
-      "Hamed_Abdollahi-CV.docx",
+      "Deo_Trovatore.docx",
     ),
 );
 

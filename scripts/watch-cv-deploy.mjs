@@ -18,14 +18,14 @@ const templatePath = path.join(
   "Hamed_Abdollahi-CVtemp.docx",
 );
 
-// generate-cv.mjs has one generated output: Hamed_Abdollahi-CV.docx.
+// generate-cv.mjs has one generated output: Deo_Trovatore.docx.
 // Override its configurable destination so the deployable copy is public.
 const generatedFiles = [
   path.join(
     projectRoot,
     "public",
     "downloads",
-    "Hamed_Abdollahi-CV.docx",
+    "Deo_Trovatore.docx",
   ),
 ];
 const generatedGitPaths = generatedFiles.map((filePath) =>
