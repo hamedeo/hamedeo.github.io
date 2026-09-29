@@ -1,15 +1,17 @@
 ---
+import { SITE } from "../config";
+
 const person = {
   "@context": "https://schema.org",
   "@type": "Person",
 
-  "@id": "https://hamed.morpheidos.tech/#person",
+  "@id": new URL("#person", SITE.website).href,
 
-  "name": "Deo Trovatore",
+  "name": SITE.author,
   "givenName": "Deo",
   "familyName": "Trovatore",
 
-  "url": "https://hamed.morpheidos.tech/",
+  "url": SITE.website,
 
   "jobTitle": "Mechanical Engineer",
 
@@ -36,8 +38,7 @@ const person = {
   "sameAs": [
     "https://hamedeo.github.io/",
     "https://www.linkedin.com/in/hamedeo/",
-    "https://github.com/hamedeo",
-    "https://www.xing.com/profile/Hamed_Abdollahi027301"
+    "https://github.com/hamedeo"
   ],
 
   "alumniOf": [

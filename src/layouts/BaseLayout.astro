@@ -48,9 +48,9 @@ const socialImageURL = new URL(ogImage, Astro.site || SITE.website);
 
 const fullTitle =
   Astro.url.pathname === "/"
-    ? "Deo Trovatore | Mechanical Engineer, Product Development"
+    ? `${SITE.author} | Mechanical Engineer, Product Development`
     : appendSiteName
-      ? `${title} | Deo Trovatore`
+      ? `${title} | ${SITE.author}`
       : title;
 
 const jsonLd = {
