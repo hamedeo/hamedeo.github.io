@@ -4,34 +4,34 @@ name: "Deo Trovatore"
 title: "Resume"
 experience:
   - institution: "Morpheidos Tech"
-    role: "Independent Consultant"
+    role: "Engineer and Founder"
     period: "Mar 2025 - Present"
     location: "The Randstad, Netherlands"
-    description: "Providing engineering analysis and product development support for mechanical systems."
+    description: "Mechanical analysis support."
     bullets:
        - |
-         Developed models to support design decisions for high-vacuum equipment.
-         ◦ Reduced simulation time by 60% by integrating a data-driven surrogate model (LBM, DSMC).
+         Developed computational models (LBM, DSMC) to reduce simulation time supporting the design decisions for high-vacuum equipment.
+        # ◦ Reduced simulation time by 60% by integrating a data-driven surrogate model .
        - |
-         Developed a digital twin model to assess thermal performance in a district heating network.
-         ◦ Identified measures with the potential to reduce thermal energy loss by 7%.
-  - institution: "Digital Society School @ AUAS"
+         Developed a digital twin model to assess thermal performance in a district heating network to reduce 7% in thermal losses.
+        # ◦ Identified measures with the potential to reduce thermal energy loss by 7%.
+  - institution: "Amsterdam Unversity of Applied Sciences"
     role: "Product Developer"
     period: "Jan - Jul 2026"
     location: "Amsterdam, Netherlands"
-    description: "Led a multidisciplinary team of 5 from requirements definition to final prototype delivery in an Agile project."
+    description: "Led a multidisciplinary team of 5 from requirements definition to final 3D prototype delivery in an Agile project."
     bullets:
-        - "Engineered, built, and tested prototypes using CNC machining, 3D printing, and electronic modules."
         - |
           Secured stakeholder consensus on a complex problem statement by establishing a unified scope.
           ◦ Validated project requirements by aligning research findings and stakeholder input.
+          ◦ Built, and tested prototypes using CNC machining, 3D printing, and electronic modules.
   - institution: "ASML"
     role: "Mechanical Engineer"
     period: "Nov 2023 - Sep 2024"
     location: "Veldhoven, Netherlands"
     description: "Component engineering and design of complex mechanical components within Development & Engineering department."
     bullets:
-        - "Prepared technical specifications and compliance criteria for vendor components."
+        - "Prepared technical specifications and compliance criteria for mechanical vendor components."
         - "Technical liaison between internal competencies and external suppliers during NPI and qualification."
         # - |
         #   Prepared technical specifications and documentation for the transition of PFAS-free components.
@@ -48,14 +48,13 @@ experience:
     description: "Designed a high-pressure oxygen storage vessel for an electric arc furnace steel manufacturing plant."
     bullets:
         - "Structural design and calculations for a 40-bar vessel shell, using PV Elite per ASME VIII-1."
-        - "Validated high-cycle fatigue life by conducting ASME VIII-2 FEM analysis via ANSYS Mechanical."
-        - "Verified pressure drop by 12% via reverse-engineering & using ANSYS Fluent CFD on inlet manifolds."
-        - "Prevented downtime by checking vendor drawings against P&IDs to fix nozzle mismatches."
+        - "Validated fatigue life per ASME VIII-2 FEM analysis [ANSYS Mechanical] and Verified the 12% pressure drop on inlet manifolds [ANSYS Fluent]."
+        # - "Verified pressure drop by 12% via reverse-engineering & using ANSYS Fluent CFD on inlet manifolds."
   - institution: "ITResearches"
     role: "Developer | Project Lead"
     period: "2015 - Jun 2018"
     location: "Tehran, IR/London, UK"
-    description: "Developed software and delivered 10+ technical projects in a team of 8+."
+    description: "Developed software and delivered 10+ technical projects."
     bullets:
          - |
             Projects: Talee AI Intelligent Advertiser - International Corporate Services - Raya Office Solutions - MicrosoftPersia - IrPublishers - Vakaav - HotelM management (IOS, Android), ...
@@ -80,12 +79,12 @@ education:
           ◦ Developed an OpenFOAM CFD model to simulate gas atomization dynamics.
           ◦ implemented a thermal model for droplet cooling and solidification.
           ◦ Verified the numerical implementation and validated results against experimental data.
-          ◦ Automated simulation and data analysis pipeline by bash/shell scripting for local and remote machines.
-      - title: "Guest Student"
+          ◦ Automated simulation and data analysis pipeline by bash/shell scripting for local and remote linux machines.
+      - title: "Guest Student | Energy Transition"
         subtitle: "ENSTA Paris, Polytechnic Institute of Paris"
         period: "Apr - May 2022"
         location: "Palaiseau, France"
-        description: "Sustainable energy for future transportation systems."
+        # description: "Sustainable energy for future transportation systems."
   - degree: "BSc in Mechanical Engineering"
     institution: "University of Isfahan (UI)"
     period: "2017"
@@ -96,5 +95,5 @@ education:
         subtitle: "Mobarakeh Steel Co., Energy and Fluid distribution area."
         period: "May - Sep 2017"
         location: "Isfahan, IR"
-        description: "Analyzed plant operating data to identify causes of performance losses in gas & steam power plant & documented corrective actions."
+        description: "Performance analysis of the gas & steam power plant."
 ---
