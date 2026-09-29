@@ -65,7 +65,7 @@ experience:
     #       ◦ Deployed Search Algorithms: Napsack - Best First Branch and Bound - Backtracking, Metahuristic Algorithms such as Genetic - Ant-colony
         
 education:
-  - degree: "Master of Mechanical Engineering"
+  - degree: "MSc in Mechanical Engineering"
     institution: "Polytechnic University of Turin (PoliTo)"
     period: "2023"
     location: "Turin, Italy"
@@ -86,7 +86,7 @@ education:
         period: "Apr - May 2022"
         location: "Palaiseau, France"
         description: "Sustainable energy for future transportation systems."
-  - degree: "Bachelor of Mechanical Engineering"
+  - degree: "BSc in Mechanical Engineering"
     institution: "University of Isfahan (UI)"
     period: "2017"
     location: "Isfahan, IR"
