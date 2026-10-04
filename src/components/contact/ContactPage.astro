@@ -4,6 +4,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import { PAGES, SOCIALS } from "../../config";
 import MeetingOptionCard from "./MeetingOptionCard.astro";
 import ContactMethodRow from "./ContactMethodRow.astro";
+import Icon from "../ui/Icon.astro";
 import "../../styles/pages/contact.css";
 
 const pageKey = Astro.props.pageKey ?? "contact";
@@ -60,12 +61,63 @@ const meetingTimeTallyHref =
         <section class="section contact-methods">
             <button
                 type="button"
-                class="contact-main-cta contact-row-cta btn"
+                class="contact-main-cta contact-row"
                 data-save-contact
             >
-                Save Contact
+                <span class="contact-row-icon" aria-hidden="true">
+                    <Icon name="UserPlus" size={22} />
+                </span>
+                <span class="contact-row-title">Add to Contacts</span>
             </button>
-            <h2 class="section-title contact-section-title">Do you want to discuss new projects?</h2>
+            <div class="contact-method-list">
+                <ContactMethodRow
+                    title="Email"
+                    href={emailHref}
+                    cta="Email me"
+                    icon="Mail"
+                />
+
+                <ContactMethodRow
+                    title="Phone"
+                    href={`tel:${phone.replaceAll(" ", "")}`}
+                    cta="Call me"
+                    icon="Phone"
+                    ariaLabel={`Call Deo Trovatore at ${phone}`}
+                />
+
+                <ContactMethodRow
+                    title="WhatsApp"
+                    href={whatsappHref}
+                    cta="Message on WhatsApp"
+                    icon="WhatsApp"
+                    external
+                />
+
+                <ContactMethodRow
+                    title="LinkedIn"
+                    href={linkedinHref}
+                    cta="Connect on LinkedIn"
+                    icon="LinkedIn"
+                    external
+                />
+
+                <ContactMethodRow
+                    title="Schedule a meeting"
+                    href={calHref}
+                    cta="Book a meeting"
+                    icon="Calendar"
+                    external
+                />
+
+                <ContactMethodRow
+                    title="GitHub"
+                    href={githubHref}
+                    cta="View GitHub"
+                    icon="Github"
+                    external
+                />
+            </div>
+            <h2 class="section-title contact-section-title contact-projects-title">Let's Talk Projects</h2>
             <section class="contact-form-embed" aria-label="Share your contact details">
                 <iframe
                     class="tally-embed"
@@ -79,65 +131,15 @@ const meetingTimeTallyHref =
                     title="Share your contact details"
                 ></iframe>
             </section>
-            <div class="contact-method-list">
-                <ContactMethodRow
-                    title="Email"
-                    description="Share the relevant details, and I will respond shortly."
-                    href={emailHref}
-                    cta="Email me"
-                    icon="Mail"
-                />
-
-                <ContactMethodRow
-                    title="Phone"
-                    description="For matters better discussed directly, please call me."
-                    href={`tel:${phone.replaceAll(" ", "")}`}
-                    cta="Call me"
-                    icon="Phone"
-                    ariaLabel={`Call Deo Trovatore at ${phone}`}
-                />
-
-                <ContactMethodRow
-                    title="WhatsApp"
-                    description="Send me a quick message for simple and direct communication."
-                    href={whatsappHref}
-                    cta="Message on WhatsApp"
-                    icon="WhatsApp"
-                    external
-                />
-
-                <ContactMethodRow
-                    title="Calendar"
-                    description="Schedule an online meeting at a convenient time."
-                    href={calHref}
-                    cta="Book a meeting"
-                    icon="Calendar"
-                    external
-                />
-
-                <ContactMethodRow
-                    title="LinkedIn"
-                    description="Connect for professional discussions and potential collaboration."
-                    href={linkedinHref}
-                    cta="Connect on LinkedIn"
-                    icon="LinkedIn"
-                    external
-                />
-
-                <ContactMethodRow
-                    title="GitHub"
-                    description="Explore my projects, technical work, and contributions."
-                    href={githubHref}
-                    cta="View GitHub"
-                    icon="Github"
-                    external
-                />
-            </div>
         </section>
 
         <section class="contact-hero section">
+            <h2 class="section-title contact-section-title">Or Discuss Them in Motion</h2>
             <p class="contact-intro">
-                As Nietzsche once said—All truly great thoughts are conceived while walking. Coffee, a walk, or a weekend cycle can be easier than a formal call.
+                "All truly great thoughts are conceived while walking." — Friedrich Nietzsche
+            </p>
+            <p class="contact-intro">
+                If you prefer to be different, coffee, a walk, or a weekend cycle can often be much easier than a formal call.
             </p>
 
             <section class="meeting-form-embed" aria-label="Suggest a time to meet">
