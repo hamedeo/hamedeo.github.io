@@ -15,6 +15,7 @@ const { title, href, cta, icon, external = false, ariaLabel } = Astro.props;
 
 <a
     class="contact-row"
+    data-contact-method={icon}
     href={href}
     aria-label={ariaLabel ?? cta}
     {...(external ? { target: "_blank", rel: "noreferrer noopener" } : {})}

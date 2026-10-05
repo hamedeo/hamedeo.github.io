@@ -260,11 +260,44 @@ html[data-theme="light"] .contact-page .contact-row-cta {
 
 @media (max-width: 768px) {
     .contact-method-list {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        grid-template-areas:
+            "email email email phone phone phone"
+            "whatsapp whatsapp linkedin linkedin github github"
+            "calendar calendar calendar calendar calendar calendar";
+        gap: 0.75rem;
     }
 
-    .contact-method-list > .contact-row:nth-child(n + 5) {
-        grid-column: auto;
+    .contact-method-list > .contact-row[data-contact-method="Mail"] {
+        grid-area: email;
+    }
+
+    .contact-method-list > .contact-row[data-contact-method="Phone"] {
+        grid-area: phone;
+    }
+
+    .contact-method-list > .contact-row[data-contact-method="WhatsApp"] {
+        grid-area: whatsapp;
+    }
+
+    .contact-method-list > .contact-row[data-contact-method="LinkedIn"] {
+        grid-area: linkedin;
+    }
+
+    .contact-method-list > .contact-row[data-contact-method="Github"] {
+        grid-area: github;
+    }
+
+    .contact-method-list > .contact-row[data-contact-method="Calendar"] {
+        grid-area: calendar;
+    }
+
+    .contact-method-list > .contact-row:is(
+        [data-contact-method="WhatsApp"],
+        [data-contact-method="LinkedIn"],
+        [data-contact-method="Github"]
+    ) .contact-row-copy {
+        display: none;
     }
 
     .contact-page {
@@ -291,6 +324,7 @@ html[data-theme="light"] .contact-page .contact-row-cta {
         flex-direction: row;
         align-items: center;
         justify-content: center;
+        padding: 0.85rem 0.75rem;
     }
 
     .contact-row-cta {
