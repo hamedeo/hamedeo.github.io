@@ -15,7 +15,7 @@ experience:
        - |
          Developed a digital twin model to assess thermal performance in a district heating network to reduce 7% in thermal losses.
         # ◦ Identified measures with the potential to reduce thermal energy loss by 7%.
-  - institution: "Amsterdam Unversity of Applied Sciences"
+  - institution: "Amsterdam University of Applied Sciences, DSS"
     role: "Product Developer"
     period: "Jan - Jul 2026"
     location: "Amsterdam, Netherlands"
